@@ -1,0 +1,312 @@
+{% extends "index.html" %}
+
+{% block title %}Bank Records{% endblock title %}
+
+{% block content %}
+ <div class="content-wrapper">
+	  <div class="container">
+		<!-- Content Header (Page header) -->
+		<div class="content-header">
+			<div class="d-flex align-items-center">
+				<div class="mr-auto">
+					<!-- <h3 class="page-title">Edit</h3> -->
+					<div class="d-inline-block align-items-center">
+						<nav>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="/crugapp/cugdashboard/"><i class="mdi mdi-home-outline"></i></a></li>
+								<li class="breadcrumb-item" aria-current="page">Back</li>
+								<!-- <li class="breadcrumb-item active" aria-current="page">Edit</li> -->
+							</ol>
+						</nav>
+					</div>
+				</div>
+				<div class="right-title">
+					<span>Download</span>
+				</div>
+			</div>
+		</div>
+
+		<!-- Main content -->
+		  <section class="content">
+
+			<div class="row">
+			  <div class="col-12">
+				<div class="box">
+					<div class="box-header with-border">
+					  <h4 class="box-title">Update Profile</h4>
+					</div>
+				  <div class="box-body">
+                    <!-- Step wizard -->
+		  <div class="box box-default">
+			<div class="box-body wizard-content">
+				<form action="#" class="tab-wizard wizard-circle">
+					<!-- Step 1 -->
+					<section>
+
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="firstName5">First Name :</label>
+									<input type="text" value="{{data.full_name}}" class="form-control" id="firstName5"> </div>
+							</div>
+							<div class="col-md-0">
+								<div class="form-group">
+<!--									<label for="lastName1">Las</label>-->
+									<class="form-control" id="lastName1"> </div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="emailAddress1">Email Address :</label>
+									<input type="email" value="{{data.email}}" class="form-control" id="emailAddress1"> </div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="phoneNumber1">Mobile Number :</label>
+									<input type="tel" value="{{data.mobile}}" class="form-control" id="phoneNumber1"> </div>
+							</div>
+						</div>
+
+                        <div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="addressline1">Country :</label>
+									<input type="text" value="{{data.country}}" class="form-control" id="addressline1"> </div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="addressline2">State :</label>
+									<input type="text" value="{{data.state}}" class="form-control" id="addressline2"> </div>
+							</div>
+
+						</div>
+						<div class="row">
+                            <div class="col-md-6">
+								<div class="form-group">
+									<label for="addressline2">City :</label>
+									<input type="text" value="{{data.city}}" class="form-control" id="addressline2"> </div>
+							</div>
+                            <div class="col-md-6">
+								<div class="form-group">
+									<label for="addressline2">Zip Code :</label>
+									<input type="text" value="{{data.zipcode}}" class="form-control" id="addressline2"> </div>
+							</div>
+                        </div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="addressline1">H.No :</label>
+									<input type="text" value="{{data.residential_address}}" class="form-control" id="addressline1"> </div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="addressline2">Locality:</label>
+									<input type="text" value="{{data.residential_address2}}" class="form-control" id="addressline2"> </div>
+							</div>
+						</div>
+						<div class="col-md-6">
+								<div class="form-group">
+									<label for="#"></label>
+			<input type="checkbox" onchange="changeAction({{ data.id }})" record-id="{{ data.id }}" {{value}} data-toggle="toggle" data-on="Active" data-off="Inactive" data-onstyle="success" data-offstyle="danger" id="action{{ data.id }}">
+							</div>
+						</div>
+
+
+
+
+
+<!--						<div class="row">-->
+<!--							<div class="col-md-1">-->
+<!--								<div class="form-group">-->
+<!--									<label for="firstName5">Id:</label>-->
+<!--									<input type="text"  value="{{data.id}}" class="form-control" id="firstName5"> </div>-->
+<!--							</div>-->
+
+
+<!--						<div class="row">-->
+<!--							<div class="col-md-22" >-->
+<!--								<div class="form-group">-->
+<!--									<label for="firstName5">First Name :</label>-->
+<!--									<input type="text"  value="{{ data.full_name  }}" class="form-control" > </div>-->
+<!--							</div></div>-->
+
+<!--						</div>-->
+
+<!--						<div class="row">-->
+<!--							<div class="col-md-18">-->
+<!--								<div class="form-group">-->
+<!--									<label for="emailAddress1">Email Address :</label>-->
+<!--									<input type="email" value=" {{ data.email }}" class="form-control" id="emailAddress1"> </div>-->
+<!--							</div>-->
+
+<!--							<div class="col-md-6">-->
+<!--								<div class="form-group">-->
+<!--									<label for="phoneNumber1">Mobile Number :</label>-->
+<!--									<input type="tel" value="{{ data.mobile }}" class="form-control" id="phoneNumber1"> </div>-->
+<!--							</div>-->
+<!--						</div>-->
+
+<!--                        <div class="row">-->
+<!--							<div class="col-md-6">-->
+<!--								<div class="form-group">-->
+<!--									<label for="addressline1">Country :</label>-->
+<!--									<input type="text" value=" {{ data.country }}" class="form-control" id="addressline1"> </div>-->
+<!--							</div>-->
+<!--							<div class="col-md-6">-->
+<!--								<div class="form-group">-->
+<!--									<label for="addressline2">State :</label>-->
+<!--									<input type="text" value=" {{ data.state }}" class="form-control" id="addressline2"> </div>-->
+<!--							</div>-->
+
+<!--						</div>-->
+<!--						<div class="row">-->
+<!--                            <div class="col-md-6">-->
+<!--								<div class="form-group">-->
+<!--									<label for="addressline2">City :</label>-->
+<!--									<input type="text" value=" {{ data.city }}" class="form-control" id="addressline2"> </div>-->
+<!--							</div>-->
+<!--                            <div class="col-md-6">-->
+<!--								<div class="form-group">-->
+<!--									<label for="addressline2">Zip Code :</label>-->
+<!--									<input type="text" value=" {{ data.zipcode }}" class="form-control" id="addressline2"> </div>-->
+<!--							</div>-->
+<!--                        </div>-->
+<!--						<div class="row">-->
+<!--							<div class="col-md-6">-->
+<!--								<div class="form-group">-->
+<!--									<label for="addressline1">H.no :</label>-->
+<!--									<input type="text" value=" {{ data.residential_address }}" class="form-control" id="addressline1"> </div>-->
+<!--							</div>-->
+<!--							<div class="col-md-6">-->
+<!--								<div class="form-group">-->
+<!--									<label for="addressline2">Locality:</label>-->
+<!--									<input type="text" value=" {{ data.residential_address2 }}" class="form-control" id="addressline2"> </div>-->
+<!--							</div>-->
+<!--						</div>-->
+<!--														<div class="col-md-6">-->
+<!--								<div class="form-group">-->
+<!--									<label for="addressline2">Aadhar Card:</label>-->
+<!--									<input type="text" value=" {{ data.aadharcard }}" class="form-control" id="addressline2"> </div>-->
+<!--							</div>-->
+<!--						</div>-->
+<!--													<div class="col-md-6">-->
+<!--								<div class="form-group">-->
+<!--									<label for="addressline2">Pan card:</label>-->
+<!--									<input type="text" value=" {{ data.pancard }}" class="form-control" id="addressline2"> </div>-->
+<!--							</div>-->
+<!--						</div>-->
+
+<!--					</section>-->
+<!--				</form>-->
+<!--			</div>-->
+<!--			&lt;!&ndash; /.box-body &ndash;&gt;-->
+<!--		  </div>-->
+<!--				  </div>-->
+<!--				</div>-->
+<!--			  </div>-->
+<!--		  </div>-->
+
+<!--		</section>-->
+<!--		&lt;!&ndash; /.content &ndash;&gt;-->
+<!--	  </div>-->
+<!--  </div>-->
+<!--  &lt;!&ndash; /.content-wrapper &ndash;&gt;-->
+
+
+
+
+
+<!--		<section class="content">-->
+
+<!--			<div class="row">-->
+<!--			  <div class="col-12">-->
+<!--				<div class="box">-->
+<!--					<div class="box-header with-border d-flex justify-content-between">-->
+<!--					  <h4 class="box-title">Profile Details</h4>-->
+<!--						{% comment %}-->
+<!--                      <a href="/crugapp/cugdashboard/" class="btn btn-primary">Add users</a>{% endcomment %}-->
+<!--					</div>-->
+<!--				  <div class="box-body">-->
+<!--					<form action="#">-->
+<!--						<div class="form-body">-->
+<!--							<table id="example" class="table table-bordered" style="width:100%">-->
+<!--							<thead>-->
+<!--                            <tr>			<th>SNO.</th>-->
+<!--									<th>Full Name</th>-->
+<!--									<th>Mobile</th>-->
+<!--									<th>Email</th>-->
+<!--									<th>Password</th>-->
+<!--									<th>Country</th>-->
+<!--									<th>State</th>-->
+<!--									<th>City</th>-->
+<!--									<th>ZipCode</th>-->
+<!--									<th>Adhar Card</th>-->
+<!--									<th>Pancard</th>-->
+
+
+
+<!--    <tr>-->
+<!--		<td>{{data.id}}</td>-->
+<!--     <td>{{ data.full_name  }}</td>-->
+<!--     <td>{{ data.mobile }}</td>-->
+<!--     <td>{{ data.email }}</td>-->
+<!--		<td>{{ data.password }}</td>-->
+<!--     <td>{{ data.country }}</td>-->
+<!--      <td>{{ data.state }}</td>-->
+<!--      <td>{{ data.city }}</td>-->
+<!--      <td>{{ data.zipcode }}</td>-->
+<!--		<td>{{data.aadharcard}}</td>-->
+<!--		<td>{{data.pancard}}</td>-->
+
+
+<!--							</tbody>-->
+<!--    </table>-->
+<!--						</div>-->
+<!--					</form>-->
+<!--				  </div>-->
+<!--				</div>-->
+<!--			  </div>-->
+<!--		  </div>-->
+
+<!--		</section>-->
+<!--		&lt;!&ndash; /.content &ndash;&gt;-->
+<!--	  </div>-->
+<!--  </div>-->
+<!--        </div>-->
+<!--    </div>-->
+{%  endblock %}
+
+{% block scripts %}
+
+
+<script>
+  $('#dataTable').DataTable( {
+    responsive: true
+  });
+  function changeAction(id) {
+    console.log(id);
+    console.log('changed');
+    var isChecked = document.getElementById("action" + id).checked;
+    console.log(isChecked);
+    var switchLabel = document.getElementById("action" + id);
+    var request = new XMLHttpRequest();
+    if (isChecked) {
+      var selectedData = switchLabel.getAttribute('data-on');
+      var recordId = switchLabel.getAttribute('record-id');
+      var url = '/crugapp/change_user/{{ objectType }}/' + recordId + '/?action=Active'
+      request.open('GET', url, true);
+      request.send()
+    }
+    else {
+      var selectedData = switchLabel.getAttribute('data-off');
+      var recordId = switchLabel.getAttribute('record-id');
+      var url = '/crugapp/change_user/{{ objectType }}/' + recordId + '/?action=Inactive'
+      request.open('GET', url, true);
+      request.send()
+    }
+  }
+</script>
+{% endblock %}
+
+

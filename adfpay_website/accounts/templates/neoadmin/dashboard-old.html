@@ -1,0 +1,605 @@
+{% extends 'neoadmin/base.html' %}
+{% load static %}
+{% block styles_code %}
+  <style>
+    .card {
+      min-height: 300px;
+    }
+    #wrapper #content-wrapper {
+      overflow: inherit !important;
+}
+  </style>
+{% endblock %}
+{% block content %}
+<div class="container-fluid">
+   <!-- Page Heading -->
+   <div class="d-sm-flex align-items-center justify-content-between mb-4">
+     {% if messages %}
+         {% for message in messages %}
+             {% if message.tags == 'error'%}
+             <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                 {{ message }}
+                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                   <span aria-hidden="true">&times;</span>
+                 </button>
+             </div>
+             {% endif %}
+         {% endfor %}
+     {% endif %}
+      <h2 class="h3 mb-0 text-gray-800">Dashboard</h2>
+   </div>
+
+   <!-- dashboard-manual --
+   <div class="dashboard-manual col-md-12">
+     <div class="row">
+       <div class="col-sm-3">
+         <div class="in_dashboard">
+            <h1>{{downloads_report.0}}</h1>
+            <h3>Download reports</h3>
+            <p>total number of downloads</p>
+            <i class="fas fa-users"></i>
+         </div>
+       </div>
+      <div class="col-sm-3">
+        <div class="in_dashboard two">
+          <h1>{{downloads_report.0}}</h1>
+          <h3>Daily Visitors</h3>
+          <p>its is the average value</p>
+          <i class="fas fa-chart-bar"></i>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="in_dashboard three">
+          <h1>{{downloads_report.0}}</h1>
+          <h3>new message</h3>
+          <p>messages per day</p>
+          <i class="fas fa-envelope"></i>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="in_dashboard four">
+          <h1>{{downloads_report.0}}</h1>
+          <h3>subscribe</h3>
+          <p>our site right now</p>
+          <i class="fas fa-chart-pie"></i>
+        </div>
+      </div>
+     </div>
+   </div>
+   <!-- dashboard-manual end -->
+
+
+   <!-- charts -->
+   <div class="col-xl-12 myCard">
+   <div class="row">
+    <div class="col-md-12 col-xl-4">
+      <!-- table card start -->
+      <div class="card text-center table-card">
+        <div class="">
+          <div class="row-table">
+            <div class="col-sm-6 card-block-big br">
+              <div class="row">
+                <div class="col-sm-3">
+                  <i class="icofont icofont-eye-alt text-success"></i>
+                </div>
+                <div class="col-sm-9 mytext">
+                  <h5>10</h5>
+                  <span>total review count</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 card-block-big">
+              <div class="row">
+                <div class="col-sm-3">
+                  <i class="icofont icofont-alarm text-danger"></i>
+                </div>
+                <div class="col-sm-9 mytext">
+                  <h5>10</h5>
+                  <span>responded reviews</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="">
+          <div class="row-table">
+            <div class="col-sm-6 card-block-big br">
+              <div class="row">
+                <div class="col-sm-3">
+                  <i class="icofont icofont-files text-info"></i>
+                </div>
+                <div class="col-sm-9 mytext">
+                  <h5>0</h5>
+                  <span>not responded reviews</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 card-block-big">
+              <div class="row">
+                <div class="col-sm-3">
+                  <i class="icofont icofont-envelope-open text-warning"></i>
+                </div>
+                <div class="col-sm-9 mytext">
+                  <h5>120</h5>
+                  <span>average review rating</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- table card end -->
+    </div>
+    <div class="col-md-12 col-xl-4">
+      <!-- table card start -->
+      <div class="card table-card">
+        <div class="">
+          <div class="row-table">
+            <div class="col-sm-6 card-block-big br">
+              <div class="row">
+                <div class="col-sm-4">
+                  <!-- <i class="icofont icofont-network text-primary"></i> -->
+                  <i class="icofont icofont-file-document text-danger"></i>
+                </div>
+                <div class="col-sm-8 mytext">
+                  <h5>0</h5>
+                  <span>total resume count</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 card-block-big">
+              <div class="row ">
+                <div class="col-sm-3">
+                  <i class="icofont icofont-network text-primary"></i>
+                </div>
+                <div class="col-sm-9 mytext">
+                  <h5>0</h5>
+                  <span>most common department</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="">
+          <div class="row-table">
+            <div class="col-sm-6 card-block-big br">
+              <div class="row ">
+                <div class="col-sm-4">
+                  <!-- <div id="barchart2" style="height:40px;width:40px;"></div> -->
+                  <i class="iconfont icofont-book"></i>
+                </div>
+                <div class="col-sm-8 mytext">
+                  <h5>350</h5>
+                  <span> common designation</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 card-block-big">
+              <div class="row ">
+                <div class="col-sm-3">
+                  <i class="icofont icofont-network-tower text-primary"></i>
+                </div>
+                <div class="col-sm-9 mytext">
+                  <h5>0</h5>
+                  <span>common location</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- table card end -->
+    </div>
+    <div class="col-md-12 col-xl-4 notshadow">
+      <!-- widget primary card start -->
+      <div class="card table-card widget-primary-card">
+        <div class="">
+          <div class="row-table">
+            <div class="col-sm-3 card-block-big one">
+              <i class="icofont icofont-star"></i>
+            </div>
+            <div class="col-sm-9">
+              <h4>10+</h4>
+              <h6>User Profile Android</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- widget primary card end -->
+      <!-- widget-success-card start -->
+      <div class="card table-card widget-success-card">
+        <div class="">
+          <div class="row-table">
+            <div class="col-sm-3 card-block-big">
+              <i class="icofont icofont-trophy-alt"></i>
+            </div>
+            <div class="col-sm-9">
+              <h4>17</h4>
+              <!-- <h6>Achievements</h6> -->
+              <h6>User Profile IOS</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- widget-success-card end -->
+    </div>
+   </div>
+</div>
+  <!-- charts end -->
+
+  <!-- data table and slider -->
+  <div class="row myCard">
+    <div class="col-lg-6">
+      <div class="card">
+        <div class="card-block">
+          <div id="chartdiv"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="card pad card-border-primary">
+          <div class="card-header">
+            <h5>Download Report</h5>
+            <!-- <span class="label label-default f-right"> 28 January, 2015 </span> -->
+            <div class="dropdown-secondary dropdown f-right">
+              <button class="btn btn-primary btn-mini dropdown-toggle waves-effect waves-light" type="button" id="dropdown6"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Overdue</button>
+              <div class="dropdown-menu" aria-labelledby="dropdown6" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                <a class="dropdown-item waves-light waves-effect" href="#!"><span
+                    class="point-marker bg-danger"></span>Pending</a>
+                <a class="dropdown-item waves-light waves-effect" href="#!"><span
+                    class="point-marker bg-warning"></span>Paid</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item waves-light waves-effect active" href="#!"><span
+                    class="point-marker bg-success"></span>On Hold</a>
+                <a class="dropdown-item waves-light waves-effect" href="#!"><span
+                    class="point-marker bg-info"></span>Canceled</a>
+              </div>
+              <!-- end of dropdown menu -->
+              <span class="f-left m-r-5 text-inverse">Status : </span>
+            </div>
+          </div>
+          <div class="card-block">
+            <div class="row">
+              <div class="col-sm-6">
+                <ul class="list list-unstyled">
+                  <li>Invoice #: &nbsp;0028</li>
+                  <li>Issued on: <span class="text-semibold">2015/01/25</span></li>
+                </ul>
+              </div>
+              <div class="col-sm-6">
+                <ul class="list list-unstyled text-right">
+                  <li>$8,750</li>
+                  <li>Method: <span class="text-semibold">Paypal</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="task-list-table">
+              <p class="task-due"><strong> Due : </strong><strong class="label label-success">23 hours</strong></p>
+            </div>
+            <div class="task-board m-0">
+              <a href="" class="btn btn-info btn-mini b-none"><i
+                  class="icofont icofont-eye-alt m-0"></i></a>
+              <!-- end of dropdown-secondary -->
+              <div class="dropdown-secondary dropdown">
+                <button class="btn btn-info btn-mini dropdown-toggle waves-light b-none txt-muted" type="button" id="dropdown3"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+                    class="icofont icofont-navigation-menu"></i></button>
+                <div class="dropdown-menu" aria-labelledby="dropdown3" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                  <a class="dropdown-item waves-light waves-effect" href="#!"><i class="icofont icofont-ui-alarm"></i> Print
+                    Invoice</a>
+                  <a class="dropdown-item waves-light waves-effect" href="#!"><i class="icofont icofont-attachment"></i>
+                    Download invoice</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item waves-light waves-effect" href="#!"><i class="icofont icofont-spinner-alt-5"></i>
+                    Edit Invoice</a>
+                  <a class="dropdown-item waves-light waves-effect" href="#!"><i class="icofont icofont-ui-edit"></i> Remove
+                    Invoice</a>
+                </div>
+                <!-- end of dropdown menu -->
+              </div>
+              <!-- end of seconadary -->
+            </div>
+            <!-- end of pull-right class -->
+          </div>
+          <!-- end of card-footer -->
+        </div>
+        <div class="card pad card-border-primary">
+          <div class="card-header">
+            <h5>Subscription Report </h5>
+            <!-- <span class="label label-default f-right"> 28 January, 2015 </span> -->
+            <div class="dropdown-secondary dropdown f-right">
+              <button class="btn btn-primary btn-mini dropdown-toggle waves-effect waves-light" type="button" id="dropdown6"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Overdue</button>
+              <div class="dropdown-menu" aria-labelledby="dropdown6" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                <a class="dropdown-item waves-light waves-effect" href="#!"><span
+                    class="point-marker bg-danger"></span>Pending</a>
+                <a class="dropdown-item waves-light waves-effect" href="#!"><span
+                    class="point-marker bg-warning"></span>Paid</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item waves-light waves-effect active" href="#!"><span
+                    class="point-marker bg-success"></span>On Hold</a>
+                <a class="dropdown-item waves-light waves-effect" href="#!"><span
+                    class="point-marker bg-info"></span>Canceled</a>
+              </div>
+              <!-- end of dropdown menu -->
+              <span class="f-left m-r-5 text-inverse">Status : </span>
+            </div>
+          </div>
+          <div class="card-block">
+            <div class="row">
+              <div class="col-sm-6">
+                <ul class="list list-unstyled">
+                  <li>Invoice #: &nbsp;0028</li>
+                  <li>Issued on: <span class="text-semibold">2015/01/25</span></li>
+                </ul>
+              </div>
+              <div class="col-sm-6">
+                <ul class="list list-unstyled text-right">
+                  <li>$8,750</li>
+                  <li>Method: <span class="text-semibold">Paypal</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="task-list-table">
+              <p class="task-due"><strong> Due : </strong><strong class="label label-success">23 hours</strong></p>
+            </div>
+            <div class="task-board m-0">
+              <a href="#!" class="btn btn-info btn-mini b-none"><i
+                  class="icofont icofont-eye-alt m-0"></i></a>
+              <!-- end of dropdown-secondary -->
+              <div class="dropdown-secondary dropdown">
+                <button class="btn btn-info btn-mini dropdown-toggle waves-light b-none txt-muted" type="button" id="dropdown3"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+                    class="icofont icofont-navigation-menu"></i></button>
+                <div class="dropdown-menu" aria-labelledby="dropdown3" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                  <a class="dropdown-item waves-light waves-effect" href="#!"><i class="icofont icofont-ui-alarm"></i> Print
+                    Invoice</a>
+                  <a class="dropdown-item waves-light waves-effect" href="#!"><i class="icofont icofont-attachment"></i>
+                    Download invoice</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item waves-light waves-effect" href="#!"><i class="icofont icofont-spinner-alt-5"></i>
+                    Edit Invoice</a>
+                  <a class="dropdown-item waves-light waves-effect" href="#!"><i class="icofont icofont-ui-edit"></i> Remove
+                    Invoice</a>
+                </div>
+                <!-- end of dropdown menu -->
+              </div>
+              <!-- end of seconadary -->
+            </div>
+            <!-- end of pull-right class -->
+          </div>
+          <!-- end of card-footer -->
+        </div>
+    </div>
+  <!-- data table and slider end -->
+
+   <!-- Area Chart -->
+   <div class="col-xl-12 col-lg-12">
+      <div class="card shadow mycard mb-4">
+         <!-- Card Header - Dropdown -->
+         <div
+            class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <h6 class="m-0 font-weight-bold text-primary">Reports</h6>
+         </div>
+         <!-- Card Body -->
+         <div class="card-body">
+
+           <div class="card-deck" data-aos="fade-up" id="downloads_report">
+             <div class="card shadow-card shadow-card-1" data-aos="fade-left">
+               <h2 class="text-center">Downloads Report</h2><br>
+               <div class="row">
+                 <div class="col-sm-6 text-center">
+                   <h3 class="">Android</h3>
+                   <center><div class="numberCircle">{{downloads_report.0}}</div></center>
+                   <p class="lead">Total No. of Downloads</p><br>
+                   <p class="lead">Highest Download Countrywise : {{downloads_report.1}}</p>
+                   <p class="lead">Highest Download Statewise : {{downloads_report.2}}</p>
+                 </div>
+                 <div class="col-sm-6 text-center">
+                   <h3 class="">IOS</h3>
+                   <center><div class="numberCircle">{{downloads_report.3}}</div></center>
+                   <p class="lead">Total No. of Downloads</p><br>
+                   <p class="lead">Highest Download Countrywise : {{downloads_report.4}}</p>
+                   <p class="lead">Highest Download Statewise : {{downloads_report.5}}</p>
+                 </div>
+               </div>
+             </div>
+             <div class="card shadow-card shadow-card-1" data-aos="fade-right">
+               <h2 class="text-center ">Subscription Report</h2><br>
+               <div class="row">
+                 <div class="col-sm-12 text-center">
+                   <center><div class="numberCircle">{{subscription_report.0}}</div></center>
+                   <p class="lead">Total Subscribers Count</p>
+                 </div>
+               </div><br>
+               <div class="row">
+                 <div class="col-sm-4 text-center">
+                   <center><div class="numberCircle">{{subscription_report.4}}</div></center>
+                   <p class="lead">Most Common Profile Type : {{subscription_report.3}}</p>
+                 </div>
+                 <div class="col-sm-4 text-center">
+                   <center><div class="numberCircle">{{subscription_report.6}}</div></center>
+                   <p class="lead">Most Common Subscription Type : {{subscription_report.5}}</p>
+                 </div>
+                 <div class="col-sm-4 text-center">
+                   <center><div class="numberCircle">{{subscription_report.2}}</div></center>
+                   <p class="lead">Most Common Collection Method : {{subscription_report.1}}</p>
+                 </div>
+               </div>
+             </div>
+           </div>
+
+           <div class="card-deck" data-aos="fade-up" id="feedback_report">
+             <div class="card shadow-card shadow-card-1" data-aos="fade-left">
+               <h2 class="text-center ">Feedback Report</h2><br>
+               <div class="row">
+                 <div class="col-sm-12 text-center">
+                   <center><div class="numberCircle">{{feedback_report.0}}</div></center>
+                   <p class="lead">Total Feedbacks Count</p>
+                 </div>
+               </div><br>
+               <div class="row">
+                 <div class="col-sm-6 text-center">
+                   <center><div class="numberCircle">{{feedback_report.1}}</div></center>
+                   <p class="lead">Answered Feedback</p>
+                 </div>
+                 <div class="col-sm-6 text-center">
+                   <center><div class="numberCircle">{{feedback_report.2}}</div></center>
+                   <p class="lead">Unanswered Feedback</p>
+                 </div>
+               </div>
+             </div>
+             <div class="card shadow-card shadow-card-1" data-aos="fade-right">
+               <h2 class="text-center ">Reviews Report</h2><br>
+               <div class="row">
+                 <div class="col-sm-12 text-center">
+                   <center><div class="numberCircle">{{reviews_report.0}}</div></center>
+                   <p class="lead">Total Reviews Count</p>
+                 </div>
+               </div><br>
+               <div class="row">
+                 <div class="col-sm-4 text-center">
+                   <center><div class="numberCircle">{{reviews_report.1}}</div></center>
+                   <p class="lead">Responded Reviews</p>
+                 </div>
+                 <div class="col-sm-4 text-center">
+                   <center><div class="numberCircle">{{reviews_report.2}}</div></center>
+                   <p class="lead">Not Responded Reviews</p>
+                 </div>
+                 <div class="col-sm-4 text-center">
+                   <center><div class="numberCircle">{{reviews_report.3}}</div></center>
+                   <p class="lead">Average Review Rating</p>
+                 </div>
+               </div>
+             </div>
+           </div>
+
+           <div class="card-deck" data-aos="fade-up" id="user_profiles_report">
+             <div class="card shadow-card shadow-card-1" data-aos="fade-left">
+               <h2 class="text-center">Online Users Report</h2><br>
+               <div class="row">
+                 <div class="col-sm-6 text-center">
+                   <center><div class="numberCircle">{{online_users_report.0}}</div></center>
+                   <p class="lead">Online Users Android</p>
+                 </div>
+                 <div class="col-sm-6 text-center">
+                   <center><div class="numberCircle">{{online_users_report.1}}</div></center>
+                   <p class="lead">Online Users IOS</p>
+                 </div>
+               </div>
+             </div>
+             <div class="card shadow-card shadow-card-1" data-aos="fade-right">
+               <h2 class="text-center ">User Profiles Report</h2><br>
+               <div class="row">
+                 <div class="col-sm-6 text-center">
+                   <center><div class="numberCircle">{{user_profiles_report.0}}</div></center>
+                   <p class="lead">User Profiles Android</p>
+                 </div>
+                 <div class="col-sm-6 text-center">
+                   <center><div class="numberCircle">{{user_profiles_report.1}}</div></center>
+                   <p class="lead">User Profiles IOS</p>
+                 </div>
+               </div>
+             </div>
+           </div>
+
+           <div class="card-deck" data-aos="fade-up" id="backup_report">
+             <div class="card shadow-card shadow-card-1" data-aos="fade-left">
+               <h2 class="text-center ">Backup Report</h2><br>
+               <div class="row">
+                 <div class="col-sm-12 text-center">
+                   <center><div class="numberCircle">{{backup_report.0}}</div></center>
+                   <p class="lead">Total Backups Count</p>
+                 </div>
+               </div><br>
+               <div class="row">
+                 <div class="col-sm-6 text-center">
+                   <center><div class="numberCircle">{{backup_report.2}}</div></center>
+                   <p class="lead">Most Backups From Country : {{backup_report.1}}</p>
+                 </div>
+                 <div class="col-sm-6 text-center">
+                   <center><div class="numberCircle">{{backup_report.4}}</div></center>
+                   <p class="lead">Most Backups By User : {{backup_report.3}}</p>
+                 </div>
+               </div>
+             </div>
+             <div class="card shadow-card shadow-card-1" data-aos="fade-right">
+               <h2 class="text-center ">Restore Report</h2><br>
+               <div class="row">
+                 <div class="col-sm-12 text-center">
+                   <center><div class="numberCircle">{{restore_report.0}}</div></center>
+                   <p class="lead">Total Restores Count</p>
+                 </div>
+               </div><br>
+               <div class="row">
+                 <div class="col-sm-6 text-center">
+                   <center><div class="numberCircle">{{restore_report.2}}</div></center>
+                   <p class="lead">Most Restores From Country : {{restore_report.1}}</p>
+                 </div>
+                 <div class="col-sm-6 text-center">
+                   <center><div class="numberCircle">{{restore_report.4}}</div></center>
+                   <p class="lead">Most Restores By User : {{restore_report.3}}</p>
+                 </div>
+               </div>
+             </div>
+           </div>
+
+           <div class="card-deck" data-aos="fade-up" id="vacancy_report">
+             <div class="card shadow-card shadow-card-1" data-aos="fade-left">
+               <h2 class="text-center ">Resume Receipts Report</h2><br>
+               <div class="row">
+                 <div class="col-sm-12 text-center">
+                   <center><div class="numberCircle">{{resume_receipt_report.0}}</div></center>
+                   <p class="lead">Total Resumes Count</p>
+                 </div>
+               </div><br>
+               <div class="row">
+                 <div class="col-sm-4 text-center">
+                   <center><div class="numberCircle">{{resume_receipt_report.2}}</div></center>
+                   <p class="lead">Most Common Department : {{resume_receipt_report.1}}</p>
+                 </div>
+                 <div class="col-sm-4 text-center">
+                   <center><div class="numberCircle">{{resume_receipt_report.4}}</div></center>
+                   <p class="lead">Most Common Designation : {{resume_receipt_report.3}}</p>
+                 </div>
+                 <div class="col-sm-4 text-center">
+                   <center><div class="numberCircle">{{resume_receipt_report.6}}</div></center>
+                   <p class="lead">Most Common Location : {{resume_receipt_report.5}}</p>
+                 </div>
+               </div>
+             </div>
+             <div class="card shadow-card shadow-card-1" data-aos="fade-right">
+               <h2 class="text-center ">Vacancy Report</h2><br>
+               <div class="row">
+                 <div class="col-sm-4 text-center">
+                   <center><div class="numberCircle">{{vacancy_report.0}}</div></center>
+                   <p class="lead">Total Jobs Posted</p>
+                 </div>
+                 <div class="col-sm-4 text-center">
+                   <center><div class="numberCircle">{{vacancy_report.1}}</div></center>
+                   <p class="lead">Active Job Posts</p>
+                 </div>
+                 <div class="col-sm-4 text-center">
+                   <center><div class="numberCircle">{{vacancy_report.4}}</div></center>
+                   <p class="lead">Most Common Job Count</p>
+                 </div>
+               </div><br>
+               <div class="row">
+                 <div class="col-sm-12 text-center">
+                   <p class="lead">Most Common Job : {{vacancy_report.3}}</p>
+                   <p class="lead">Last Posted Job : {{vacancy_report.2}}</p>
+                 </div>
+               </div>
+             </div>
+           </div>
+
+         </div>
+      </div>
+   </div>
+</div>
+{% endblock %}

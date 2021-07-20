@@ -1,0 +1,106 @@
+{% extends 'dashboard/bases.html'%}
+{% load static %}
+
+{% block content%}
+<div class="content-wrapper">
+	  <div class="container">
+		<!-- Content Header (Page header) -->
+		<div class="content-header">
+			<div class="d-flex align-items-center">
+				<div class="mr-auto">
+					<!-- <h3 class="page-title">Edit</h3> -->
+					<div class="d-inline-block align-items-center">
+						<nav>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
+								<!-- <li class="breadcrumb-item" aria-current="page">e-Commerce</li> -->
+								<li class="breadcrumb-item active" aria-current="page">Back</li>
+							</ol>
+						</nav>
+					</div>
+				</div>
+				<div class="right-title">
+					<span>Mobile App Update</span>
+				</div>
+			</div>
+		</div>
+
+		<!-- Main content -->
+		<section class="content">
+
+			<div class="row">
+			  <div class="col-12">
+				<div class="box">
+					<div class="box-header with-border">
+					  <h4 class="box-title">Add Mobile  App</h4>
+					</div>
+				  <div class="box-body">
+					 <form action="/dashboard/add_ios/" method="post" class="tab-wizard wizard-circle" enctype="multipart/form-data" id="formid" >
+               {% csrf_token %}
+						<div class="form-body">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+									  <label class="font-weight-700 font-size-16">Version Number</label>
+									  <input type="text" class="form-control" name='version' placeholder="Version Number" required="True">
+									</div>
+								</div>
+								<!--/span-->
+								<div class="col-md-6">
+									<div class="form-group">
+									
+									   <label class="font-weight-700 font-size-16">Release Date</label>
+									   <input type="date" class="form-control" name='release_date' id="datepicker" placeholder="Realease date" required="True">
+									</div>
+								</div>
+								<!--/span-->
+							</div>
+							<!--/row-->
+							<!--/row-->
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label class="font-weight-700 font-size-16">Upload</label>
+										<div class="input-group">
+											<!-- <div class="input-group-addon"><i class="ti-money"></i></div> -->
+				<input type="file" class="form-control" name='images' placeholder="Upload" required="True"> </div>
+									</div>
+								</div>
+								<!--/span-->
+								
+								<!--/span-->
+							</div>
+							<!--/row-->
+						
+						</div>
+						<div class="form-actions mt-10 text-right">
+							<button type="submit" class="btn btn-lg btn-primary"> <i class="fa fa-check"></i> Submit</button>
+						</div>
+					</form>
+				  </div>
+				</div>
+			  </div>		  
+		  </div>
+
+		</section>
+		<!-- /.content -->
+	  </div>
+  </div>
+  {% endblock %}
+   {% block script_code %}
+<script>
+
+  $( function() {
+    $( "#datepicker" ).datepicker(
+    	{
+           format: "dd.mm.yyyy",
+           todayBtn: "linked",
+           language: "de"
+        });
+  } );
+  </script>
+{% endblock %}
+	
+	
+
+ 

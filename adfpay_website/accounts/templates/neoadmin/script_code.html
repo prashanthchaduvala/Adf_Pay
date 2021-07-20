@@ -1,0 +1,31 @@
+{% load static %}
+<script>
+window.addEventListener("load", function(){
+  {% for key,value in objectToUpdate.items %}
+    {% if key != 'id' %}
+      if(document.getElementById('id_{{key}}')) {
+          var id_key = document.getElementById('id_{{key}}');
+          var keycheck = '{{key}}';
+          try {
+            if (keycheck == 'status' || keycheck == 'profile_type' || keycheck == 'subscription_type' || keycheck == 'collection_method' || keycheck == 'sync_frequency') {
+              $('#id_{{key}} option[value="{{value}}"]').attr("selected", "selected");
+            }
+            else if (keycheck == 'valid_upto') {
+              console.log('{{value|date}}');
+              var selected_year = '{{ value|date:"Y" }}';
+              var selected_month = '{{ value|date:"m" }}';
+              var selected_day = '{{ value|date:"d"}}';
+              var new_date = selected_year + '-' + selected_month + '-' + selected_day;
+              id_key.value = new_date;
+            }
+            else {
+              id_key.value = '{{value}}';
+            }
+          } catch (e) {
+            console.log('DOMException');
+          }
+      }
+    {% endif %}
+  {% endfor %}
+});
+</script>

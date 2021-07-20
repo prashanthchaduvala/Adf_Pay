@@ -1,0 +1,356 @@
+{% extends 'dashboard/bases.html' %}
+{% load static %}
+{% block content %}
+<style type="text/css">
+ 
+.jumbotron {border-radius: 0;margin-bottom: 0;}
+
+.jumbotron.df-bg-primary {
+  background-color: #083386;
+}
+
+.df-switch {
+  margin-top: 20px;
+  padding: 2rem;
+  text-align: center;
+}
+.btn-toggle {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.btn-toggle {
+  margin: 0 4rem;
+  padding: 0;
+  position: relative;
+  border: none;
+  height: 1.5rem;
+  width: 5rem;
+  border-radius: 1.5rem;
+  color: #6b7381;
+  background: #0885da;
+}
+.btn-toggle:focus,
+.btn-toggle.focus,
+.btn-toggle:focus.active,
+.btn-toggle.focus.active {
+  outline: none;
+}
+.btn-toggle:before,
+.btn-toggle:after {
+  line-height: 1.5rem;
+  width: 4rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: absolute;
+  bottom: 0;
+  transition: opacity 0.25s;
+}
+.btn-toggle:before {
+  content: 'Inactive';
+  left: -5rem;
+  color: #109fff;
+}
+.btn-toggle:after {
+  content: 'Active';
+  right: -5rem;
+  opacity: 0.5;
+  color: #F47280;
+}
+.btn-toggle > .inner-handle {
+  border-radius: 13px;
+  width: 65px;
+  height: 13px;
+  position: absolute;
+  top: 6px;
+  left: 8px;
+  background-color: #0f71bd;
+  box-shadow: inset 1px 1px 2px -1px black;
+}
+.btn-toggle.active > .inner-handle {
+  background-color: #BD4053;
+}
+.btn-toggle > .handle:before {
+  content: "";
+  position: absolute;
+  height: 34px;
+  width: 34px;
+  top: 35%;
+  left: 11px;
+  background-image: radial-gradient(circle at center, #0785da 5px, transparent 5px);
+  background-size: 10px 10px;
+  background-repeat: no-repeat;
+}
+.btn-toggle.active > .handle:before {
+  background-image: radial-gradient(circle at center, #F47280 5px, transparent 5px);
+}
+.btn-toggle > .handle {
+  position: absolute;
+  top: -0.2875rem;
+  left: 0.3875rem;
+  width: 2.125rem;
+  height: 2.125rem;
+  border-radius: 1.125rem;
+  background: #fff;
+  transition: left 0.25s;
+  border: 1px solid #ccc;
+}
+.btn-toggle.active {
+  transition: background-color 0.25s;
+}
+.btn-toggle.active > .handle {
+  left: 2.4175rem;
+  transition: left 0.25s;
+}
+.btn-toggle.active:before {
+  opacity: 0.5;
+}
+.btn-toggle.active:after {
+  opacity: 1;
+  color: #F47280;
+}
+.btn-toggle.active {
+  background-color: #F47280;
+}
+
+</style>
+  <div class="content-wrapper">
+    <div class="container">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="d-flex align-items-center">
+        <div class="mr-auto">
+          <!-- <h3 class="page-title">Edit</h3> -->
+          <div class="d-inline-block align-items-center">
+            <nav>
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html"><i class="mdi mdi-home-outline"></i></a></li>
+                <li class="breadcrumb-item" aria-current="page">Back</li>
+                <!-- <li class="breadcrumb-item active" aria-current="page">Edit</li> -->
+              </ol>
+            </nav>
+          </div>
+        </div>
+        <div class="right-title">
+          <span>Online User</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main content -->
+    <section class="content">
+
+      <div class="row">
+        <div class="col-12">
+        <div class="box">
+           {% if messages %}
+      {% for message in messages %}
+      {% if message.tags == 'warning'%}
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
+          <div class="box-header with-border d-flex justify-content-between">
+            <h4 class="box-title">Online User</h4>
+            
+           
+          </div>
+          <div class="box-body">
+          <form action="#">
+            <div class="form-body">
+              <table id="example" class="table table-bordered table-responsive" style="width:100%">
+              <thead>
+            <tr>
+
+
+
+
+
+
+
+
+                              <th>SNO.</th>
+                              <th>Country</th>
+                              <th>State</th>
+                              <th>Region</th>
+                              <th>Profile Type</th>
+                              <th>Name</th>
+                              <th>Mobile Number</th>
+                              <th>Email Id</th>
+                              <th>Subscription Type</th>
+                              <th>Collection Method</th>
+                              <th>Currency</th>
+                              <th>Amount</th>
+                              <th>Start Date</th>
+                              <th>End Date</th>
+                              <th>Status</th>
+                              <th>Action</th>
+
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+
+
+
+
+              <td>
+                <p>{{ json_data.id }}</p>
+              </td>
+             <td>
+                <p>{{ json_data.country }}</p>
+              </td>
+              <td>
+                <p>{{ json_data.state }}</p>
+              </td>
+              <td>
+                <p>{{ json_data.region }}</p>
+              </td>
+              <td>
+                <p>{{ json_data.profile_type }}</p>
+              </td>
+              <td>
+                <p>{{ json_data.name }}</p>
+              </td>
+              <td>
+                <p>{{ json_data.phone_no }}</p>
+              </td>
+              <td>
+                <p>{{ json_data.email }}</p>
+              </td>
+              <td>
+                <p>{{ json_data.subscription_type }}</p>
+              </td>
+              
+              <td>
+                <p>{{ json_data.collection_method }}</p>
+              </td>
+              <td>
+                <p>{{ json_data.amount }}</p>
+              </td>
+              <td>
+                <p>{{ json_data.currency }}</p>
+              </td>
+              <td>
+                <p>{{ json_data.start_date }}</p>
+              </td>
+              <td>
+                <p>{{ json_data.end_date }}</p>
+              </td>
+              
+              
+              <td>
+                <button type="button" data-category="{{json_data.d_id}}" {% if data.action == True %} class="editCategory btn btn-lg btn-toggle active" {% else %} class=" editCategory btn btn-lg btn-toggle" {% endif  %} data-toggle="button" aria-pressed="false" autocomplete="off">
+                      <div class="handle"></div>
+                    </button>
+                    <input type="hidden" id="something" value="{{data.d_id}}" >
+                    
+                  </td>
+                   <td>
+                      <!-- <a href="#!" title="View" class="text-primary"> <i class="ti-eye"></i> </a> -->
+                     
+                      <a href="/dashboard/delete_online_subscriber/{{ json_data.d_id }}/" title="Delete" class="text-danger"> <i class="ti-trash"></i> </a>
+                                    </td>
+                                    
+                </tr>
+                
+
+              
+              </tbody>
+        
+    </table>
+            </div>
+          </form>
+          </div>
+        </div>
+        </div>      
+      </div>
+
+    </section>
+    <!-- /.content -->
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      {% endblock %}
+
+{% block script_code %}
+     
+
+ 
+<!-- <script>
+
+  $(document).ready(function(){
+    $('#MyButton').click(function(){
+      console.log("comming")
+    var x = document.getElementById("MyButton").value;  
+    
+    console.log(x,"'x'")
+    var request = new XMLHttpRequest();
+   
+    var url = '/admin_master/change_action/' + x + '/Active/'
+      request.open('GET', url, true);
+      request.send()
+    
+    });
+  });
+</script>
+   -->
+
+<script type="text/javascript">
+   $( "button.editCategory" ).click(function(event) {
+    console.log("something")
+    
+      var id = $(this).data('category');
+      var request = new XMLHttpRequest();
+   
+      var url = '/dashboard/online_subscriber_change_action/' + id + '/Active/'
+      request.open('GET', url, true);
+      request.send()
+    });
+</script>
+<script>
+
+  $('#dataTable').DataTable( {
+    responsive: true
+  });
+
+  
+</script>
+
+{% endblock %}

@@ -1,0 +1,823 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+      <meta name="description" content="Use the GeoIP2 Country database to determine an Internet visitor&#39;s country based on their IP address.">
+    
+    
+    
+    <title>GeoIP2 Country Database  | MaxMind</title>
+
+    <base href="/en/">
+    
+      <link
+        media="all"
+        rel="stylesheet"
+        type="text/css"
+        href="https://static.maxmind.com/4ac7e836058f75c2db1f/css/maxmind.css"
+        integrity="sha256-S8MRa1MJKrPNVHux8ncx9Mp3YX1UBWMmaJnwZuULJ14="
+        crossorigin="anonymous"
+        nonce="DLvFiZcz6hGrLX1jKbdsKA=="
+      >
+    
+    <!-- Push to the dataLayer _before_ loading Google Tag Manager -->
+    <script nonce="DLvFiZcz6hGrLX1jKbdsKA==">
+      var dataLayer = window.dataLayer || [];
+
+      
+
+        
+
+        
+      
+    </script>
+    
+      <!-- Google Tag Manager -->
+      <script nonce="DLvFiZcz6hGrLX1jKbdsKA==">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-P98WMD');</script>
+      <!-- End Google Tag Manager -->
+    
+  </head>
+  <body >
+
+    
+      <!-- Google Tag Manager (noscript) -->
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P98WMD"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      <!-- End Google Tag Manager (noscript) -->
+    
+
+    <div class="wrapper">
+      <div
+        class="header__module"
+        data-bind="css: { 'is-fixed': isFixed() }"
+        id="header-ko"
+        >
+        <header class="header js-header">
+
+          
+
+
+
+
+
+  
+
+
+<div id="mm-ccpa-notice" class="mm-banner mm-banner__announcement hide">
+  <div class="mm-banner__content">
+    <p>In preparation for upcoming changes to data privacy regulations, we have updated our <a href="/en/privacy-policy">Privacy Policy</a>.</p>
+    <a class="mm-banner__close">
+      <i class="fa fa-times"></i>
+    </a>
+  </div>
+</div>
+
+
+          <div class="container container--header">
+            <div class="header__container">
+              <a
+                class="header__nav-toggle header__nav-toggle--open"
+                data-bind="click: toggleMobileNav"
+                href="#" title="Show navigation"
+                >
+                <span class="nav-toggle__icon"></span>
+              </a>
+
+              <a class="header__logo" id="boo-header__logo" href="home">
+                <span class="header__logo-svg">MaxMind</span>
+              </a>
+
+
+              <div class="utility-nav utility-nav--search">
+                <ul class="utility-nav__list">
+                  <!-- Search -->
+                  <li class="utility-nav__item dropdown">
+                    <a data-bind="click: toggleSearch" data-toggle="dropdown" data-target="#" class="utility-nav__link utility-nav__link--search dropdown-toggle" href="#">
+                      <span class="mm-icon mm-icon__search utility-nav__icon-search" role="presentation">
+                        <?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 41 41" style="enable-background:new 0 0 41 41;" xml:space="preserve">
+<path d="M16,0C7.2,0,0.1,7.2,0,15.9c0,8.8,7.2,15.9,15.9,15.9c3.8,0,7.3-1.3,10.1-3.6L38.7,41l2.3-2.3L28.4,26
+	c2.3-2.8,3.6-6.3,3.6-10.1C31.9,7.2,24.8,0,16,0L16,0z M16,3.2c7,0,12.7,5.7,12.7,12.7S23.1,28.7,16,28.7S3.3,23,3.3,15.9
+	C3.3,8.9,9,3.2,16,3.2L16,3.2z"/>
+</svg>
+
+                      </span>
+                      <span class="utility-nav__search-label">Search</span>
+                    </a>
+                    <div class="utility-nav__subnav utility-nav__subnav--search">
+                      <form method="get" action="search">
+                        <fieldset class="fieldset">
+                          <!-- ko stopBinding: true -->
+                          <div class="header__search" id="header-search-ko">
+                            <input
+                              id="header-search-input"
+                              class="mm-input search__input"
+                              data-bind="textInput: q"
+                              name="q"
+                              type="text"
+                              placeholder='Search MaxMind...'
+                              >
+                            <button type="submit" class="btn btn-secondary search__submit search__submit--header">GO</button>
+                            <!-- ko template: "search-autosuggest-template" -->
+<!-- /ko -->
+<script id="search-autosuggest-template" type="text/html">
+  <div
+    class="search__autosuggest"
+    data-bind="foreach: suggestions, css: { is-visible: hasResults }"
+    >
+    <div class="autosuggest__result">
+      <h3 class="autosuggest__result-title">
+        <a data-bind="html: htmlTitle, attr: { href: link }" class="autosuggest__result-title-link"></a>
+      </h3>
+      <span data-bind="text: link" class="autosuggest__result-url"></span>
+      <p data-bind="html: htmlSnippet" class="autosuggest__result-snippet"></p>
+    </div>
+  </div>
+</script>
+
+                          </div>
+                          <!-- /ko -->
+                        </fieldset>
+                      </form>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div
+                class="header__nav"
+                data-bind="css: { 'is-active': isMobileNavActive() }"
+                >
+                <!-- Utility nav -->
+                <nav class="utility-nav">
+                  <ul class="utility-nav__list">
+                    <!-- Account -->
+                    
+                      <li class="utility-nav__item ">
+                        <a 
+                          class="utility-nav__link "
+                          
+                            href="account/login" 
+                          
+                          title="Account"
+                        >
+                          
+                            <span class="mm-icon mm-icon__logged-out utility-nav__icon-logged-out" role="img">
+                              <?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 35 42" style="enable-background:new 0 0 35 42;" xml:space="preserve">
+<path d="M17.5,0C12.2,0,8,3.4,8,9.7c0,4.2,1.9,8.6,4.8,11v2.2c0,1-0.7,1.8-1.4,1.9C5.2,26.8,0,31,0,33.4v2.9
+	c0,3,7.8,5.7,17.5,5.7c9.7,0,17.5-2.6,17.5-5.7v-2.9c0-2.2-4.9-6.6-11.2-8.6c-0.8-0.2-1.5-1.1-1.5-1.9v-2.2c2.9-2.4,4.8-6.8,4.8-11
+	C27,3.4,22.8,0,17.5,0L17.5,0z"/>
+</svg>
+
+                            </span>
+                          
+                        </a>
+                        <!-- Logged-in -->
+                        
+                      </li>
+                    
+                    <!-- Shopping cart -->
+                    <li class="utility-nav__item">
+                      <a
+                        class="utility-nav__link"
+                        data-bind="css: { 'has-items': cartHasItems() }"
+                        href="shopping-cart/summary"
+                        id="js-cart-icon"
+                        title="My Order"
+                        >
+                          <span class="mm-icon mm-icon__cart utility-nav__icon-cart" role="img">
+                            <?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+<circle cx="25" cy="25" r="25"/>
+<path fill="currentColor" d="M28,34.3c-3.3,0-6.5,0.2-9.8,0c-0.4,0-1-0.1-1.3-0.4c-0.4-0.4-0.3-1.1-0.3-1.7c0-0.7-0.3-1.9,1.8-2.3
+	c0.7-0.1,3.8-0.3,4.5-0.3h0.1c1.7-0.1,17.6-1.3,17.9-1.4c0.3-0.1,0.5-0.1,0.8-0.3c0.4-0.3,0.4-0.8,0.4-1.2c0-1,0-1.8,0-2.7
+	c0-1.7,0-3.4,0-5.1c0-0.9,0-1.7,0-2.6c0-0.3,0-0.9-0.1-1.1c-0.1-0.3-0.4-0.3-0.6-0.3c-0.6-0.1-1.3,0-2,0c-1.6,0-3.2,0-4.7,0
+	c-3.4,0-6.7,0-10,0s-6.5,0-9.8,0c-0.4,0-1,0-1.3-0.4c-0.3-0.4-0.3-1-0.4-1.6C12.7,12,12.1,12,11.4,12c-0.7,0-1.4,0-2.1,0
+	C8.9,12.2,8,12.2,8,12.2v2.3c0,0,1.3,0,1.3,0c1.2,0,1.6,0,1.8,0c0.2,0.7,0.5,1.7,0.6,2.3c0.7,3.2,1.6,6.4,2.4,9.6
+	c0.4,1.7,0.9,3.1,0.8,4.9c-0.1,1.6,0,3-0.1,4.5c-0.1,1.1,0,2.4,0.5,3.3c0.4,0.7,1.3,1,2.1,1c1.2,0,1.8-0.6,2.1-1.7
+	c0.2-0.4,0.3-1.7,0.3-1.7c0-0.1,0.6-0.1,1.2-0.1c3.3,0,6.5,0,9.8,0c0.8,0,1.6,0,2.4,0c0.4,0,1.1-0.1,1.4,0.2
+	c0.4,0.3,0.4,0.8,0.5,1.3c0.1,0.6,0.4,1.3,0.8,1.7c0.8,0.7,2.1,0.5,2.9-0.2c1.1-0.9,1-2.1,1-3.3c0-0.5,0.1-1.1-0.3-1.6
+	c-0.4-0.3-0.9-0.3-1.3-0.3c-1.7,0-3.4,0-4.9,0C31.1,34.3,29.5,34.3,28,34.3z"/>
+</svg>
+
+                          </span>
+                          <span class="mm-icon mm-icon__cart-empty utility-nav__icon-cart-empty" role="img">
+                            <?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 38 32" style="enable-background:new 0 0 38 32;" xml:space="preserve">
+<path d="M22.3,25.4c-3.7,0-7.3,0.2-11,0c-0.5,0-1.1-0.1-1.4-0.5c-0.4-0.5-0.3-1.3-0.3-1.9c0-0.8-0.3-2.2,2-2.6
+	c0.8-0.1,4.2-0.4,5-0.4h0.1c1.9-0.1,19.7-1.5,20-1.6c0.3-0.1,0.6-0.1,0.9-0.3c0.4-0.4,0.4-0.9,0.4-1.4c0-1.1,0-2.1,0-3.1
+	c0-2,0-3.9,0-5.9c0-1,0-2,0-3c0-0.4,0-1-0.1-1.3s-0.4-0.3-0.7-0.4c-0.7-0.1-1.5,0-2.2,0c-1.8,0-3.6,0-5.3,0c-3.8,0-7.5,0-11.2,0
+	c-3.7,0-7.3,0-11,0c-0.5,0-1.1,0-1.4-0.5C5.8,2.2,5.8,1.5,5.6,0.9C5.3,0,4.7,0,3.9,0S2.3,0,1.5,0C1,0,0,0,0,0v2.6c0,0,1.5,0,1.4,0
+	c1.3,0,1.8,0,2,0C3.6,3.3,4,4.4,4.1,5.1c0.8,3.7,1.8,7.4,2.7,11c0.4,1.9,1,3.6,0.9,5.6c-0.1,1.8,0,3.4-0.1,5.2
+	c-0.1,1.3,0,2.8,0.6,3.8c0.4,0.8,1.5,1.1,2.3,1.1c1.3,0,2-0.7,2.4-2c0.2-0.5,0.3-1.9,0.3-1.9c0-0.1,0.7-0.1,1.3-0.1
+	c3.7,0,7.3,0,11,0c0.9,0,1.8,0,2.7,0c0.5,0,1.2-0.1,1.6,0.2c0.5,0.3,0.5,0.9,0.6,1.5c0.1,0.7,0.4,1.5,0.9,1.9
+	c0.9,0.8,2.3,0.6,3.2-0.2c1.2-1,1.1-2.4,1.1-3.8c0-0.6,0.1-1.3-0.3-1.8c-0.4-0.4-1-0.4-1.5-0.4c-1.9,0-3.8,0-5.5,0
+	C25.8,25.4,24,25.4,22.3,25.4z"/>
+</svg>
+
+                          </span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+
+                <!-- Main nav -->
+                <nav class="main-nav">
+                  <ul class="main-nav__list">
+                      <li class="main-nav__item dropdown">
+                        <a 
+                          class="main-nav__link dropdown-toggle" 
+                          data-toggle="dropdown" 
+                          data-target="#"
+                           
+                          href="products">
+                          Products
+                            <span class="fa fa-angle-down header__nav-arrow header__nav-arrow--down main-nav__arrow" aria-hidden="true"></span>
+                            <span class="fa fa-angle-up header__nav-arrow header__nav-arrow--up main-nav__arrow" aria-hidden="true"></span>
+                        </a>
+                          <ul class="main-nav__subnav">
+                              <li class="main-nav__subnav-item">
+                                <a class="main-nav__subnav-link" href="solutions/minfraud-services">minFraud Services</a>
+                              </li>
+                              <li class="main-nav__subnav-item">
+                                <a class="main-nav__subnav-link" href="solutions/geoip2-enterprise-product-suite/anonymous-ip-database">GeoIP2 Anonymous IP Database</a>
+                              </li>
+                              <li class="main-nav__subnav-item">
+                                <a class="main-nav__subnav-link" href="solutions/geoip2-enterprise-product-suite/enterprise-database">GeoIP2 Enterprise Database</a>
+                              </li>
+                              <li class="main-nav__subnav-item">
+                                <a class="main-nav__subnav-link" href="geoip2-precision-services">GeoIP2 Precision Web Services</a>
+                              </li>
+                              <li class="main-nav__subnav-item">
+                                <a class="main-nav__subnav-link" href="geoip2-databases">GeoIP2 Databases</a>
+                              </li>
+                              <li class="main-nav__subnav-item">
+                                <a class="main-nav__subnav-link" href="https://dev.maxmind.com/geoip/geoip2/geolite2">GeoLite2 Databases</a>
+                              </li>
+                          </ul>
+                      </li>
+                      <li class="main-nav__item dropdown">
+                        <a 
+                          class="main-nav__link dropdown-toggle" 
+                          data-toggle="dropdown" 
+                          data-target="#"
+                           
+                          href="https://support.maxmind.com/">
+                          Support
+                            <span class="fa fa-angle-down header__nav-arrow header__nav-arrow--down main-nav__arrow" aria-hidden="true"></span>
+                            <span class="fa fa-angle-up header__nav-arrow header__nav-arrow--up main-nav__arrow" aria-hidden="true"></span>
+                        </a>
+                          <ul class="main-nav__subnav">
+                              <li class="main-nav__subnav-item">
+                                <a class="main-nav__subnav-link" href="https://support.maxmind.com/">Support Center</a>
+                              </li>
+                              <li class="main-nav__subnav-item">
+                                <a class="main-nav__subnav-link" href="https://status.maxmind.com/">System Status</a>
+                              </li>
+                              <li class="main-nav__subnav-item">
+                                <a class="main-nav__subnav-link" href="https://support.maxmind.com/">Frequently Asked Questions</a>
+                              </li>
+                              <li class="main-nav__subnav-item">
+                                <a class="main-nav__subnav-link" href="https://support.maxmind.com/geoip-data-correction-request/">GeoIP Data Correction Request</a>
+                              </li>
+                              <li class="main-nav__subnav-item">
+                                <a class="main-nav__subnav-link" href="/en/privacy-policy#additional-disclosures-for-california-residents">Do Not Sell My Personal Information</a>
+                              </li>
+                              <li class="main-nav__subnav-item">
+                                <a class="main-nav__subnav-link" href="/en/privacy-policy#california-notice-of-collection">Notice of Collection</a>
+                              </li>
+                          </ul>
+                      </li>
+                      <li class="main-nav__item dropdown">
+                        <a 
+                          class="main-nav__link dropdown-toggle" 
+                          data-toggle="dropdown" 
+                          data-target="#"
+                           
+                          href="https://dev.maxmind.com">
+                          Developers
+                            <span class="fa fa-angle-down header__nav-arrow header__nav-arrow--down main-nav__arrow" aria-hidden="true"></span>
+                            <span class="fa fa-angle-up header__nav-arrow header__nav-arrow--up main-nav__arrow" aria-hidden="true"></span>
+                        </a>
+                          <ul class="main-nav__subnav">
+                              <li class="main-nav__subnav-item">
+                                <a class="main-nav__subnav-link" href="https://dev.maxmind.com">Dev Center</a>
+                              </li>
+                              <li class="main-nav__subnav-item">
+                                <a class="main-nav__subnav-link" href="https://dev.maxmind.com/minfraud/">minFraud</a>
+                              </li>
+                              <li class="main-nav__subnav-item">
+                                <a class="main-nav__subnav-link" href="https://dev.maxmind.com/geoip/">GeoIP</a>
+                              </li>
+                              <li class="main-nav__subnav-item">
+                                <a class="main-nav__subnav-link" href="https://dev.maxmind.com/faq/">Frequently Asked Questions</a>
+                              </li>
+                          </ul>
+                      </li>
+                      <li class="main-nav__item dropdown">
+                        <a 
+                          class="main-nav__link dropdown-toggle" 
+                          data-toggle="dropdown" 
+                          data-target="#"
+                           
+                          href="company">
+                          Company
+                            <span class="fa fa-angle-down header__nav-arrow header__nav-arrow--down main-nav__arrow" aria-hidden="true"></span>
+                            <span class="fa fa-angle-up header__nav-arrow header__nav-arrow--up main-nav__arrow" aria-hidden="true"></span>
+                        </a>
+                          <ul class="main-nav__subnav">
+                              <li class="main-nav__subnav-item">
+                                <a class="main-nav__subnav-link" href="company">About MaxMind</a>
+                              </li>
+                              <li class="main-nav__subnav-item">
+                                <a class="main-nav__subnav-link" href="company/working-at-maxmind">Working at MaxMind</a>
+                              </li>
+                              <li class="main-nav__subnav-item">
+                                <a class="main-nav__subnav-link" href="company/commitment-to-security">Commitment to Security</a>
+                              </li>
+                              <li class="main-nav__subnav-item">
+                                <a class="main-nav__subnav-link" href="company/charitable-giving">Charitable Giving</a>
+                              </li>
+                              <li class="main-nav__subnav-item">
+                                <a class="main-nav__subnav-link" href="company/contact-us">Contact Us</a>
+                              </li>
+                          </ul>
+                      </li>
+                      <li class="main-nav__item dropdown">
+                        <a 
+                          class="main-nav__link" 
+                          href="https://blog.maxmind.com/">
+                          Blog
+                        </a>
+                      </li>
+                      <li class="main-nav__item dropdown">
+                        <a 
+                          class="main-nav__link" 
+                          href="company/contact-us">
+                          Contact
+                        </a>
+                      </li>
+                  </ul>
+                </nav>
+
+                <a
+                  data-bind="click: toggleMobileNav"
+                  class="header__nav-toggle header__nav-toggle--close"
+                  href="#"
+                  title="Hide navigation"
+                  >
+                  <span class="fa fa-times" aria-hidden="true"></span>
+                </a>
+              </div><!-- .header__nav -->
+            </div><!-- .header__container -->
+          </div><!-- .container -->
+        </header>
+      </div><!-- .header__module -->
+
+        <!-- main -->
+        <div class="main">
+          <div class="container">
+            <div class="main-holder">
+              <div class="top-heading">
+                <div class="row">
+                  <div class="span9 offset3">
+                    <h1 class="h1">GeoIP2 Country Database </h1>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                
+                  <!-- sidebar -->
+                  <div class="span3">
+                    
+                    <div id="sidebar-container">
+                      <aside id="sidebar">
+                        <!-- left-nav -->
+                          <ul class="left-nav">
+                              <li>
+                                <h2 class="left-nav__header">GeoIP2 Precision Services</h2>
+                              </li>
+                                <li class="left-nav__item js-left-nav__hasLink">
+                                    <a 
+                                      class="left-nav__link" 
+                                      href="geoip2-precision-country-service">
+                                        Country
+                                    </a>
+                                </li>
+                                <li class="left-nav__item js-left-nav__hasLink">
+                                    <a 
+                                      class="left-nav__link" 
+                                      href="geoip2-precision-city-service">
+                                        City
+                                    </a>
+                                </li>
+                                <li class="left-nav__item js-left-nav__hasLink">
+                                    <a 
+                                      class="left-nav__link" 
+                                      href="geoip2-precision-insights">
+                                        Insights
+                                    </a>
+                                </li>
+                                <li class="left-nav__item js-left-nav__hasLink">
+                                    <a 
+                                      class="left-nav__link" 
+                                      href="request-service-trial?service_geoip=1">
+                                        Free Trial Account
+                                    </a>
+                                </li>
+                              <li>
+                                <h2 class="left-nav__header">GeoIP2 Databases</h2>
+                              </li>
+                                <li class="left-nav__item js-left-nav__hasLink">
+                                    <a 
+                                      class="left-nav__link" 
+                                      href="geoip2-country-database">
+                                        Country
+                                    </a>
+                                </li>
+                                <li class="left-nav__item js-left-nav__hasLink">
+                                    <a 
+                                      class="left-nav__link" 
+                                      href="geoip2-city">
+                                        City
+                                    </a>
+                                </li>
+                                <li class="left-nav__item js-left-nav__hasLink">
+                                    <a 
+                                      class="left-nav__link" 
+                                      href="/en/geoip2-city-database-by-continent">
+                                        City Database by Continent
+                                    </a>
+                                </li>
+                                <li class="left-nav__item js-left-nav__hasLink">
+                                    <a 
+                                      class="left-nav__link" 
+                                      href="geoip2-isp-database">
+                                        ISP
+                                    </a>
+                                </li>
+                                <li class="left-nav__item js-left-nav__hasLink">
+                                    <a 
+                                      class="left-nav__link" 
+                                      href="geoip2-domain-name-database">
+                                        Domain Name
+                                    </a>
+                                </li>
+                                <li class="left-nav__item js-left-nav__hasLink">
+                                    <a 
+                                      class="left-nav__link" 
+                                      href="geoip2-connection-type-database">
+                                        Connection Type
+                                    </a>
+                                </li>
+                                <li class="left-nav__item js-left-nav__hasLink">
+                                    <a 
+                                      class="left-nav__link" 
+                                      href="/en/geolite2-commercial-redistribution">
+                                        GeoLite2 Commercial Redistribution
+                                    </a>
+                                </li>
+                              <li>
+                                <h2 class="left-nav__header">GeoIP2 Enterprise Product Suite</h2>
+                              </li>
+                                <li class="left-nav__item js-left-nav__hasLink">
+                                    <a 
+                                      class="left-nav__link" 
+                                      href="solutions/geoip2-enterprise-product-suite/anonymous-ip-database">
+                                        Anonymous IP
+                                    </a>
+                                </li>
+                                <li class="left-nav__item js-left-nav__hasLink">
+                                    <a 
+                                      class="left-nav__link" 
+                                      href="solutions/geoip2-enterprise-product-suite/enterprise-database">
+                                        Enterprise
+                                    </a>
+                                </li>
+                                <li class="left-nav__item js-left-nav__hasLink">
+                                    <a 
+                                      class="left-nav__link" 
+                                      href="solutions/geoip2-enterprise-product-suite/user-count-database">
+                                        User Count
+                                    </a>
+                                </li>
+                          </ul>
+                      </aside>
+                    </div>
+                  </div>
+                  <!-- eof sidebar -->
+                
+                <div class="span9" id="content-container">
+                  <div id="content" class="content">
+                    
+
+                    <!-- content -->
+
+
+
+<div class="well">
+  <h4>Do I Need a <a href="site-license-overview">Commercial Site License</a>?</h4>
+
+  <p>
+    Online pricing of the GeoIP databases is meant for internal Restricted Business purposes only. Use in support of a commercial product requires the purchase of a commercial license. Refer to the <a href="/en/site-license-overview">licensing overview</a> for more information.
+
+  </p>
+</div>
+
+
+<p>
+  <strong>Product Summary:</strong>
+  Determine an Internet visitor's country based on their IP address.
+</p>
+<p>
+  The GeoIP2 Country database is a more accurate version of our free <a href="https://dev.maxmind.com/geoip/geoip2/geolite2/">GeoLite2 Country</a> database.
+</p>
+
+<p>
+  <a href="country#features">View Product Features</a> <i class="icon-chevron-right"></i>
+</p>
+<div class="row">
+  <div class="span5 well geoip2-widget">
+  <p class="geoip2-widget__name">Purchase GeoIP2 Country Database</p>
+<p class="geoip2-widget__price">$24 / month</p>
+
+
+<div class="geoip2-widget__list">
+  <form action="shopping-cart-item" method="POST" class="clearfix geoip2-widget__item" id="site-license-form">
+    <p class="geoip2-widget__term">One-time</p>
+    <input type="hidden" value="d611bc21031698459141c0622d1de74494f8b6a3" name="csrf_token" />
+    <button type="submit" name="product_id" value="Country" class="btn btn-primary geoip2-widget__button">Purchase</button>
+  </form>
+
+  <form action="shopping-cart-item" method="POST" class="clearfix geoip2-widget__item" id="monthly-form">
+    <p class="geoip2-widget__term">Monthly</p>
+    <input type="hidden" value="d611bc21031698459141c0622d1de74494f8b6a3" name="csrf_token" />
+    <input value="1" type="hidden" name="term_in_months" />
+    <button type="submit" name="product_id" value="Country" class="btn btn-primary geoip2-widget__button">Subscribe</button>
+  </form>
+
+  <form action="shopping-cart-item" method="POST" class="clearfix geoip2-widget__item" id="annual-form">
+    <p class="geoip2-widget__term">Annual</p>
+    <input type="hidden" value="d611bc21031698459141c0622d1de74494f8b6a3" name="csrf_token" />
+    <input name="term_in_months" type="hidden" value="12" />
+    <button type="submit" name="product_id" value="Country" class="btn btn-primary geoip2-widget__button">Subscribe</button>
+  </form>
+</div>
+
+
+
+
+  </div>
+</div>
+
+<h3><a name="features"></a>Product Features</h3>
+
+<ul class="productFeatures">
+  <li>
+    Updated weekly.
+    Last updated: 2020-01-07
+  </li>
+
+<li><a href="site-license-overview">Site license</a> allows use on all machines within purchasing organization</li>
+
+
+<a name="accuracy"></a>
+  <li>99.8% accurate on a country level</li>
+
+<li>
+  Includes the following fields:
+  ( <a href="https://dev.maxmind.com/geoip/">Technical Details</a> )
+</li>
+
+
+  <ul>
+    <li>Continent</li>
+    <li>Country</li>
+    <li>EU Country</li>
+    <li>Country of Registration</li>
+    <li>EU Registered Country</li>
+    <li>Country Represented and Type of Representation (For military bases)</li>
+    <li><a href='http://www.geonames.org'>GeoNames IDs</a> (for localization and pairing outside data)</li>
+  </ul>
+
+  <li>Includes localized names for select locations in Simplified Chinese, French, German, Japanese, Spanish, Brazilian Portuguese, and Russian</li>
+
+  <li><a name="api"></a><a href="https://dev.maxmind.com/geoip/geoip2/downloadable">Open Source APIs</a> are available for most popular languages
+  </li>
+  <li><a href="https://dev.maxmind.com/geoip/geoipupdate/">Automated updates</a> are available</li>
+
+
+</ul>
+<!-- End Product Features -->
+
+<h3>Available Formats</h3>
+
+<p>
+    This database is available in the following formats:
+</p>
+
+<ul>
+    <li>GeoIP2 binary MMDB format</li>
+    <li>GeoIP2 comma-separated values</li>
+</ul>
+
+<p>
+  Note: MaxMind no longer provides access to GeoIP Legacy databases with new purchases. New customers, please consider purchasing GeoIP2 services and databases.
+<p>
+  <a href="https://dev.maxmind.com/geoip/">
+    Review Technical Details
+  </a>
+</p>
+
+<p>The GeoIP2 version of this database incorporates <a href="https://www.geonames.org">GeoNames</a> geographical data, which is made available under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 License</a>.</p>
+
+
+
+            </div><!-- .content -->
+          </div><!-- .span12 -->
+        </div><!-- .row -->
+      </div><!-- .main-holder -->
+    </div><!-- .container -->
+  </div><!-- .main -->
+
+  <footer class="footer">
+    <div class="container container--footer">
+      <div class="row footer__body">
+        <div class="col-md-3 footer__brand">
+          <a class="footer__logo" href="home">
+            <span class="footer__logo-svg">MaxMind</span>
+          </a>
+          <p>MaxMind, GeoIP, minFraud, and related trademarks belong to MaxMind, Inc.</p>
+          <div class="footer__social clearfix">
+            <a class="footer__social-link" href="https://twitter.com/maxmind" target="_blank" rel="noopener" title="Twitter"><span class="fa fa-twitter"></span></a>
+            <a class="footer__social-link" href="https://www.linkedin.com/company/maxmind" target="_blank" rel="noopener" title="LinkedIn"><span class="fa fa-linkedin"></span></a>
+          </div>
+        </div>
+        <nav class="col-md-8 col-md-offset-1 footer__nav">
+          <div class="row">
+                <div class="col-sm-3">
+                  <h4 class="footer__nav-heading">Products</h4>
+                  <ul class="footer__nav-list">
+                      <li class="footer__nav-item">
+                        <a class="footer__nav-link" href="solutions/minfraud-services">minFraud Services</a>
+                      </li>
+                      <li class="footer__nav-item">
+                        <a class="footer__nav-link" href="solutions/geoip2-enterprise-product-suite/anonymous-ip-database">GeoIP2 Anonymous IP Database</a>
+                      </li>
+                      <li class="footer__nav-item">
+                        <a class="footer__nav-link" href="solutions/geoip2-enterprise-product-suite/enterprise-database">GeoIP2 Enterprise Database</a>
+                      </li>
+                      <li class="footer__nav-item">
+                        <a class="footer__nav-link" href="geoip2-precision-services">GeoIP2 Precision Web Services</a>
+                      </li>
+                      <li class="footer__nav-item">
+                        <a class="footer__nav-link" href="geoip2-databases">GeoIP2 Databases</a>
+                      </li>
+                      <li class="footer__nav-item">
+                        <a class="footer__nav-link" href="https://dev.maxmind.com/geoip/geoip2/geolite2">GeoLite2 Databases</a>
+                      </li>
+                  </ul>
+                </div>
+                <div class="col-sm-3">
+                  <h4 class="footer__nav-heading">Support</h4>
+                  <ul class="footer__nav-list">
+                      <li class="footer__nav-item">
+                        <a class="footer__nav-link" href="https://support.maxmind.com/">Support Center</a>
+                      </li>
+                      <li class="footer__nav-item">
+                        <a class="footer__nav-link" href="https://status.maxmind.com/">System Status</a>
+                      </li>
+                      <li class="footer__nav-item">
+                        <a class="footer__nav-link" href="https://support.maxmind.com/">Frequently Asked Questions</a>
+                      </li>
+                      <li class="footer__nav-item">
+                        <a class="footer__nav-link" href="https://support.maxmind.com/geoip-data-correction-request/">GeoIP Data Correction Request</a>
+                      </li>
+                      <li class="footer__nav-item">
+                        <a class="footer__nav-link" href="/en/privacy-policy#additional-disclosures-for-california-residents">Do Not Sell My Personal Information</a>
+                      </li>
+                      <li class="footer__nav-item">
+                        <a class="footer__nav-link" href="/en/privacy-policy#california-notice-of-collection">Notice of Collection</a>
+                      </li>
+                  </ul>
+                </div>
+                <div class="col-sm-3">
+                  <h4 class="footer__nav-heading">Developers</h4>
+                  <ul class="footer__nav-list">
+                      <li class="footer__nav-item">
+                        <a class="footer__nav-link" href="https://dev.maxmind.com">Dev Center</a>
+                      </li>
+                      <li class="footer__nav-item">
+                        <a class="footer__nav-link" href="https://dev.maxmind.com/minfraud/">minFraud</a>
+                      </li>
+                      <li class="footer__nav-item">
+                        <a class="footer__nav-link" href="https://dev.maxmind.com/geoip/">GeoIP</a>
+                      </li>
+                      <li class="footer__nav-item">
+                        <a class="footer__nav-link" href="https://dev.maxmind.com/faq/">Frequently Asked Questions</a>
+                      </li>
+                  </ul>
+                </div>
+                <div class="col-sm-3">
+                  <h4 class="footer__nav-heading">Company</h4>
+                  <ul class="footer__nav-list">
+                      <li class="footer__nav-item">
+                        <a class="footer__nav-link" href="company">About MaxMind</a>
+                      </li>
+                      <li class="footer__nav-item">
+                        <a class="footer__nav-link" href="company/working-at-maxmind">Working at MaxMind</a>
+                      </li>
+                      <li class="footer__nav-item">
+                        <a class="footer__nav-link" href="company/commitment-to-security">Commitment to Security</a>
+                      </li>
+                      <li class="footer__nav-item">
+                        <a class="footer__nav-link" href="company/charitable-giving">Charitable Giving</a>
+                      </li>
+                      <li class="footer__nav-item">
+                        <a class="footer__nav-link" href="company/contact-us">Contact Us</a>
+                      </li>
+                  </ul>
+                </div>
+          </div>
+        </nav>
+      </div>
+
+      <div class="footer__legal">
+        <nav class="footer__legal-nav">
+          <a class="footer__legal-link" href="terms-of-use">Terms of Use</a>
+          <span class="footer__legal-divider">|</span>
+          <a class="footer__legal-link" href="privacy-policy">Privacy Policy</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+</div>
+
+
+  <!-- begin olark code -->
+<script nonce="DLvFiZcz6hGrLX1jKbdsKA==" type="text/javascript" async>
+;(function(o,l,a,r,k,y){if(o.olark)return;
+r="script";y=l.createElement(r);r=l.getElementsByTagName(r)[0];
+y.async=1;y.src="//"+a;r.parentNode.insertBefore(y,r);
+y=o.olark=function(){k.s.push(arguments);k.t.push(+new Date)};
+y.extend=function(i,j){y("extend",i,j)};
+y.identify=function(i){y("identify",k.i=i)};
+y.configure=function(i,j){y("configure",i,j);k.c[i]=j};
+k=y._={s:[],t:[+new Date],c:{},l:a};
+})(window,document,"static.olark.com/jsclient/loader.js");
+/* Add configuration calls below this comment */
+olark.identify('8022-431-10-3383');</script>
+<!-- end olark code -->
+
+
+
+<script type="text/javascript" src="https://static.maxmind.com/4ac7e836058f75c2db1f/js/vendor.js" integrity="sha256-vCSYhgfQUo6aMWr5HPQvuCCnIWCMcjqux7zdozHxSb8=" crossorigin="anonymous" nonce="DLvFiZcz6hGrLX1jKbdsKA=="></script>
+<script type="text/javascript" src="https://static.maxmind.com/4ac7e836058f75c2db1f/js/maxmind.js" integrity="sha256-VAg2y6b2n/gPKv9Io5DADWOSTT8RHtgeZh/oV8JxGr0=" crossorigin="anonymous" nonce="DLvFiZcz6hGrLX1jKbdsKA=="></script>
+
+<script nonce="DLvFiZcz6hGrLX1jKbdsKA==">
+  window.MaxMind = window.MaxMind || {};
+  window.MaxMind.X_CSRF_TOKEN = "d611bc21031698459141c0622d1de74494f8b6a3";
+</script>
+
+<script nonce="DLvFiZcz6hGrLX1jKbdsKA==" type="text/javascript">
+  maxmind_user_id = 10;
+  (function() {
+    var loadDeviceJs = function() {
+      var element = document.createElement('script');
+      element.src = "https:\/\/static.maxmind.com\/4ac7e836058f75c2db1f\/js\/device.js";
+      element.crossOrigin = 'anonymous';
+      element.integrity = "sha256-lNeP+1OUozxANRsezJmIFmWhUIjQnuUosfA\/8C4Cx\/k=";
+      document.body.appendChild(element);
+    }
+    if (window.addEventListener) {
+      window.addEventListener('load', loadDeviceJs, false);
+    } else if (window.attachEvent) {
+      window.attachEvent('onload', loadDeviceJs);
+    } else {
+      window.onload = loadDeviceJs;
+    }
+  })();
+</script>
+
+
+
+
+
+</body>
+</html>
+

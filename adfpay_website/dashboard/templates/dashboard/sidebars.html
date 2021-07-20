@@ -1,0 +1,773 @@
+<aside class="main-sidebar mysidebar">
+  <!-- sidebar-->
+  <section class="sidebar">
+    <!-- sidebar menu-->
+    <ul class="sidebar-menu" data-widget="tree">
+      <li class="header nav-small-cap">ADMIN</li>
+      <li class="">
+        <a href="{% url 'admindashboard'%}">
+          <i class="ti-dashboard"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+
+      <li class="treeview">
+        <a href="#">
+          <i class="ti-mobile"></i>
+          <span>Mobile App</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-right pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li>
+            <a href="{% url 'android' %}"><i class="ti-more"></i>Android</a>
+          </li>
+          <li>
+            <a href="{% url 'ios' %}"><i class="ti-more"></i>IOS</a>
+          </li>
+        </ul>
+      </li>
+      <li class="">
+        <a href="{% url 'download_app'%}">
+          <i class="ti-bag"></i>
+          <span>Download App Request </span>
+        </a>
+      </li>
+      <li class="treeview">
+        <a href="#">
+          <i class="ti-user"></i>
+          <span>Users</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-right pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li>
+            <a href="{% url 'downloads'%}"><i class="ti-more"></i>Downloads</a>
+          </li>
+          <li>
+            <a href="{% url 'user_profile' %}"><i class="ti-more"></i>User Profile</a>
+          </li>
+          <li>
+            <a href="{% url 'online_user' %}"><i class="ti-more"></i>Online Users</a>
+          </li>
+          <!-- <li>
+            <a href="datastorage_backup.html"><i class="ti-more"></i>Backup</a>
+          </li> -->
+          <li>
+            <a href="{% url 'restores' %}"><i class="ti-more"></i>Restore</a>
+          </li>
+          <!-- <li>
+            <a href="#!"><i class="ti-more"></i>Review</a>
+          </li> -->
+          <li class="treeview">
+            <a href="#!">
+              <i class="ti-more"></i>
+              <span>Reviews </span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-right pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li>
+                <a href="{% url 'new_review'%}"><i class="ti-more"></i>New Review </a>
+              </li>
+              <li>
+                <a href="{% url 'allocated_review'%}"
+                  ><i class="ti-more"></i>Review Allocated
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'review_reply_received'%}"
+                  ><i class="ti-more"></i>Review Reply Received
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'review_reply_responded'%}"
+                  ><i class="ti-more"></i>Review Reply Responded
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'review_pending'%}"
+                  ><i class="ti-more"></i>Review Pending
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'review_all'%}"
+                  ><i class="ti-more"></i>All Reviews
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="treeview">
+            <a href="#!">
+              <i class="ti-more"></i>
+              <span>Feedback </span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-right pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li>
+                <a href="{% url 'new_feedback'%}"
+                  ><i class="ti-more"></i>New Feedback
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'allocated_feedback'%}"
+                  ><i class="ti-more"></i>Feedback Allocated</a
+                >
+              </li>
+              <li>
+                <a href="{% url 'feedback_reply_received'%}"
+                  ><i class="ti-more"></i>Feedback Reply Received</a
+                >
+              </li>
+              <li>
+                <a href="{% url 'feedback_reply_responded'%}"
+                  ><i class="ti-more"></i>Feedback Reply Responded</a
+                >
+              </li>
+              <li>
+                <a href="{% url 'feedback_pending'%}"
+                  ><i class="ti-more"></i>Feedback Pending</a
+                >
+              </li>
+              <li>
+                <a href="{% url 'all_feedback'%}"
+                  ><i class="ti-more"></i>All Feedback</a
+                >
+              </li>
+            </ul>
+          </li>
+          <!-- <li>
+            <a href="#!"><i class="ti-more"></i>Innovative Ideas</a>
+          </li> -->
+          <li class="treeview">
+            <a href="#!">
+              <i class="ti-more"></i>
+              <span>Innovative Ideas </span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-right pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li>
+                <a href="{% url 'new_inovative_idea'%}"
+                  ><i class="ti-more"></i>New Innovative Idea
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'inovative_idea_allocated'%}"
+                  ><i class="ti-more"></i>Innovative Idea Allocated</a
+                >
+              </li>
+              <li>
+                <a href="{% url 'inovative_idea_reply_received'%}"
+                  ><i class="ti-more"></i>Innovative Idea Reply Received</a
+                >
+              </li>
+              <li>
+                <a href="{% url 'inovative_idea_reply_responded'%}"
+                  ><i class="ti-more"></i>Innovative Idea Reply Responded</a
+                >
+              </li>
+              <li>
+                <a href="{% url 'inovative_idea_implemented'%}"
+                  ><i class="ti-more"></i>Innovative Idea Implemented</a
+                >
+              </li>
+              <li>
+                <a href="{% url 'inovative_idea_pending'%}"
+                  ><i class="ti-more"></i>Innovative Idea Pending</a
+                >
+              </li>
+              <li>
+                <a href="{% url 'inovative_idea_all'%}"
+                  ><i class="ti-more"></i>All Innovative Idea</a
+                >
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+
+      <li class="treeview">
+        <a href="">
+          <i class="ti-files"></i>
+          <span>Subscription</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-right pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li>
+            <a href="{% url 'subscription' %}">
+              <i class="ti-more"></i>
+              Subscriptions
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'online_subscriber' %}">
+              <i class="ti-more"></i>
+              Online Subscriber
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'subscription_payment'%}"
+              ><i class="ti-more"></i>Subscription Payment Status</a
+            >
+          </li>
+        </ul>
+      </li>
+
+      <li class="treeview">
+        <a href="#">
+          <i class="ti-world"></i>
+          <span>Services</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-right pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li>
+            <a href="{% url 'service_listing' %}"
+              ><i class="ti-more"></i>Services Listing</a
+            >
+          </li>
+          <li>
+            <a href="{% url 'service_charge' %}"
+              ><i class="ti-more"></i>Service Charges Structure
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'service_utilisation' %}"
+              ><i class="ti-more"></i>Service Utilisation
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'service_charge_reciept' %}"
+              ><i class="ti-more"></i>Service Charges Receipt
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'service_charge_outstand' %}"
+              ><i class="ti-more"></i>Services Charges Outstanding</a
+            >
+          </li>
+        </ul>
+      </li>
+      <li class="treeview">
+        <a href="#">
+          <i class="ti-wallet"></i>
+          <span>Transaction History </span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-right pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li>
+            <a href="{% url 'transaction_initiated' %}"
+              ><i class="ti-more"></i>Transactions Initiated</a
+            >
+          </li>
+          <li>
+            <a href="{% url 'transaction_completed' %}"
+              ><i class="ti-more"></i>Transaction Completed
+            </a>
+          </li>
+          <li>
+            <a  href="{% url 'transaction_failed' %}"
+
+              ><i class="ti-more"></i>Transaction Failed
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'transaction_pending' %}"
+
+              ><i class="ti-more"></i>Transactions Pending
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="treeview">
+        <a href="#">
+          <i class="ti-shine"></i>
+          <span>Discount Coupons </span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-right pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li>
+            <a href="{% url 'coupon_generate' %}"
+              ><i class="ti-more"></i>Generate Discount Coupons
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'coupon_listing' %}"
+              ><i class="ti-more"></i>Discount Coupon Listing
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'coupon_utilization' %}"
+              ><i class="ti-more"></i>Discount Coupon Utilisation
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'coupon_expired'%}"
+              ><i class="ti-more"></i>Discount Coupon Expired
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'coupon_available'%}"
+              ><i class="ti-more"></i>Discount Coupon Available
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="treeview">
+        <a href="#">
+          <i class="ti-share"></i>
+          <span>Refer & Earn </span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-right pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+
+
+
+
+          <li>
+            <a href="{% url 'incentive_structure'%}"
+              ><i class="ti-more"></i>Incentive structure
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'incentive_utilised'%}"
+              ><i class="ti-more"></i>Incentive Utilised
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'incentive_paid'%}"
+              ><i class="ti-more"></i>Incentive Paid
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'incentive_outstanding'%}"
+              ><i class="ti-more"></i>Incentive Outstanding
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="treeview">
+        <a href="#">
+          <i class="ti-headphone-alt"></i>
+          <span>Client Support </span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-right pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li>
+            <a href="evie_logs.html"><i class="ti-more"></i>EVIE Logs </a>
+          </li>
+  <li class="treeview">
+            <a href="#!">
+              <i class="ti-more"></i>
+              <span>Tickets </span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-right pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li>
+                <a href="{%url 'new_tickets' %}"
+                  ><i class="ti-more"></i>New Ticket Received
+                </a>
+              </li>
+              <li>
+                <a href="{%url 'ticket_forwaded' %}"
+                  ><i class="ti-more"></i>Ticket Forwarded
+                </a>
+              </li>
+              <li>
+                <a href="{%url 'ticket_resolved' %}"
+                  ><i class="ti-more"></i>Ticket Resolved
+                </a>
+              </li>
+              <li>
+                <a href="{%url 'ticket_esclated' %}"
+                  ><i class="ti-more"></i>Ticket Escalated
+                </a>
+              </li>
+              <li>
+                <a href="{%url 'ticket_pending' %}"
+                  ><i class="ti-more"></i>Ticket Pending
+                </a>
+              </li>
+              <li>
+                <a href="{%url 'ticket_expired' %}"
+                  ><i class="ti-more"></i>Ticket Expired
+                </a>
+              </li>
+              <li>
+                <a href="{%url 'all_tickets' %}"
+                  ><i class="ti-more"></i>All Tickets
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="treeview">
+            <a href="#!">
+              <i class="ti-more"></i>
+              <span>Emails </span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-right pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li>
+                <a href="{% url 'new_mail_received'%}"
+                  ><i class="ti-more"></i>New Mail Received
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'mail_forwaded'%}"
+                  ><i class="ti-more"></i>Mail Forwarded
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'mail_resolved'%}"
+                  ><i class="ti-more"></i>Issue Resolved
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'mail_esclated'%}"
+                  ><i class="ti-more"></i>Issue Escalated
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'mail_pending'%}"
+                  ><i class="ti-more"></i>Issue Pending
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'mail_expired'%}"
+                  ><i class="ti-more"></i>Mail Expired
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'all_mails' %}"><i class="ti-more"></i>All Mails </a>
+              </li>
+            </ul>
+          </li>
+              <li class="treeview">
+            <a href="#!">
+              <i class="ti-more"></i>
+              <span>Phone Conversation </span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-right pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+
+              <li>
+                <a href="{% url 'new_call_received' %}"
+                  ><i class="ti-more"></i>New Calls Received
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'new_call_forwarded' %}"
+                  ><i class="ti-more"></i>Issue Forwarded
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'call_resolved' %}"
+                  ><i class="ti-more"></i>Issues Resolved
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'call_esclated' %}"
+                  ><i class="ti-more"></i>Issue Escalated
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'call_pending' %}"
+                  ><i class="ti-more"></i>Issue Pending
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'call_all' %}"><i class="ti-more"></i>All Calls </a>
+              </li>
+            </ul>
+          </li>
+          <li class="treeview">
+            <a href="#!">
+              <i class="ti-more"></i>
+              <span>CHATBOT </span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-right pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li>
+                <a href="{% url 'new_request_received'%}"
+                  ><i class="ti-more"></i>New Request Received
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'request_forwarded'%}"
+                  ><i class="ti-more"></i>Request Forwarded
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'request_resolved'%}"
+                  ><i class="ti-more"></i>Request Resolved
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'request_esclated'%}"
+                  ><i class="ti-more"></i>Request Escalated
+                </a>
+              </li>
+
+              <li>
+                <a href="{% url 'request_pending'%}"
+                  ><i class="ti-more"></i>Request Pending
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'request_expired'%}"
+                  ><i class="ti-more"></i>Ticket Expires
+                </a>
+              </li>
+              <li>
+                <a href="{% url 'all_request'%}"
+                  ><i class="ti-more"></i>All Request
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li class="treeview">
+        <a href="#">
+          <i class="ti-wallet"></i>
+          <span>Community Member </span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-right pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li>
+            <a href="{% url 'banking_application_received' %}"
+              ><i class="ti-more"></i>Application Received
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'banking_application_approved' %}"
+              ><i class="ti-more"></i>Application Approved
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'banking_active_members' %}"
+              ><i class="ti-more"></i>Active Members
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'banking_members_performance' %}"
+              ><i class="ti-more"></i>Member Performance
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><i class="ti-more"></i>Members Payout Structure
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'banking_invoice_generated' %}"
+              ><i class="ti-more"></i>Invoices Generated
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'banking_invoice_approval' %}"
+              ><i class="ti-more"></i>Invoice Approval
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'banking_invoice_payment_status' %}"
+              ><i class="ti-more"></i>Invoice Payment Status
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="treeview">
+        <a href="#">
+          <i class="ti-rss-alt"></i>
+          <span>Referral Partner </span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-right pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li>
+            <a href="{% url 'pendingreg' %}"
+              ><i class="ti-more"></i>Application Received
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'view_approve' %}"
+              ><i class="ti-more"></i>Application Approved
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'active_patner' %}"
+              ><i class="ti-more"></i>Active Partners
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'member_perfomance' %}"
+              ><i class="ti-more"></i>Partner Performance
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'partner_structure' %}"
+              ><i class="ti-more"></i>Partner Payout Structure
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'invoice_generate' %}"
+              ><i class="ti-more"></i>Invoices Generated
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'invoice_approval' %}"
+              ><i class="ti-more"></i>Invoices Approval
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'invoice_payment' %}"
+              ><i class="ti-more"></i>Invoice Payment Status
+            </a>
+          </li>
+        </ul>
+      </li>
+
+   <li class="treeview">
+        <a href="#">
+          <i class="ti-wallet"></i>
+          <span>Banking Channel Partner </span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-right pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li>
+            <a href="{% url 'banking_application_received'%}"
+              ><i class="ti-more"></i>Application Received
+            </a>
+          </li>
+ 
+          <li>
+            <a href="{% url 'banking_application_approved'%}"
+              ><i class="ti-more"></i>Application Approved
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'banking_active_members'%}"
+              ><i class="ti-more"></i>Active Partners
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'banking_members_performance'%}"
+              ><i class="ti-more"></i>Partner Performance
+            </a>
+          </li>
+          <li>
+            <a href="banking_members_payout_structure.html"
+              ><i class="ti-more"></i>Partner Payout Structure
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'banking_invoice_generated'%}"
+              ><i class="ti-more"></i>Invoices Generated
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'banking_invoice_approval'%}"
+              ><i class="ti-more"></i>Invoice Approval
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'banking_invoice_payment_status'%}"
+              ><i class="ti-more"></i>Invoice Payment Status
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="treeview">
+        <a href="#">
+          <i class="ti-settings"></i>
+          <span>Controls </span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-right pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li>
+            <a href="{% url 'internal_user' %}">
+              <i class="ti-more"></i>
+              Internal User
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'access_and_permisiion' %}">
+              ><i class="ti-more"></i>
+              Access & Permissions
+            </a>
+          </li>
+          <li>
+            <a href="user_logs.html">
+              <i class="ti-more"></i>
+              User Logs
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="">
+        <a href="#!">
+          <i class="ti-bell"></i>
+          <span>AI Management </span>
+        </a>
+      </li>
+      <li class="">
+        <a href="#!">
+          <i class="ti-face-smile"></i>
+          <span>API Management </span>
+        </a>
+      </li>
+
+      <li class="">
+        <a href="#!">
+          <i class="ti-write"></i>
+          <span>Reports</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="{% url 'logout' %}">
+          <i class="ti-power-off"></i>
+          <span>Log Out</span>
+        </a>
+      </li>
+    </ul>
+  </section>
+</aside>

@@ -1,0 +1,288 @@
+{% extends 'dashboard/bases.html' %}
+{% load static %}
+{% block content %}
+<style type="text/css">
+ 
+.jumbotron {border-radius: 0;margin-bottom: 0;}
+
+.jumbotron.df-bg-primary {
+  background-color: #083386;
+}
+
+.df-switch {
+  margin-top: 20px;
+  padding: 2rem;
+  text-align: center;
+}
+.btn-toggle {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.btn-toggle {
+  margin: 0 4rem;
+  padding: 0;
+  position: relative;
+  border: none;
+  height: 1.5rem;
+  width: 5rem;
+  border-radius: 1.5rem;
+  color: #6b7381;
+  background: #0885da;
+}
+.btn-toggle:focus,
+.btn-toggle.focus,
+.btn-toggle:focus.active,
+.btn-toggle.focus.active {
+  outline: none;
+}
+.btn-toggle:before,
+.btn-toggle:after {
+  line-height: 1.5rem;
+  width: 4rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: absolute;
+  bottom: 0;
+  transition: opacity 0.25s;
+}
+.btn-toggle:before {
+  content: 'OFF';
+  left: -5rem;
+  color: #109fff;
+}
+.btn-toggle:after {
+  content: 'ON';
+  right: -5rem;
+  opacity: 0.5;
+  color: #F47280;
+}
+.btn-toggle > .inner-handle {
+  border-radius: 13px;
+  width: 65px;
+  height: 13px;
+  position: absolute;
+  top: 6px;
+  left: 8px;
+  background-color: #0f71bd;
+  box-shadow: inset 1px 1px 2px -1px black;
+}
+.btn-toggle.active > .inner-handle {
+  background-color: #BD4053;
+}
+.btn-toggle > .handle:before {
+  content: "";
+  position: absolute;
+  height: 34px;
+  width: 34px;
+  top: 35%;
+  left: 11px;
+  background-image: radial-gradient(circle at center, #0785da 5px, transparent 5px);
+  background-size: 10px 10px;
+  background-repeat: no-repeat;
+}
+.btn-toggle.active > .handle:before {
+  background-image: radial-gradient(circle at center, #F47280 5px, transparent 5px);
+}
+.btn-toggle > .handle {
+  position: absolute;
+  top: -0.2875rem;
+  left: 0.3875rem;
+  width: 2.125rem;
+  height: 2.125rem;
+  border-radius: 1.125rem;
+  background: #fff;
+  transition: left 0.25s;
+  border: 1px solid #ccc;
+}
+.btn-toggle.active {
+  transition: background-color 0.25s;
+}
+.btn-toggle.active > .handle {
+  left: 2.4175rem;
+  transition: left 0.25s;
+}
+.btn-toggle.active:before {
+  opacity: 0.5;
+}
+.btn-toggle.active:after {
+  opacity: 1;
+  color: #F47280;
+}
+.btn-toggle.active {
+  background-color: #F47280;
+}
+
+</style>
+  <div class="content-wrapper">
+    <div class="container">
+    <!-- Content Header (Page header) -->
+
+
+    <!-- Main content -->
+    <section class="content">
+
+      <div class="row">
+        <div class="col-12">
+        <div class="box">
+           {% if messages %}
+      {% for message in messages %}
+      
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      {% endfor %}
+      {% endif %}
+          <div class="box-header with-border d-flex justify-content-between">
+            <h4 class="box-title">Internal User </h4>
+            
+            <a onclick="window.location.href='/dashboard/create_internal_user/'" class="btn btn-primary">Add Internal User</a>
+          </div>
+          <div class="box-body">
+         
+            <div class="table-responsive">
+	        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">	
+	          <thead>	
+	            <tr>	
+	              <th>SNo.</th>	
+	              {% for field in fieldNames %}	
+	                {% if field != 'id' and field != 'User Id' %}	
+	            		  <th>{{field}}</th>	
+	                {% endif %}	
+	            	{% endfor %}	
+	              	
+	                <th>Operation</th>	
+	              	
+	            </tr>	
+	          </thead>	
+	          <tbody>	
+	            {% for x in objects %}	
+	          	<tr>	
+	              <td><p>{{ forloop.counter }}</p></td>	
+	          	{% for property,value in x.items %}	
+	             	
+	          		{% if property != 'id' and property != 'Action' and property != 'User Id' %}	
+	          			<td><p>{{value}}</p></td>	
+	              {% elif property == 'Action' %}	
+	                <td>	
+	                  <input type="checkbox" onchange="changeAction({{ x.id }})" record-id="{{ x.id }}" {{value}} data-toggle="toggle" data-on="Active" data-off="Inactive" data-onstyle="success" data-offstyle="danger" id="action{{ x.id }}">	
+	                </td>	
+	          		{% endif %}	
+	          	{% endfor %}	
+	            	
+	            {% if objectType == 'InternalUsers' %}	
+	              <td>	
+	                <span style="padding-left:32px;font-size:1.4rem;"><a href="/dashboard/update_internal_user/{{x.id}}/"><i class="fas fa-edit"></i></a></span> <span style="padding-left:32px;font-size:1.4rem;"><a href="/dashboard/deleteObject/{{objectType}}/{{ x.id }}/"><i class="fas fa-trash"></i></a></span>	
+	              </td>	
+	            	
+	             	
+	            {% endif %}	
+	            </tr>	
+	            {% endfor %}	
+	          </tbody>	
+	        </table>
+            </div>
+          
+          </div>
+        </div>
+        </div>      
+      </div>
+
+    </section>
+    <!-- /.content -->
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      {% endblock %}
+
+{% block script_code %}
+     
+
+ 
+<!-- <script>
+
+  $(document).ready(function(){
+    $('#MyButton').click(function(){
+      console.log("comming")
+    var x = document.getElementById("MyButton").value;  
+    
+    console.log(x,"'x'")
+    var request = new XMLHttpRequest();
+   
+    var url = '/admin_master/change_action/' + x + '/Active/'
+      request.open('GET', url, true);
+      request.send()
+    
+    });
+  });
+</script>
+   -->
+
+<script type="text/javascript">
+	  function changeAction(id) {	
+	    console.log(id);	
+	    console.log('changed');	
+	    var isChecked = document.getElementById("action" + id).checked;	
+	    console.log(isChecked);	
+	    var switchLabel = document.getElementById("action" + id);	
+	    var request = new XMLHttpRequest();	
+	    if (isChecked) {	
+	      var selectedData = switchLabel.getAttribute('data-on');	
+	      var recordId = switchLabel.getAttribute('record-id');	
+	      var url = '/dashboard/change_action/{{ objectType }}/' + recordId + '/?action=Active'	
+	      request.open('GET', url, true);	
+	      request.send()	
+	    }	
+	    else {	
+	      var selectedData = switchLabel.getAttribute('data-off');	
+	      var recordId = switchLabel.getAttribute('record-id');	
+	      var url = '/dashboard/change_action/{{ objectType }}/' + recordId + '/?action=Inactive'	
+	      request.open('GET', url, true);	
+	      request.send()	
+	    }	
+	  }	
+</script>
+<script>
+
+  $('#dataTable').DataTable( {
+    responsive: true
+  });
+
+  
+</script>
+
+{% endblock %}

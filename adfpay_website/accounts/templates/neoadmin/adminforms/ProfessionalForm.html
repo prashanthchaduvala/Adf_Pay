@@ -1,0 +1,193 @@
+{% extends 'neoadmin/base.html' %} {% load static %} {% block content %}
+<div class="container-fluid">
+    <div class="card shadow mb-4" id="">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Add Profession</h6>
+        </div>
+        <div class="card-body">
+            <form class="user" enctype="multipart/form-data" method="post">
+                {% csrf_token %}
+                <div class="form-group row">
+                    <div class="col-sm-12">
+                        <label>Profession Name</label>
+                        <input type="text" class="form-control" name="professionalname" id="id_professionalname">
+
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    <div class="col-sm-12">
+                        <label> Upload </label>
+                        <input type="file" class="form-control" id="id_filetoupload" name="upload" rows="10"></textarea>
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    <div class="col-sm-12">
+                        <label>Heading 1</label>
+                        <input type="text" class="form-control" name="heading1" id="id_heading1">
+
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-12">
+                        <label> Content 1</label>
+                        <textarea class="form-control" id="id_content1" name="content1" rows="10"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-12">
+                        <label> Content 2</label>
+                        <textarea class="form-control" id="id_content2" name="content2" rows="10"></textarea>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-12">
+                        <label>Heading 2</label>
+                        <input type="text" class="form-control" name="heading2" id="id_heading2">
+
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-12">
+                        <label> Content 3</label>
+                        <textarea class="form-control" id="id_content3" name="content3" rows="10"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-12">
+                        <label>Heading 3</label>
+                        <input type="text" class="form-control" name="heading3" id="id_heading3">
+
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-12">
+                        <label> Content 4</label>
+                        <textarea class="form-control" id="id_content4" name="content4" rows="10"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-12">
+                        <label>Four Steps</label>
+                        <input type="text" class="form-control" name="four_steps" id="id_four_steps">
+
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-12">
+                        <label>Step 1 Heading</label>
+                        <input type="text" class="form-control" name="step1heading" id="id_step1heading">
+
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-12">
+                        <label>Step 1 Content</label>
+                        <textarea class="form-control" id="id_step1content" name="step1content" rows="10"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-12">
+                        <label>Step 2 Heading</label>
+                        <input type="text" class="form-control" name="step2heading" id="id_step2heading">
+
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-12">
+                        <label>Step 2 Content</label>
+                        <textarea class="form-control" id="id_step2content" name="step2content" rows="10"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-12">
+                        <label>Step 3 Heading</label>
+                        <input type="text" class="form-control" name="step3heading" id="id_step3heading">
+
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-12">
+                        <label>Step 3 Content</label>
+                        <textarea class="form-control" id="id_step3content" name="step3content" rows="10"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-12">
+                        <label>Step 4 Heading</label>
+                        <input type="text" class="form-control" name="step4heading" id="id_step4heading">
+
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    <div class="col-sm-12">
+                        <label>Step 4 Content</label>
+                        <textarea class="form-control" id="id_step4content" name="step4content" rows="10"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-12">
+                        <label>Eligibility Content</label>
+                        <textarea class="form-control" id="id_eligibility_content" name="eligibility_content" rows="10"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-12">
+                        <label>Criteria 1</label>
+                        <input type="text" class="form-control" name="criteria1" id="id_criteria1">
+
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-12">
+                        <label>Criteria 2</label>
+                        <input type="text" class="form-control" name="criteria2" id="id_criteria2">
+
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-12">
+                        <label>Criteria 3</label>
+                        <input type="text" class="form-control" name="criteria3" id="id_criteria3">
+
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-12">
+                        <label>Criteria 4</label>
+                        <input type="text" class="form-control" name="criteria4" id="id_criteria4">
+
+                    </div>
+                </div>
+
+
+                <div class="col-sm-12">
+                    {% if not objectToUpdate.id %}
+                    <button formaction="/neoadmin/saveObject/{{objectType}}/" class="btn btn-primary btn-user" type="submit">Save</button> {% else %}
+                    <button formaction="/neoadmin/updateObject/{{objectType}}/{{objectToUpdate.id}}/" class="btn btn-primary btn-user" type="submit">Update</button> {% endif %}
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+{% endblock %} {% block script_code %} {% include "neoadmin/script_code.html" %} {% endblock %} {% block script_editor %} {% include "neoadmin/script_editor.html" %} {% endblock %}

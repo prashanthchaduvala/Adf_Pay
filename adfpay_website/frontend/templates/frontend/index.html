@@ -1,0 +1,240 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+{% block content %}
+<div class="main-banner-area myBanner bg-two">
+   <div class="d-table">
+      <div class="d-table-cell">
+         <div class="container-fluid">
+            <div class="main-banner-content">
+               <!-- <span>ADFPAY</span> -->
+               <h1>AI Powered and interactive app to control financial life cycle
+                  One app for all financial needs in your own languages.</h1>
+                              <p>24 hours  Banking services at your doorstep, manage your business, grow your wealth in one app, get rid of multiple apps
+               </p>
+               <div class="get_started">
+                  {% if messages %} {% for message in messages %} {% if message.tags == 'warning'%}
+                  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                      {{ message }}
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                  </div>
+                  {% elif message.tags == 'error'%}
+                  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                      {{ message }}
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  {% elif message.tags == 'success'%}
+                  <div class="alert alert-success alert-dismissible fade show" role="alert">
+                      {{ message }}
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  {% endif %} {% endfor %} {% endif %}
+                 
+                  <form action="/add_country_code/" method="post">
+                     {% csrf_token %}
+                     <div class="form_in">
+                        <input type="text" placeholder="Country Code" value="+{{new_code}}" name="country_code">
+                        <input type="text" placeholder="Phone Number" name="phone" required>
+                        <button type="submit">Submit</button>
+                     </div>
+                  </form>
+                  <div class="deserve-btn">
+                     <a href="#!" class="default-btn" id="started_button">
+                        Get Started
+                        <span></span>
+                     </a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+<section class="app-tabs my__tab">
+   <div class="container-wrap ">
+      <div class="container">
+        
+         <div class="services">
+            <div class="heading">
+               <h3>Our Services</h3>
+            </div>
+            <div class="row">
+               <div class="col-lg-4">
+                  <div class="service_1">
+                     <i class="fa fa-user"></i>
+                     <h3>Employees</h3>
+                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim illum ut incidunt. Magni incidunt nihil voluptatum unde maxime veniam ea facere accusamus? Voluptatum modi, labore aspernatur ex, harum magnam quaerat omnis quos culpa quis eos iure ut a doloribus est.</p>
+                     <a href="/employees/">Read More</a>
+                  </div>
+               </div>
+               <div class="col-lg-4">
+                  <div class="service_1">
+                     <i class="fa fa-receipt"></i>
+                     <h3>Retailer</h3>
+                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim illum ut incidunt. Magni incidunt nihil voluptatum unde maxime veniam ea facere accusamus? Voluptatum modi, labore aspernatur ex, harum magnam quaerat omnis quos culpa quis eos iure ut a doloribus est.</p>
+                     <a href="/retailer/">Read More</a>
+                  </div>
+               </div>
+               <div class="col-lg-4">
+                  <div class="service_1">
+                     <i class="fa fa-briefcase"></i>
+                     <h3>Professional</h3>
+                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim illum ut incidunt. Magni incidunt nihil voluptatum unde maxime veniam ea facere accusamus? Voluptatum modi, labore aspernatur ex, harum magnam quaerat omnis quos culpa quis eos iure ut a doloribus est.</p>
+                     <a href="/profession/">Read More</a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+
+<section id="app_image_content">
+   <div class="container">
+      <div class="app-image-content-wrapper-one">
+         <div class="row align-items-center">
+            <div class="col-lg-5">
+               <div class="app-download-image mycircle"><img src="{% static "img/t6.png" %}" class="wow fadeInDown" alt=""></div>
+            </div>
+            <div class="col-lg-7">
+               <div class="image-content-three app-content-wrap pl-85">
+                  <div class="section-title wealth">
+                     <h2 class="title wow fadeInUp">Manage your business and complete financial life cycle </h2>
+                     <p class="wow fadeInUp" data-wow-delay="0.3s">
+                        You can manage your business, grow your business, manage your documents or password online
+                        You can also  maintain, control and monitor all data and information related to your wealth, bank balance, budgets, plan your retirement etc. and all other financial matters online in single app.
+                        Complete Access</p>
+                     <ul class="list-items list-icon-arrow wow fadeInUp" data-wow-delay="0.4s">
+                        <li>Available in 40 plus Language</li>
+                        <li>AI Powered  and Interactive Evie Robot</li>
+                        <li>Auto Setup</li>
+                        <li>Live 24*7 Support</li>
+                     </ul>
+                  </div>
+                  <a href="#" class="app-btn-two btn-light wow flipInX" data-wow-delay="0.5s">
+                     <img src="{% static "img/google-play.svg" %}"><span class="btn-text"><span class="text-top">Get on the</span> <span>Google play</span></span></a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+
+<section class="brand-logo-ab my_partner">
+  <div class="section-small text-center">
+     <h2 class="title wow pixFadeUp">Our Business Partners</h2>
+  </div>
+  <div class="container">
+     <div class="swiper-container">
+      <div class="swiper-wrapper">
+        {% for x in partners_list %}
+          <div class="swiper-slide">
+            <div class="brand-logo"><img class="img-responsive" src="{{x}}" alt="brand"></div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  
+</section>
+
+   <section class="company-area company_overview">
+      <div class="container-fluid">
+         <div class="row">
+            <div class="col-lg-7">
+               <div class="company-image">
+                  <img src="assets/img/company.jpg" alt="image">
+               </div>
+            </div>
+            <div class="col-lg-5">
+               <div class="company-content">
+                  <h3>Our Company Values- Go Global, Act Local </h3>
+                  <div class="company-text">
+                     <div class="icon">
+                        <i class="flaticon-idea"></i>
+                     </div>
+                     <h4>Innovative</h4>
+                     <p>ADFPAY is AI Powered next generation complete financial life cycle serving platform, which helps users to interact in their own language.  Availability of app in 40plus languages for global presence makes everyone comfortable to use the platform</p>
+                  </div>
+                  <div class="company-text">
+                     <div class="icon">
+                        <i class="flaticon-talent"></i>
+                     </div>
+                     <h4>Talent</h4>
+                     <p>Talent makes the journey smooth and successful, company believes in best talent acquisition, training them and retaining them, Talent are the real asset of the business , company value their    philosophy </p>
+                  </div>
+                  <div class="company-text">
+                     <div class="icon">
+                        <i class="flaticon-key"></i>
+                     </div>
+                     <h4>Enabling</h4>
+                     <p>Availability of Services on 24*7 on real time basis enables our clients to enjoy the benefit of online and robotic platform. We value our customers most and respect their priorities</p>
+                  </div>
+                  <div class="company-text">
+                     <div class="icon">
+                        <i class="flaticon-responsibility"></i>
+                     </div>
+                     <h4>Commercially responsible</h4>
+                     <p>Making business user friendly and serving purpose of all stakeholders is priority and mission of our company. Company believes in growing value of all stakeholders</p>
+                     <!-- <a href="#!" class="btn-default modal_started" data-toggle="modal" data-target="#myModal">Get Started</a> -->
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+<section class="testimonials-six" data-bg-image="media/background/testimonial-bg.svg" style="background-image: url(../img/1.png);">
+   <div class="container">
+      <div class="section-title style-four text-center">
+         <h2 class="title wow pixFadeUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: i;">Testimonials</h2>
+         <h3 class="sub-title wow pixFadeUp" style="visibility: visible; animation-name: i;">What our customers are saying</h3>
+      </div>
+      <div class="swiper-container">
+       <div class="swiper-wrapper">
+         {% for x in testimonials_list %}
+            <div class="swiper-slide">
+              <div class="testimonial-six">
+                 <div class="testi-content-inner">
+                    <div class="testimonial-content">
+                       <p>{{x.3}}</p>
+                       <ul class="rating">
+                          <li><i class="fa fa-star"></i></li>
+                          <li><i class="fa fa-star"></i></li>
+                          <li><i class="fa fa-star"></i></li>
+                          <li><i class="fa fa-star"></i></li>
+                          <li><i class="fa fa-star"></i></li>
+                       </ul>
+                    </div>
+                    <div class="testimonial-bio">
+                       <div class="avatar"><img src="{{x.0}}" alt=""></div>
+                       <div class="bio-info">
+                          <h3 class="name">{{x.1}}</h3>
+                          <span class="job">{{x.2}}</span>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+            </div>
+          {% endfor %}
+       </div>
+     </div>
+   </div>
+</section>
+<script>
+   let started_button = document.getElementById('started_button');
+   let get_started_form = document.querySelector('.get_started form')
+   started_button.addEventListener('click', function(e){
+      get_started_form.style.display="block"
+      e.target.style.display="none"
+   })
+</script>
+{% endblock %}
+
+

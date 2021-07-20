@@ -1,0 +1,168 @@
+.myheader .input-group-btn {
+  background: #2f669d !important;
+}
+
+.myheader .logo-mini img {
+  width: 40px;
+  background: #fff;
+  border-radius: 50%;
+  padding: 2px;
+}
+
+.myheader .logo-lg span {
+  color: #fff !important;
+  font-size: 18px !important;
+  font-weight: bold;
+}
+
+.myheader .logo-lg span i {
+  font-style: normal;
+  color: #FF9933;
+}
+
+.myheader .logo {
+  background: #2f669d !important;
+}
+
+.myheader .navbar {
+  background: #fff !important;
+}
+
+.mysidebar {
+  background: #2f669d !important;
+}
+
+.mysidebar .sidebar-menu li a i {
+  border: none !important;
+  width: inherit !important;
+  font-size: 17px;
+}
+
+.mysidebar .sidebar {
+  height: 100vh !important;
+  overflow-y: scroll;
+  background: #2f669d;
+  /* width */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+
+.mysidebar .sidebar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.mysidebar .sidebar::-webkit-scrollbar-track {
+  background: #2f669d;
+}
+
+.mysidebar .sidebar::-webkit-scrollbar-thumb {
+  background: rgba(141, 191, 240, 0.24);
+}
+
+.mysidebar .sidebar::-webkit-scrollbar-thumb:hover {
+  background: #FF9933;
+}
+
+.mysidebar .sidebar .header {
+  background: #2a4e70;
+  padding: 20px 15px !important;
+  color: #fff !important;
+  font-weight: bold;
+}
+
+.mysidebar .sidebar li a {
+  background: #2f669d;
+  color: #fff !important;
+}
+
+.mysidebar .sidebar li a i {
+  color: #fff;
+  border-color: #fff !important;
+}
+
+.table [type=checkbox]:checked, .table [type=checkbox]:not(:checked) {
+  position: inherit !important;
+  opacity: inherit !important;
+}
+
+.table thead th {
+  font-weight: bold;
+}
+
+.table .process th {
+  font-weight: 600;
+  font-size: 16px;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.table .process:nth-child(2) th {
+  font-size: 14px;
+  font-weight: 600;
+  color: #444;
+  opacity: .7;
+}
+
+.table tbody tr td {
+  font-size: 14px;
+}
+
+.table tbody tr td:last-child i {
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+.table tbody tr td:last-child i.fa-trash {
+  color: #c00;
+}
+
+.table tbody tr td:last-child select {
+  width: 100% !important;
+  margin-top: 10px;
+}
+
+.table tbody tr td:last-child select:last-child {
+  margin-right: 0 !important;
+}
+
+.table tbody tr td:last-child a i {
+  border: none !important;
+  font-size: 14px;
+}
+
+.table tbody tr td:last-child span i {
+  border: none !important;
+  font-size: 14px;
+}
+
+.table tbody tr td select {
+  width: 60px;
+  height: 30px;
+  border: 1px solid #999;
+  outline: none !important;
+  border-radius: 3px;
+  color: #999;
+}
+
+.table tfoot th {
+  font-weight: bold;
+}
+
+.resolve_modal p {
+  font-size: 14px;
+  color: #999;
+  background: rgba(221, 221, 221, 0.459);
+  margin: 10px 20px;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.resolve_modal .status {
+  margin-right: 20px;
+}
+
+.resolve_modal .status button {
+  margin-left: 10px;
+}
+/*# sourceMappingURL=style.css.map */

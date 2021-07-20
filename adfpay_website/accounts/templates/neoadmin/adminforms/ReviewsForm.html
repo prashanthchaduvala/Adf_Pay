@@ -1,0 +1,38 @@
+{% extends 'neoadmin/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid">
+<div class="card shadow mb-4" id="">
+<div class="card-header py-3">
+<h6 class="m-0 font-weight-bold text-primary">Add Reviews Response</h6>
+</div>
+<div class="card-body">
+<form class="user" enctype="multipart/form-data" method="post">
+{% csrf_token %}
+
+<div class="form-group row">
+   <div class="col-sm-12">
+     <label>Company Response</label>
+      <textarea class="form-control" name="company_response" id="id_company_response" rows="10"></textarea>
+   </div>
+</div>
+
+<div class="col-sm-12">
+  {% if not objectToUpdate.id  %}
+    <button formaction="/neoadmin/saveObject/{{objectType}}/" class="btn btn-primary btn-user" type="submit">Submit</button>
+  {% else %}
+    <button formaction="/neoadmin/updateObject/{{objectType}}/{{objectToUpdate.id}}/" class="btn btn-primary btn-user" type="submit">Submit</button>
+  {% endif %}
+</div>
+</form>
+</div>
+</div>
+
+</div>
+{% endblock %}
+{% block script_code %}
+  {% include "neoadmin/script_code.html" %}
+{% endblock %}
+{% block script_editor %}
+  {% include "neoadmin/script_editor.html" %}
+{% endblock %}

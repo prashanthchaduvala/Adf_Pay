@@ -1,0 +1,292 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1">
+    <title>{{seo_title}}</title>
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="description" content="{{seo_description}}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'frontend/css/swiper.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/elegant-icons.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/simple-line-icons.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/app.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'assets/css/flaticon.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'assets/css/boxicons.min.css ' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.theme.default.min.css ' %}" type="text/css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800" rel="stylesheet"> {% block styles_code %} {% endblock %}
+</head>
+
+<body id="home-version-6" class="home-version-6" data-style="default">
+    <a href="#main_content" data-type="section-switch" class="return-to-top"><i class="fa fa-chevron-up"></i></a>
+    <div id="main_content">
+        <header class="site-header header-eight header_trans-fixed myHeader" data-top="992">
+            <div class="container-fluid">
+                <div class="header-inner">
+                    <div class="toggle-menu"><span class="bar"></span> <span class="bar"></span> <span class="bar"></span></div>
+                    <div class="site-mobile-logo">
+                        <a href="{% url 'frontend:index' %}" class="logo">
+                            <img src="{% static 'img/logo.png' %}" alt="" class="main-logo"> <img src="{% static 'img/logo.png' %}" alt="" class="sticky-logo">
+                        </a>
+                    </div>
+                    <nav class="site-nav mynav">
+                        <div class="close-menu"><i class="fa fa-times"></i></div>
+                        <div class="site-logo">
+                            <a href="{% url 'frontend:index' %}" class="logo">
+                                <img src="{% static 'img/logo.png' %}" alt="" class="main-logo"> <img src="{% static 'img/logo.png' %}" alt="" class="sticky-logo">
+                                <p>ADF<span>PAY</span></p>
+                            </a>
+                        </div>
+                        <div class="menu-wrapper" data-top="992">
+                            <ul class="site-main-menu">
+                                <li><a href="/about/">About Us</a></li>
+                                <!-- <li><a href="/services/">Services</a></li> -->
+                                <li class="dropdown service_menu megamenu">
+                                    <a class="" href="#" id="megamneu" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                              Services
+                              <!-- <i class="fa fa-chevron-down"></i> -->
+                            </a>
+                                    <div class="dropdown-menu my_service_dropdown" aria-labelledby="megamneu">
+                                        <!-- <a class="dropdown-item" href="/employees/">Employees</a>
+                              <a class="dropdown-item" href="#!">Retailer</a>
+                              <a class="dropdown-item" href="#!">Professional</a> -->
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-lg-4 col-xl-4">
+                                                    <h3><i class="fa fa-user"></i> <a href="/employees/"> Employees</a></h3>
+                                                    <ul class="list-unstyled">
+                                                        {% load menu_helper %} {% menu as p %} {{p|safe}}
+
+                                                    </ul>
+                                                </div>
+                                                <div class="col-lg-4 col-xl-4">
+                                                    <h3><i class="fa fa-store"></i> <a href="/retailer/"> Retailer </a></h3>
+                                                    <ul class="list-unstyled">
+                                                        {% load menu_helper3 %} {% menu as p %} {{p|safe}}
+                                                    </ul>
+                                                </div>
+                                                <div class="col-lg-4 col-xl-4">
+                                                    <h3><i class="fa fa-tty"></i> <a href="/profession/">Professional</a> </h3>
+                                                    <ul class="list-unstyled">
+                                                        {% load menu_helper2 %} {% menu as p %} {{p|safe}}
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="dropdown">
+                                    <a class="" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Our Team
+                              <!-- <i class="fa fa-chevron-down"></i> -->
+                            </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="/team-members/">Management Team</a>
+                                        <a class="dropdown-item" href="/advisory-board/">Advisory Board</a>
+                                    </div>
+                                </li>
+                                <li class="dropdown">
+                                    <a class="" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                 Join Community
+                              <!-- <i class="fa fa-chevron-down"></i> -->
+                              </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{% url 'frontend:sign_in' %}">Already Memeber</a>
+                                        <a class="dropdown-item" href="{% url 'frontend:sign_up' %}">Become Memeber</a>
+                                        <a class="dropdown-item" href="{% url 'frontend:sign_in_download' %}">Download App</a>
+                                    </div>
+                                </li>
+                                <li><a href="/news-event/">News & Media</a></li>
+                                <li><a href="/blog/">Blog</a></li>
+                                <li><a href="/contact/">Contact Us</a></li>
+                                <li><a href="/download_app/">Download App</a></li>
+                                <!-- <li><a href="{% url 'frontend:sign_in' %}" class="mybtn">login</a></li> -->
+                            </ul>
+                        </div>
+                        <!--    <div class="nav-right"><a href="singin.html" class="nav-btn">Sign In</a></div> -->
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        {% block content %} {% endblock %}
+
+        <footer id="footer" class="footer-app myFoooter">
+            <div class="container">
+                <div class="footer-inner">
+                    <div class="row wow fadeInUp">
+
+                        <!-- <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="widget footer-widget widget-about">
+                           <a href="{% url 'frontend:index' %}" class="footer-logo">
+                              <img src="{% static 'img/website-logo.png' %}" alt="" >
+                           </a>
+                           <p>ADFPAY Neo Bank is an online lending platform for easy & instant Business loan, Personal loan, Gold loan, Payday Loan, Group loan, Bill discounting etc.</p>
+                        </div>
+                     </div> -->
+
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="widget footer-widget">
+                                <h3 class="widget-title">Company</h3>
+                                <ul class="footer-menu">
+                                    <li><a href="/about/">About Us</a></li>
+                                    <li><a href="/team-members/">Management Team</a></li>
+                                    <li><a href="/advisory-board/">Advisory Board</a></li>
+                                    <li><a href="/career/">Career</a></li>
+                                    <li><a href="/news-event/">News & Events</a></li>
+                                    <li><a href="/blog/">Blogs</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="widget footer-widget">
+                                <h3 class="widget-title">Services</h3>
+                                <ul class="footer-menu">
+                                    <li><a href="/employees/">Employees</a></li>
+                                    <li><a href="/retailer/">Retailer</a></li>
+                                    <li><a href="/profession/">Professional</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="widget footer-widget">
+                                <h3 class="widget-title">Policies</h3>
+                                <ul class="footer-menu">
+                                    <li><a href="/adfpay/TermsAndConditions/">Terms & Conditions</a></li>
+                                    <li><a href="/adfpay/TermsOfUse/">Terms of Use</a></li>
+                                    <li><a href="/adfpay/FairPracticeCode/">Fair Practice Code</a></li>
+                                    <li><a href="/adfpay/PrivacyPolicy/">Privacy Policy</a></li>
+                                    <li><a href="/adfpay/Disclaimer/">Disclaimer</a></li>
+                                    <li><a href="/adfpay/RefundPolicy/">Refund Policy</a></li>
+                                    <li><a href="/adfpay/GrievanceAddressMechanism/">Grievance Address Mechanism</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="widget footer-widget">
+                                <h3 class="widget-title">Help</h3>
+                                <ul class="footer-menu">
+                                    <li><a href="/adfpay/Faq/">FAQ</a></li>
+                                    <li><a href="/adfpay/LifeAtAdfpay/">Life at ADFPAY</a></li>
+                                    <li><a href="/contact/">Contact Us</a></li>
+                                    <li><a href="#">Google Play</a></li>
+                                </ul>
+                            </div>
+                            <div class="widget footer-widget widget-about">
+                                <h4 class="footer-title">Be Social with Us</h4>
+                                <ul class="social-share-link">
+                                    <li><a href="#" class="share_facebook"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="#" class="share_twitter"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="#" class="share_linkedin"><i class="fab fa-linkedin-in"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="partner d-flex justify-content-center mx-md-n5">
+                    <a href="{% url 'frontend:become_partner' %}" class="btn btn-warning px-md-5">Partner With Us</a>
+                </div> <br>
+                <div class="site-info">
+                    <div class="copyright text-center">
+                        <p>All Rights Reserved 2021 <span>&copy;</span>
+                            <a href="{% url 'frontend:index' %}" target="_blank">Aditsh Fin Services Pvt. Ltd.</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- The Modal --
+         <div class="modal fade my_getstarted" id="myModal" data-backdrop="static">
+            <div class="modal-dialog modal-dialog-centered">
+               <div class="modal-content">
+               
+           
+               <div class="modal-header">
+                  <h4 class="modal-title">Get Started</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+               </div>
+               
+            
+               <div class="modal-body">
+                  <form action="">
+                     <div class="form-group">
+                        <div class="select1">
+                           <input type="text" placeholder="+91" value="+91">
+                           <input type="text" placeholder="Phone Number">
+                           <button type="button">Submit</button>
+                        </div>
+                     </div>
+                  </form>
+               </div>
+               
+               
+               </div>
+            </div>
+         </div>-->
+
+
+    </div>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="{% static 'js/jquery.appear.js' %}"></script>
+    <script src="{% static 'js/wow.min.js' %}"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+    <script src="{% static 'js/header.js' %}"></script>
+    <script src="{% static 'js/app.js' %}"></script>
+    <script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+   
+    
+    {% block script_code %} {% endblock %}
+    <script>
+        $(document).ready(function() {
+            var swiper = new Swiper('.swiper-container', {
+                loop: true,
+                nextButton: '.swiper-button-next',
+                prevButton: '.swiper-button-prev',
+                slidesPerView: 4,
+                paginationClickable: true,
+                spaceBetween: 20,
+                autoplay: {
+                    delay: 2500,
+                    disableOnInteraction: false,
+                },
+                breakpoints: {
+                    1920: {
+                        slidesPerView: 4,
+                        spaceBetween: 30
+                    },
+                    1028: {
+                        slidesPerView: 3,
+                        spaceBetween: 30
+                    },
+                    480: {
+                        slidesPerView: 1,
+                        spaceBetween: 10
+                    }
+                }
+            });
+        });
+    </script>
+
+    <script>
+    </script>
+</body>
+
+</html>

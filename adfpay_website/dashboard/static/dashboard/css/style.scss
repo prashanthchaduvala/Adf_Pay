@@ -1,0 +1,210 @@
+// ************************** Variables ****************************
+$orangeColor:#FF9933;
+$blueColor:#2f669d;
+
+// *************************** Header start ************************
+.myheader{
+    .input-group-btn{
+        background: $blueColor !important;
+    }
+    .logo-mini{
+        img{
+            width: 40px;
+            background: #fff;
+            border-radius: 50%;
+            padding: 2px;
+        }
+    }
+   .logo-lg{
+       span{
+           color: #fff !important;
+           font-size: 18px !important;
+           font-weight: bold;
+           i{
+               font-style: normal;
+               color: $orangeColor;
+           }
+       }
+   }
+//    navbar
+.logo{
+    background: $blueColor !important;
+
+}
+.navbar{
+    background: #fff !important;
+}
+}
+
+// ************************** Header end ***************************
+
+
+
+// ************************* Sidebar start *************************
+.mysidebar{
+        background: $blueColor !important;
+        .sidebar-menu li a{
+            
+            i{
+                border: none !important;
+                width: inherit !important;
+                font-size: 17px;
+            }
+        }
+    .sidebar{
+        height: 100vh !important;
+        overflow-y: scroll;
+        background: $blueColor;
+        /* width */
+        &::-webkit-scrollbar {
+        width: 4px;
+        }
+
+        /* Track */
+        &::-webkit-scrollbar-track {
+        background: $blueColor; 
+        }
+        
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+        background: rgba(141, 191, 240, 0.24); 
+        //   border-radius: 50px;
+        }
+
+        /* Handle on hover */
+        &::-webkit-scrollbar-thumb:hover {
+        background: $orangeColor; 
+        }
+        .header {
+            background: #2a4e70;
+            padding: 20px 15px !important;
+            color: #fff !important;
+            font-weight: bold;
+        }
+
+// li a
+li{
+    a{
+        background: $blueColor;
+        color: #fff !important;
+        i{
+            color: #fff;
+            border-color: #fff !important;
+        }
+    }
+}
+}
+}
+
+// ****************** Table start ********************
+.table{
+    [type=checkbox]:checked, [type=checkbox]:not(:checked){
+        position: inherit !important;
+        opacity: inherit !important;
+    }
+    thead{
+        tr{
+            // background: rgba(204, 204, 204, 0.404);
+        }
+        th{
+            font-weight: bold;
+            // text-transform: capitalize;
+        }
+    }
+    .process{
+       
+        th{
+            &:first-child{
+                // text-align: left;
+            }
+            font-weight: 600;
+            font-size: 16px;
+            text-align: center;
+            text-transform: capitalize;
+        }
+         &:nth-child(2){
+            th{
+            font-size: 14px;
+            font-weight: 600;
+            color: #444;
+            opacity: .7;
+            }
+        }
+    }
+
+    tbody{
+        tr{
+            td{
+                font-size: 14px;
+                // text-align: center;
+                &:last-child{
+                    
+                   i{
+                    font-size: 18px;
+                    margin-right: 10px;
+                    &.fa-trash{
+                        color: #c00;
+                    }
+                    
+                }
+                // display: flex;
+                select{
+                        width: 100% !important;
+                        margin-top: 10px;
+                        &:last-child{
+                            margin-right: 0 !important;
+                        }
+                    }
+
+
+                a{
+                
+                    i{
+                        border: none !important;
+                        font-size: 14px;
+                    }
+                }
+                span{
+                    i{
+                        border: none !important;
+                        font-size: 14px;
+                    }
+                }
+                }
+
+                select{
+                    width: 60px;
+                    height: 30px;
+                    border: 1px solid #999;
+                    outline: none !important;
+                    border-radius: 3px;
+                    color: #999;
+                }
+                
+            }
+        }
+    }
+    tfoot{
+        th{
+            font-weight: bold;
+
+        }
+    }
+}
+
+.resolve_modal{
+    p{
+        font-size: 14px;
+        color: #999;
+        background: rgba(221, 221, 221, 0.459);
+        margin: 10px 20px;
+        border-radius: 4px;
+        padding: 10px;
+    }
+    .status{
+        margin-right: 20px;
+        button{
+            margin-left: 10px;
+        }
+    }
+}

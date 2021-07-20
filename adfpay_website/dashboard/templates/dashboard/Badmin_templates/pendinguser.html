@@ -1,0 +1,44 @@
+<html>
+<body>
+{% include 'Badmin_templates/all pen.html' %}
+<table align="center" border="2">
+    <tr>
+        <th>IDNO</th>
+        <th>NAME</th>
+        <th>EMAIL</th>
+        <th>CONTACT NO</th>
+        <th>DOJ</th>
+        <th>STATUS</th>
+        <th>approve</th>
+        <th>Decline</th>
+
+    </tr>
+
+    {% for x in data %}
+        <tr><th>{{x.idno }}</th>
+        <th>{{ x.name }}</th>
+        <th>{{ x.email }}</th>
+        <th>{{ x.phone }}</th>
+        <th>{{ x.date }}</th>
+        <th>{{ x.status }}</th>
+
+
+            <th>
+            <form action="{% url 'approve' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="a1" value="{{ x.id }}">
+            <button type="submit">Yes</button>
+                </form></th>
+
+        <form action="{% url 'decline' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="a2" value="{{ x.id }}">
+        <th><button type="submit">Yes</button>
+        </form></th>
+
+        </tr>
+    {% endfor %}
+
+</table>
+</body>
+</html>

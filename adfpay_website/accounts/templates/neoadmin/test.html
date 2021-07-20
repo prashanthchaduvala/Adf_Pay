@@ -1,0 +1,20 @@
+
+<form action = "" method = "POST" enctype='multipart/form-data'>
+    {% csrf_token %}
+    <label for="your_name">Your name: </label>
+    <input id="your_name" type="text" name="your_name">
+    <label for="id_fruits">Select: </label>
+    <select id="id_fruits" name="fruits">
+      <option value="apple">Apple</option>
+      <option value="banana">Banana</option>
+      <option value="guava">Guava</option>
+      <option value="pineapple">Pineapple</option>
+    </select>
+    <label for="id_file">file name: </label>
+    <input id="id_file" type="file" name="file" value="">
+    <input type="date" class="form-control " name="timeline" id="id_timeline">
+    <input type="submit" value="OK">
+</form>
+
+<script>
+</script>

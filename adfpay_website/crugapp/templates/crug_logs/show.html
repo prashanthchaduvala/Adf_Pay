@@ -1,0 +1,122 @@
+{% extends "index.html" %}
+
+{% block title %}Bank Records{% endblock title %}
+
+{% block content %}
+ <div class="content-wrapper">
+	  <div class="container">
+		<!-- Content Header (Page header) -->
+		<div class="content-header">
+			<div class="d-flex align-items-center">
+				<div class="mr-auto">
+					<!-- <h3 class="page-title">Edit</h3> -->
+					<div class="d-inline-block align-items-center">
+						<nav>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="/crugapp/cugdashboard/"><i class="mdi mdi-home-outline"></i></a></li>
+								<li class="breadcrumb-item" aria-current="page">Back</li>
+								<!-- <li class="breadcrumb-item active" aria-current="page">Edit</li> -->
+							</ol>
+						</nav>
+					</div>
+				</div>
+				<div class="right-title">
+					<span>Bank</span>
+				</div>
+			</div>
+		</div>
+
+		<!-- Main content -->
+		<section class="content">
+
+			<div class="row">
+			  <div class="col-12">
+				<div class="box">
+					<div class="box-header with-border d-flex justify-content-between">
+					  <h4 class="box-title">Bank Details</h4>
+                      <a href="{% url 'addnew'%}" class="btn btn-primary">Add Bank</a>
+					</div>
+				  <div class="box-body">
+					<form action="#">
+						<div class="form-body">
+							<table id="example" class="table table-bordered" style="width:100%">
+							<thead>
+								<tr>
+									<th>SNO.</th>
+<!--									<th>Id</th>-->
+									<th>A/C Holder Name</th>
+									<th>Bank Name</th>
+									<th>A/C NO.</th>
+									<th>IFSC Code</th>
+									<th>Account Type</th>
+<!--									<th>photo</th>-->
+
+								</tr>
+							</thead>
+							<tbody>
+
+    <tr>
+<!--     <td><input type="checkbox" class="checkthis" /></td>-->
+     <td>{{ bank.id }}</td>
+     <td>{{ bank.account_holder_name }}</td>
+     <td>{{ bank.account_number }}</td>
+     <td>{{ bank.bank_name }}</td>
+      <td>{{ bank.ifsc_code }}</td>
+      <td>{{ bank.account_type }}</td>
+				<td>
+			<input type="checkbox" onchange="changeAction({{ bank.id }})" record-id="{{ bank.id }}" {{value}} data-toggle="toggle" data-on="Active" data-off="Inactive" data-onstyle="success" data-offstyle="danger" id="action{{ bank.id }}">
+                </td>
+<!--		<td><img width="50" height="60" src = "{{ MEDIA_URL }}{{ bank.photo }}" alt = "Test Image" /></td>-->
+<!--		<td>{{bank.Edit}}</td>-->
+
+<!--     <td><p data-placement="top" data-toggle="tooltip" title="Edit"><a href="{% url 'edit' bank.id %}" class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></a></p></td>-->
+<!--     <td><p data-placement="top" data-toggle="tooltip" title="Delete"><a href="{% url 'delete' bank.id %}" class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></a></p></td>-->
+    </tr>
+
+							</tbody>
+    </table>
+						</div>
+					</form>
+				  </div>
+				</div>
+			  </div>
+		  </div>
+
+		</section>
+	  </div>
+  </div></div>
+    </div>
+{%  endblock %}
+
+{% block scripts %}
+
+
+<script>
+  $('#dataTable').DataTable( {
+    responsive: true
+  });
+  function changeAction(id) {
+    console.log(id);
+    console.log('changed');
+    var isChecked = document.getElementById("action" + id).checked;
+    console.log(isChecked);
+    var switchLabel = document.getElementById("action" + id);
+    var request = new XMLHttpRequest();
+    if (isChecked) {
+      var selectedData = switchLabel.getAttribute('data-on');
+      var recordId = switchLabel.getAttribute('record-id');
+      var url = '/crugapp/change_action/{{ objectType }}/' + recordId + '/?action=Active'
+      request.open('GET', url, true);
+      request.send()
+    }
+    else {
+      var selectedData = switchLabel.getAttribute('data-off');
+      var recordId = switchLabel.getAttribute('record-id');
+      var url = '/crugapp/change_action/{{ objectType }}/' + recordId + '/?action=Inactive'
+      request.open('GET', url, true);
+      request.send()
+    }
+  }
+</script>
+{% endblock %}
+

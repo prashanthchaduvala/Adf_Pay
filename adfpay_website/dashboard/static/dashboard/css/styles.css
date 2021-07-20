@@ -1,0 +1,406 @@
+.mynav a:hover {
+  color: #ff9933 !important;
+}
+
+.mynav a:hover::after {
+  background: #ff9933 !important;
+}
+
+.mynav .mybtn {
+  background: #3039cc;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  border-radius: 10px;
+  color: #f2f2f2 !important;
+}
+
+.mynav .mybtn:hover {
+  color: #f2f2f2 !important;
+}
+
+.mynav .mybtn:hover::after {
+  background: none !important;
+}
+
+.mynav .logo {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center !important;
+      -ms-flex-align: center !important;
+          align-items: center !important;
+}
+
+.mynav .logo img {
+  width: 70px !important;
+}
+
+.mynav .logo P {
+  color: #3039cc;
+  font-size: 22px;
+  font-weight: bold;
+  position: relative;
+  left: 15px;
+}
+
+.mynav .logo P span {
+  color: #ff9933;
+}
+
+.mynav li {
+  position: relative !important;
+}
+
+.myBanner span {
+  color: #3039cc !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  position: relative;
+  top: 10px;
+}
+
+.myBanner h1 {
+  font-size: 55px;
+  margin-top: 0 !important;
+  color: #ff9933 !important;
+}
+
+.myBanner p {
+  color: #999 !important;
+}
+
+.app-tabs .bg-color-green {
+  background: #f2f2f2;
+}
+
+.tabs-three #pix-tabs-nav li a {
+  background: #72727a3b;
+  font-weight: 700;
+}
+
+.tabs-three #pix-tabs-nav li.active a {
+  background: #ff9933;
+  color: #f2f2f2;
+}
+
+.section-title.style-five .title {
+  text-transform: uppercase;
+  font-size: 32px;
+}
+
+.mycircle {
+  background: #ff9933;
+}
+
+.myBanner .main-banner-content span {
+  color: #3039cc;
+}
+
+.wealth h2 {
+  text-align: left;
+}
+
+.wealth .list-items {
+  text-align: left;
+}
+
+.wealth p {
+  text-align: left;
+}
+
+.myHeader {
+  background: #fff;
+}
+
+.myHeader .container-fluid {
+  padding: 0px 50px !important;
+}
+
+.my__tab {
+  margin-top: 150px;
+  background: #f2f2f2;
+}
+
+.company-content .company-text .icon i {
+  color: #ff9933 !important;
+}
+
+#footer.footer-app .widget.footer-widget .widget-title {
+  color: #ff9933 !important;
+}
+
+#footer.footer-app .widget.widget-about p {
+  color: #f2f2f2 !important;
+}
+
+#footer.footer-app .site-info p a {
+  color: #ff9933;
+}
+
+.page-banner {
+  background: #ff9933;
+}
+
+.animate-ball .ball {
+  background: #3039cc;
+}
+
+.neo-icon-box-wrapper:hover {
+  background: #ff9933;
+}
+
+.pricing-table:hover .price-title {
+  color: #ff9933 !important;
+}
+
+#footer.footer-app .footer-menu li a:hover {
+  color: #ff9933;
+}
+
+.myBlog .image {
+  position: relative;
+  height: inherit;
+  width: 100%;
+}
+
+.myBlog .default-btn {
+  background: #ff9933;
+}
+
+.myBlog .pagination-area .page-numbers.current,
+.myBlog .pagination-area .page-numbers:hover,
+.myBlog .pagination-area .page-numbers:focus {
+  background: #ff9933;
+}
+
+.myBlog .widget-area .widget_search form button {
+  background: #ff9933;
+}
+
+.myBlog .widget-area .widget .widget-title {
+  border-bottom-color: #ff9933;
+}
+
+.myBlog .widget-area .widget_categories ul li a:hover {
+  color: #ff9933;
+}
+
+.myBlog a:hover {
+  color: #ff9933 !important;
+}
+
+.myBlog .widget-area .tagcloud a:hover,
+.myBlog .widget-area .tagcloud a:focus {
+  background: #ff9933;
+  border-color: #ff9933;
+}
+
+.myBlog .single-blog .post-meta li i {
+  color: #ff9933 !important;
+}
+
+.testimonial-six .testimonial-content {
+  background: #f2f2f2;
+}
+
+.testimonial-six .testimonial-content p {
+  color: #222;
+}
+
+.testimonial-six .testimonial-content::after {
+  border-top: 15px solid #f2f2f2;
+}
+
+.myService .section-title .title {
+  color: #ff9933;
+}
+
+.myFoooter .footer-inner {
+  padding-top: 70px !important;
+}
+
+.mydetails .image {
+  width: 100%;
+  position: relative;
+  height: auto;
+}
+
+.mydetails blockquote i,
+.mydetails .blockquote i {
+  background-color: #ff9933;
+}
+
+.mydetails .blog-details-desc .post-meta li i {
+  color: #ff9933;
+}
+
+.mydetails .comment-reply .form-submit input {
+  background: #ff9933;
+}
+
+.signup-form form button {
+  background: #ff9933;
+}
+
+.signup-form form span a {
+  color: #ff9933 !important;
+}
+
+.default-btn {
+  background: #ff9933 !important;
+}
+
+.sign-in-form form span a {
+  color: #ff9933 !important;
+}
+
+.btn-user {
+  background: #3039cc;
+  border-color: #3039cc;
+}
+
+.mycard .card-body {
+  padding: 1.25rem;
+  position: relative;
+}
+
+.mycard .card-body p {
+  color: #999 !important;
+  font-size: 15px;
+  text-align: justify;
+}
+
+.mycard .user-picture img {
+  height: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100px;
+  top: -50px !important;
+}
+
+.myblog .blog-content {
+  padding: 20px 0 30px 0;
+}
+
+.myblog .blog-content .head {
+  border-bottom: 1px solid #ccc;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 10px 0;
+}
+
+.myblog .blog-content .head h3 {
+  margin: 0;
+}
+
+.myblog .blog-content .head h5 {
+  color: #999;
+  font-size: 14px;
+}
+
+.myblog .feature-image img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 500px;
+}
+
+.mybtnlogin {
+  text-align: center;
+}
+
+.sign_up_in h3 {
+  font-size: 24px !important;
+  color: #ff9933 !important;
+}
+
+.sign_up_in input::-webkit-input-placeholder {
+  color: #999 !important;
+}
+
+.sign_up_in input:-ms-input-placeholder {
+  color: #999 !important;
+}
+
+.sign_up_in input::-ms-input-placeholder {
+  color: #999 !important;
+}
+
+.sign_up_in input::placeholder {
+  color: #999 !important;
+}
+
+.sign_up_in label {
+  color: #666;
+  font-size: 14px;
+}
+
+.sign_up_in button {
+  background: #3039cc !important;
+}
+
+.animate-ball {
+  display: none !important;
+}
+
+.sign_up_in {
+  max-width: 900px !important;
+}
+
+.comment_list {
+  margin: 30px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  border-bottom: 1px solid #f2f2f2;
+  padding-bottom: 25px;
+}
+
+.comment_list .img_part {
+  margin-right: 15px;
+  width: 15%;
+}
+
+.comment_list .img_part img {
+  width: 100%;
+}
+
+.comment_list .content_part {
+  padding-bottom: 15px;
+  width: 85%;
+}
+
+.comment_list .content_part h3 {
+  font-size: 18px;
+  text-transform: capitalize;
+  margin: 0;
+}
+
+.comment_list .content_part span {
+  font-size: 13px;
+  color: #ff9933;
+}
+
+.comment_list .content_part p {
+  color: #999;
+  font-size: 15px;
+  margin-top: 5px;
+}
+/*# sourceMappingURL=styles.css.map */

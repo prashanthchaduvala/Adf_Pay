@@ -1,0 +1,355 @@
+{% load static %}
+{% include 'dashboard/bases.html'%}
+{% include 'dashboard/sidebars.html' %}
+
+
+{% block title %}Bank Records{% endblock title %}
+
+{% block content %}
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <!-- <link rel="icon" href="http://ultimatepro-admin-templates.multipurposethemes.com/images/favicon.ico"> -->
+
+    <title>Services</title>
+
+    <!-- Bootstrap 4.0-->
+    <link
+      rel="stylesheet"
+      href="assets/vendor_components/bootstrap/dist/css/bootstrap.css"
+    />
+
+    <!-- c3 CSS -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../assets/vendor_components/c3/c3.min.css"
+    />
+
+    <!-- weather weather -->
+    <link
+      rel="stylesheet"
+      href="assets/vendor_components/weather-icons/weather-icons.css"
+    />
+
+    <!-- daterange picker -->
+    <link
+      rel="stylesheet"
+      href="assets/vendor_components/bootstrap-daterangepicker/daterangepicker.css"
+    />
+
+    <!-- Morris charts -->
+    <link
+      rel="stylesheet"
+      href="assets/vendor_components/morris.js/morris.css"
+    />
+
+    <!-- Bootstrap extend-->
+    <link rel="stylesheet" href="css/bootstrap-extend.css" />
+
+    <!-- theme style -->
+    <link rel="stylesheet" href="css/master_style.css" />
+
+    <!-- UltimatePro Admin skins -->
+    <link rel="stylesheet" href="css/skins/_all-skins.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+
+    <![endif]-->
+  </head>
+  <body class="hold-transition skin-light light-sidebar sidebar-mini">
+    <!-- Site wrapper -->
+    <div class="wrapper">
+      <div w3-include-html="header.html"></div>
+
+      <!-- Left side column. contains the logo and sidebar -->
+      <div w3-include-html="sidebar.html"></div>
+
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <div class="container">
+          <!-- Content Header (Page header) -->
+          <div class="content-header">
+            <div class="d-flex align-items-center">
+              <div class="mr-auto">
+                <!-- <h3 class="page-title">Edit</h3> -->
+                <div class="d-inline-block align-items-center">
+                  <nav>
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item">
+                        <a href="#"><i class="mdi mdi-home-outline"></i></a>
+                      </li>
+                      <!-- <li class="breadcrumb-item" aria-current="page">e-Commerce</li> -->
+                      <li class="breadcrumb-item active" aria-current="page">
+                        Back
+                      </li>
+                    </ol>
+                  </nav>
+                </div>
+              </div>
+              <div class="right-title">
+                <span> Referral Partner</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Main content -->
+          <section class="content">
+            <div class="row">
+              <div class="col-12">
+                <div class="box">
+                  <div class="box-header with-border">
+                    <h4 class="box-title">Partner Payout Structure</h4>
+                  </div>
+   <form action="/dashboard/partner_save/" method="post" class="tab-wizard wizard-circle" enctype="multipart/form-data" id="formid" >
+                                                    {% csrf_token %}
+
+
+
+                  <div class="box-body">
+                    <form action="#">
+                      <div class="form-body">
+                        <div class="row">
+                         <div class="col-md-4">
+                            <div class="form-group">
+                              <label class="font-weight-700 font-size-16"
+                                >Country</label
+                              >
+                              <input type="text" class="form-control"  name="country"/>
+                            </div>
+                          </div>
+                          <!--/span--> <div class="col-md-4">
+                            <div class="form-group">
+                              <label class="font-weight-700 font-size-16"
+                                >State</label
+                              >
+                              <input type="text" class="form-control"  name="state"/>
+                            </div>
+                          </div>
+
+                           <div class="col-md-4">
+                            <div class="form-group">
+                              <label class="font-weight-700 font-size-16"
+                                >City</label
+                              >
+                              <input type="text" class="form-control" required name="city"/>
+                            </div>
+                          </div>
+
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label class="font-weight-700 font-size-16"
+                                >Name</label
+                              >
+                              <input type="text" class="form-control" required name="name"/>
+                            </div>
+                          </div>
+
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label class="font-weight-700 font-size-16"
+                                >Mobile</label
+                              >
+                              <input type="number" class="form-control" required name="mobile"/>
+                            </div>
+                          </div>
+
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label class="font-weight-700 font-size-16"
+                                >Email</label
+                              >
+                              <input type="email" class="form-control" required name="email"/>
+                            </div>
+                          </div>
+
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <!-- <label for="date1">Valid To :</label> -->
+                              <label class="font-weight-700 font-size-16"
+                                >Active Since</label
+                              >
+                              <input
+                                type="date"
+                                class="form-control"
+                                id="datepicker3" name="active"
+                              />
+                            </div>
+                          </div>
+
+                           <div class="col-md-4">
+                            <div class="form-group">
+                              <label class="font-weight-700 font-size-16"
+                                >User Range</label
+                              >
+                              <input type="text" class="form-control" required name="range"/>
+                            </div>
+                          </div>
+
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label class="font-weight-700 font-size-16"
+                                >Payout Rate</label
+                              >
+                              <input type="text" class="form-control" required name="rate" />
+                            </div>
+                          </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                              <label class="font-weight-700 font-size-16"
+                                >Currency</label
+                              >
+                              <input type="text" class="form-control" required name="currency"/>
+                            </div>
+                          </div>
+
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <!-- <label for="date1">Valid To :</label> -->
+                              <label class="font-weight-700 font-size-16"
+                                >Start Date</label
+                              >
+                              <input
+                                type="date"
+                                class="form-control"
+                                id="datepicker" name="startdate"
+                              />
+                            </div>
+                          </div>
+
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label class="font-weight-700 font-size-16"
+                                >Valid Till</label
+                              >
+                              <input
+                                type="date"
+                                class="form-control"
+                                id="datepicker1" name="valid"
+                              />
+                            </div>
+                          </div>
+
+                          <!--/span-->
+                        </div>
+                        <!--/row-->
+                        <!--/row-->
+                      </div>
+                      <div class="form-actions mt-10 text-right">
+                        <button type="submit" class="btn btn-lg btn-primary">
+                          <i class="fa fa-check"></i> Submit
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- /.content -->
+        </div>
+      </div>
+      <!-- /.content-wrapper -->
+
+      <!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
+      <div class="control-sidebar-bg"></div>
+    </div>
+    <!-- ./wrapper -->
+
+    <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+    <!-- jQuery 3 -->
+    <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
+
+    <!-- jQuery UI 1.11.4 -->
+
+    <script src="assets/vendor_components/jquery-3.3.1/jquery-3.3.1.js"></script>
+    <script src="assets/vendor_components/jquery-ui/jquery-ui.js"></script>
+    <!-- popper -->
+    <script src="assets/vendor_components/popper/dist/popper.min.js"></script>
+
+    <!-- Bootstrap 4.0-->
+    <script src="assets/vendor_components/bootstrap/dist/js/bootstrap.js"></script>
+
+    <!-- date-range-picker -->
+    <script src="assets/vendor_components/moment/min/moment.min.js"></script>
+    <script src="assets/vendor_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+    <!-- Slimscroll -->
+    <script src="assets/vendor_components/jquery-slimscroll/jquery.slimscroll.js"></script>
+
+    <!-- FastClick -->
+    <script src="assets/vendor_components/fastclick/lib/fastclick.js"></script>
+
+    <!-- Sparkline -->
+    <script src="assets/vendor_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+
+    <!-- Morris.js charts -->
+    <script src="assets/vendor_components/raphael/raphael.min.js"></script>
+    <script src="assets/vendor_components/morris.js/morris.min.js"></script>
+
+    <!-- peity -->
+    <script src="assets/vendor_components/jquery.peity/jquery.peity.js"></script>
+
+    <!-- weather for demo purposes -->
+    <script src="assets/vendor_plugins/weather-icons/WeatherIcon.js"></script>
+    <script src="js/pages/weather.js"></script>
+
+    <!-- Chart -->
+    <script src="../assets/vendor_components/chart.js-master/Chart.min.js"></script>
+
+    <!-- d3 -->
+    <script src="assets/vendor_components/d3/d3.min.js"></script>
+    <script src="assets/vendor_components/d3/d3_tooltip.js"></script>
+
+    <!-- eChart Plugins -->
+    <script src="assets/vendor_components/echarts/dist/echarts-en.min.js"></script>
+
+    <!-- UltimatePro Admin App -->
+    <script src="js/template.js"></script>
+
+    <!-- UltimatePro Admin dashboard demo (This is only for demo purposes) -->
+    <script src="js/pages/dashboard.js"></script>
+    <script src="js/pages/chart-int.js"></script>
+
+    <!-- UltimatePro Admin for demo purposes -->
+    <script src="js/demo.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/appp.js"></script>
+
+    <script>
+      $(function () {
+        $("#datepicker").datepicker();
+      });
+      $(function () {
+        $("#datepicker1").datepicker();
+      });
+      $(function () {
+        $("#datepicker3").datepicker();
+      });
+    </script>
+  </body>
+</html>
+
+
+{%  endblock %}
+
+
+{% block scripts %}
+
+{% endblock %}
+
+
+
+
+
+
+

@@ -1,0 +1,339 @@
+// ********************** Variables ******************
+$dashboardLightBlack: #303641;
+$dashboardBlack: #2b303a;
+$greenColor: #a9df68;
+// $dashboardBlue: #2c3e50;
+$dashboardBlue: #2f669d;
+$black: #222;
+$white: #f2f2f2;
+$blueColor: #3039cc;
+// $orangeColor: #e8b51b;
+$orangeColor: #be9519;
+// $orangeColor: #00c0ef;
+$paraFont: 14px;
+$headingFont: 32px;
+$menuFont: 16px;
+
+#wrapper #content-wrapper {
+  //   overflow: inherit !important;
+}
+
+// ************* sidebar
+.mySidebar {
+  height: 100vh !important;
+  // overflow: inherit !important;
+  background: $dashboardBlue;
+  // background: $blueColor;
+  // background: $dashboardLightBlack;
+  .bcgreen {
+    // background: #1abc9c !important;
+    background: $orangeColor;
+  }
+  .nav-item {
+    border-bottom: 1px solid rgba(69, 74, 84, 0.7) !important;
+    h5 {
+      text-transform: uppercase;
+      font-size: 14px !important;
+      margin: 10px 5px 5px;
+      // color: #1abc9c;
+      color: $orangeColor;
+    }
+    &.bcgreen {
+      background: #1abc9c !important;
+      i {
+        color: $white !important;
+        opacity: 1;
+      }
+    }
+    span {
+      // color: $white;
+      color: #d7d7d7;
+      font-size: 15px !important;
+    }
+    // padding: 0 !important;
+    &.active {
+      // background: $orangeColor;
+      // background: #3e5871;
+      background: #2a4e70;
+      color: $white !important;
+      span {
+        color: $white !important;
+      }
+    }
+    a {
+      font-size: 14px !important;
+      //   i {
+      //     color: $white !important;
+      //   }
+      span {
+        font-size: 14px !important;
+      }
+    }
+  }
+
+  //adf
+  .adf {
+    margin: 0 !important;
+    p {
+      margin: 0;
+    }
+    span {
+      color: $white !important;
+      i {
+        font-style: normal;
+        color: $orangeColor;
+      }
+    }
+  } //adf
+
+  //collapseTwo
+  .collapse {
+    margin: 0 !important;
+    // padding: 0px 1rem;
+    transition: none !important;
+    .collapse-inner {
+      margin: 0 !important;
+      padding: 0 !important;
+      li {
+        // background: $orangeColor;
+        background: $dashboardBlue;
+        border-bottom: 1px solid rgba(69, 74, 84, 0.7);
+        padding: 4px 1rem !important;
+        transition: 0 !important;
+        a {
+          font-size: 13px !important;
+          span {
+            color: $white !important;
+          }
+        }
+        &:last-child {
+          border: none;
+        }
+        a {
+          color: $white !important;
+          //   color: $white;
+          font-size: 14px;
+        }
+      }
+    }
+  } // collapseTwo end
+}
+
+// **************dashboard-manual start***************
+.dashboard-manual {
+  margin-bottom: 30px;
+  .in_dashboard {
+    background: $orangeColor;
+    // background: #f56954;
+    padding: 25px 10px;
+    border-radius: 5px;
+    position: relative;
+    z-index: 999;
+    overflow: hidden;
+    // &.two {
+    //   background: #00a65a;
+    // }
+    // &.three {
+    //   background: #00c0ef;
+    // }
+    // &.four {
+    //   background: #0073b7;
+    // }
+    h1 {
+      color: $white;
+      font-size: 32px;
+      margin-bottom: 0px;
+      margin-top: 0;
+    }
+    h3 {
+      color: $white;
+      font-size: 16px;
+      text-transform: capitalize;
+      margin: 0;
+    }
+    p {
+      color: $white;
+      text-transform: capitalize;
+      font-size: 13px;
+      margin-top: 2px;
+      margin-bottom: 0;
+    }
+    i {
+      position: absolute;
+      font-size: 100px;
+      bottom: -30px;
+      right: -35px;
+      z-index: 0;
+      color: rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+// ***************dashboard-manual end*****************
+
+// **********************mycard start************
+.mycard {
+  .card-header:first-child {
+    background: $dashboardBlue;
+    // background: #002f65;
+    h6 {
+      color: $white !important;
+    }
+  }
+
+  .card-header {
+    .btn {
+      background: $dashboardBlue !important;
+    }
+  }
+  //card-body
+  .card-body {
+    .card {
+      h2 {
+        color: $dashboardBlue;
+        margin-top: 20px;
+      }
+      h3 {
+        color: $dashboardLightBlack;
+        font-weight: bold;
+        font-size: 18px;
+      }
+      .numberCircle {
+        // border-color: $orangeColor;
+        border: none;
+        color: #555 !important;
+        font-weight: bold;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: inset 2px 3px 6px 2px #ddd;
+      }
+      p {
+        color: $dashboardLightBlack;
+        font-size: $paraFont;
+        margin-top: 10px;
+      }
+    }
+    .shadow-card-1 {
+      box-shadow: none;
+      border: 1px solid #ccc;
+      padding: 5px;
+      border-radius: 5px;
+    }
+  } //card body end
+}
+// ************************** mycard end **************
+
+// global css
+.card {
+  .card-header {
+    h4 {
+      color: $dashboardBlue !important;
+    }
+    a {
+      background: $dashboardBlue !important;
+    }
+  }
+}
+.fa-edit {
+  color: $dashboardBlue !important;
+}
+.fa-trash {
+  color: #d52a1a;
+}
+.btn-default {
+  background: transparent;
+  border: none;
+}
+
+//myCard
+.myCard {
+  .widget-primary-card,
+  .widget-success-card {
+    &:last-child {
+      background: $orangeColor;
+    }
+    &:first-child {
+      background: $orangeColor;
+    }
+  }
+  .one {
+    // background: #134653 !important;
+  }
+  .widget-primary-card .row-table > [class*="col-"]:first-child,
+  .widget-success-card .row-table > [class*="col-"]:first-child {
+    background: #93720fb8;
+    &:first-child {
+      // background: #326d7c;
+    }
+  }
+
+  .card {
+    min-height: inherit !important;
+    // border-color: $dashboardBlue;
+  }
+  .table-card .row-table span {
+    font-size: 13px !important;
+  }
+  .pad {
+    padding: 5px 15px;
+    margin-bottom: 19.6px;
+  }
+
+  .card-block-big {
+    padding: 2em 10px !important;
+    i {
+      box-shadow: 2px 1px 6px 2px #ccc;
+      display: flex;
+      height: 30px;
+      width: 30px;
+      border-radius: 50%;
+      font-size: 15px !important;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto 15px auto;
+    }
+
+    .mytext {
+      text-align: left;
+    }
+  }
+  .notshadow {
+    i {
+      box-shadow: none !important;
+      font-size: 34px !important;
+    }
+  }
+}
+
+.card {
+  border-color: $orangeColor !important;
+}
+
+
+//***************************** Permissions *********************
+.permission{
+  margin: 20px;
+  .table th, .table td{
+    vertical-align: inherit !important;
+    text-align: center;
+  }
+  tbody{
+    td{
+      color: #999;
+      select{
+        width: 70px;
+        height:30px;
+        outline: none !important;
+      }
+      a{
+        color: #fff;
+        background: green;
+        padding: 8px 20px;
+        font-size: 13px;
+        border-radius: 6px;
+      }
+    }
+  }
+}

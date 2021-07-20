@@ -1,0 +1,175 @@
+{% extends 'dashboard/bases.html'%}
+{% load static %}
+
+{% block content%}
+<div class="content-wrapper">
+    <div class="container">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="d-flex align-items-center">
+        <div class="mr-auto">
+          <!-- <h3 class="page-title">Edit</h3> -->
+          <div class="d-inline-block align-items-center">
+            <nav>
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
+                <!-- <li class="breadcrumb-item" aria-current="page">e-Commerce</li> -->
+                <li class="breadcrumb-item active" aria-current="page">Back</li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+        <div class="right-title">
+          <span>Subcription Update</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main content -->
+    <section class="content">
+
+      <div class="row">
+        <div class="col-12">
+        <div class="box">
+          <div class="box-header with-border">
+            <h4 class="box-title">Subcription Update</h4>
+          </div>
+          <div class="box-body">
+            {% for data in obj %}
+           <form action="/dashboard/edit_subscription/{{data.d_id}}/" method="post" class="tab-wizard wizard-circle" enctype="multipart/form-data" id="formid">
+               {% csrf_token %}
+              
+                          <div class="form-body">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label class="font-weight-700 font-size-16"
+                                >Country</label
+                              >
+                              <select name="country" id="" class="form-control">
+                                <option value="">Select Your Option</option>
+                                <option value="India" {% if data.country == 'India' %} selected {% endif %}>India</option>
+                                <option value="USA" {% if data.country == 'USA' %} selected {% endif %}>USA</option>
+                                <option value="UAE" {% if data.country == 'UAE' %} selected {% endif %}>UAE</option>
+                              </select>
+                            </div>
+                          </div>
+                          <!--/span-->
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label class="font-weight-700 font-size-16"
+                                >Currency</label
+                              >
+                              <select name="currency" id="" class="form-control">
+                                <option value="">Select Your Option</option>
+                                <option value="IN" {% if data.currency == 'IN' %} selected {% endif %}>IN</option>
+                                <option value="EU" {% if data.currency == 'EU' %} selected {% endif %}>EU</option>
+                                <option value="$" {% if data.currency == '$' %} selected {% endif %}>$</option>
+                              </select>
+                            </div>
+                          </div>
+
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label class="font-weight-700 font-size-16"
+                                >Amount</label
+                              >
+                              <input
+                              value='{{data.amount}}'
+                              name="amount"
+                                type="text"
+                                class="form-control"
+                                placeholder="Amount"
+                              />
+                            </div>
+                          </div>
+
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label class="font-weight-700 font-size-16"
+                                >Profile Type</label
+                              >
+                              <!-- <input type="text" class="form-control" placeholder="Mobile"> -->
+                              <select name="profile_type" id="" class="form-control">
+                                <option value="employment" {% if data.profile_type == 'employment' %} selected {% endif %}>Employment</option>
+                                <option value="retailers" {% if data.profile_type == 'retailers' %} selected {% endif %}>Retailers</option>
+                                <option value="proffessional" {% if data.profile_type == 'proffessional' %} selected {% endif %}>
+                                  Professionals
+                                </option>
+                                <option value="others" {% if data.profile_type == 'others' %} selected {% endif %}>Others</option>
+                              </select>
+                            </div>
+                          </div>
+
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label class="font-weight-700 font-size-16"
+                                >Subscription Type</label
+                              >
+                              <!-- <input type="text" class="form-control" placeholder="Email ID"> -->
+                              <select name="subscription_type" id="" class="form-control">
+                                <option value="day" {% if data.subscription_type == 'day' %} selected {% endif %}>Daily</option>
+                                <option value="weekly" {% if data.subscription_type == 'weekly' %} selected {% endif %}>Weekly</option>
+                                <option value="monthly" {% if data.subscription_type == 'monthly' %} selected {% endif %}>Monthly</option>
+                                <option value="quaterly" {% if data.subscription_type == 'quaterly' %} selected {% endif %}>Quaterly</option>
+                                <option value="yearly" {% if data.subscription_type == 'yearly' %} selected {% endif %}>Yearly</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label class="font-weight-700 font-size-16"
+                                >Collection Method</label
+                              >
+                              <!-- <input type="text" class="form-control" placeholder="Profile Type"> -->
+                              <select name="collection_type" id="" class="form-control">
+                                <option value="monthlyadvance" {% if data.collection_method == 'monthlyadvance' %} selected {% endif %}>
+                                  Monthly Advance
+                                </option>
+                                <option value="quaterlyadvance" {% if data.collection_method == 'quaterlyadvance' %} selected {% endif %}>
+                                  Quaterly Advance
+                                </option>
+                                <option value="yearlyadvance" {% if data.collection_method == 'yearlyadvance' %} selected {% endif %}>
+                                  Yearly Advance
+                                </option>
+                              </select>
+                            </div>
+                          </div>
+                         
+                        </div>
+                       
+                      </div>
+                      <div class="form-actions mt-10 text-right">
+                        <button type="submit" class="btn btn-lg btn-primary">
+                          <i class="fa fa-check"></i> Submit
+                        </button>
+                      </div>
+          </form>
+          {% endfor %}
+          </div>
+        </div>
+        </div>      
+      </div>
+
+    </section>
+    <!-- /.content -->
+    </div>
+  </div>
+  {% endblock %}
+   {% block script_code %}
+<script>
+
+  $( function() {
+    $( "#datepicker" ).datepicker(
+      {
+           format: "dd.mm.yyyy",
+           todayBtn: "linked",
+           language: "de"
+        });
+  } );
+  </script>
+{% endblock %}
+  
+  
+
+ 

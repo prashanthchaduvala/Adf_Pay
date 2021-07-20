@@ -1,0 +1,94 @@
+{% extends 'neoadmin/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid">
+<div class="card shadow mb-4" id="">
+<div class="card-header py-3">
+<h6 class="m-0 font-weight-bold text-primary">Manage Subscription</h6>
+</div>
+<div class="card-body">
+<form class="user" enctype="multipart/form-data" method="post">
+{% csrf_token %}
+<div class="form-group row">
+<div class="col-sm-4">
+<label>Country</label>
+   <select class="form-control" name="country" id="id_country">
+     {% include 'neoadmin/country-list.html' %}
+   </select>
+</div>
+<div class="col-sm-4">
+<label>Currency</label>
+   <select class="form-control" name="currency" id="id_currency">
+     {% include 'neoadmin/currency-list.html' %}
+   </select>
+</div>
+<div class="col-sm-4">
+<label>Amount</label>
+   <input type="text" class="form-control " name="amount" id="id_amount">
+
+</div>
+
+</div>
+
+<div class="form-group row">
+<div class="col-sm-6">
+<label>Profile Type</label>
+   <select class="form-control " name="profile_type" id="id_profile_type">
+     <option value="employment">Employment</option>
+     <option value="ownbusiness">Own Business</option>
+   </select>
+
+</div>
+<div class="col-sm-6">
+<label>Subscription Type</label>
+   <select class="form-control " name="subscription_type" id="id_subscription_type">
+     <option value="daily">Daily</option>
+     <option value="weekly">Weekly</option>
+     <option value="monthly">Monthly</option>
+     <option value="quaterly">Quaterly</option>
+     <option value="yearly">Yearly</option>
+   </select>
+</div>
+</div>
+
+<div class="form-group row">
+  <div class="col-sm-6">
+  <label>Collection Method</label>
+     <select class="form-control " name="collection_method" id="id_collection_method">
+       <option value="monthly-advance">Monthly Advance</option>
+       <option value="quaterly-advance">Quaterly Advance</option>
+       <option value="yearly-advance">Yearly Advance</option>
+     </select>
+
+  </div>
+  <div class="col-sm-6">
+  <label>Subscription Plan</label>
+     <select class="form-control" name="subscription_plan" id="id_subscription_plan">
+       <option value="free">Free</option>
+       <option value="silver">Silver</option>
+       <option value="gold">Gold</option>
+       <option value="diamond">Diamond</option>
+     </select>
+
+  </div>
+</div>
+
+<div class="col-sm-12">
+  {% if not objectToUpdate.id  %}
+    <button formaction="/neoadmin/saveObject/{{objectType}}/" class="btn btn-primary btn-user" type="submit">Submit</button>
+  {% else %}
+    <button formaction="/neoadmin/updateObject/{{objectType}}/{{objectToUpdate.id}}/" class="btn btn-primary btn-user" type="submit">Update</button>
+  {% endif %}
+</div>
+</form>
+</div>
+</div>
+
+</div>
+{% endblock %}
+{% block script_code %}
+  {% include "neoadmin/script_code.html" %}
+{% endblock %}
+{% block script_editor %}
+  {% include "neoadmin/script_editor.html" %}
+{% endblock %}

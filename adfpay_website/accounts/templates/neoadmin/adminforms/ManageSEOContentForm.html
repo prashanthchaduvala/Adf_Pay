@@ -1,0 +1,56 @@
+{% extends 'neoadmin/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid">
+<div class="card shadow mb-4" id="">
+<div class="card-header py-3">
+<h6 class="m-0 font-weight-bold text-primary">Add SEO Content</h6>
+</div>
+<div class="card-body">
+<form class="user" enctype="multipart/form-data" method="post">
+{% csrf_token %}
+<div class="form-group row">
+<div class="col-sm-12">
+<label>Page Name</label>
+<input type="text" class="form-control " name="page_name" id="id_page_name">
+
+</div>
+</div>
+
+<div class="form-group row">
+<div class="col-sm-12">
+<label> Meta Description   </label>
+<input type="text" class="form-control " name="meta_description" id="id_meta_description">
+
+</div>
+</div>
+<div class="form-group row">
+<div class="col-sm-12">
+<label>Title    </label>
+<input type="text" class="form-control " name="title" id="id_title">
+
+</div>
+</div>
+
+
+
+
+  <div class="col-sm-12">
+    {% if not objectToUpdate.id  %}
+      <button formaction="/neoadmin/saveObject/{{objectType}}/" class="btn btn-primary btn-user" type="submit">Save</button>
+    {% else %}
+      <button formaction="/neoadmin/updateObject/{{objectType}}/{{objectToUpdate.id}}/" class="btn btn-primary btn-user" type="submit">Update</button>
+    {% endif %}
+  </div>
+</form>
+</div>
+</div>
+
+</div>
+{% endblock %}
+{% block script_code %}
+  {% include "neoadmin/script_code.html" %}
+{% endblock %}
+{% block script_editor %}
+  {% include "neoadmin/script_editor.html" %}
+{% endblock %}

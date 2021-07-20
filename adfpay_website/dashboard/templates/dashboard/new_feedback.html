@@ -1,0 +1,369 @@
+     {% load static %}
+     {% include 'dashboard/bases.html'%}
+{% include 'dashboard/sidebars.html' %}
+{% block content %}
+      <div class="content-wrapper">
+        <div class="container">
+          <!-- Content Header (Page header) -->
+          <div class="content-header">
+            <div class="d-flex align-items-center">
+              <div class="mr-auto">
+                <!-- <h3 class="page-title">Edit</h3> -->
+                <div class="d-inline-block align-items-center">
+                  <nav>
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item">
+                        <a href="index.html"
+                          ><i class="mdi mdi-home-outline"></i
+                        ></a>
+                      </li>
+                      <li class="breadcrumb-item" aria-current="page">Back</li>
+                      <!-- <li class="breadcrumb-item active" aria-current="page">Edit</li> -->
+                    </ol>
+                  </nav>
+                </div>
+              </div>
+              <div class="right-title">
+                <span>New Feedback </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Main content -->
+          <section class="content">
+            <div class="row">
+              <div class="col-12">
+                <div class="box">
+                  <div class="box-header with-border">
+                    <h4 class="box-title">New Feedback </h4>
+                  </div>
+                  <div class="box-body">
+                    <form action="#">
+                      <div class="form-body">
+                        <table
+                          id="example"
+                          class="table table-bordered table-responsive"
+                          style="width: 100%"
+                        >
+                          <thead>
+                           <tr>
+                              <th>SNO.</th>
+                              <th>Country</th>
+                              <th>State</th>
+                              <th>City</th>
+                              <th>Profile Type</th>
+                                <th>Name</th>
+                              <th>Mobile Number</th>
+                              <th>Email Id</th>
+                                <th>Date</th>
+                                <th>Feedback</th>
+                                <th>Company Responce</th>
+                                <th>Status</th>
+                              <th>Action</th>
+                              <!-- <th>Name</th> -->
+                            </tr>
+                          </thead>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                                     {% if json_data%}                              <td>
+                <p>{{ json_data.id }}</p>
+              </td>
+             <td>
+                <p>{{ json_data.country }}</p>
+              </td>
+              <td>
+                <p>{{ json_data.state }}</p>
+              </td>
+              <td>
+                <p>{{ json_data.region }}</p>
+              </td>
+              <td>
+                <p>{{ json_data.profile_type }}</p>
+              </td>
+                                 <td>
+                <p>{{ json_data.name }}</p>
+              </td>
+                                 <td>
+                <p>{{ json_data.email }}</p>
+              </td>
+              <td>
+                <p>{{ json_data.phone_no }}</p>
+              </td>
+              <td>
+                <p>{{ json_data.date }}</p>
+              </td>
+              <td>
+                <p>{{ json_data.feedback }}</p>
+              </td>
+
+                                <td>
+                <p>{{ json_data.company_response }}</p>
+              </td>
+                                </td>
+
+                                             <td>
+                <p>{{ json_data.action }}</p>
+              </td>
+                                {% endif %}}
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- /.content -->
+        </div>
+      </div>
+      <!-- /.content-wrapper -->
+
+      <!-- Control Sidebar -->
+
+      <!-- /.control-sidebar -->
+
+      <!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
+      <div class="control-sidebar-bg"></div>
+    </div>
+    <!-- ./wrapper -->
+
+    <!-- jQuery 3 -->
+
+    <div class="modal fade my_modal" id="myModal_reply">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Reply</h4>
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </div>
+
+          <!-- Modal body -->
+          <div class="modal-body">
+            <form action="">
+              <div class="form-group">
+                <label for="">Reply Date:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  value="23/10/2020"
+                  disabled
+                />
+              </div>
+              <div class="form-group">
+                <label for="reply">Reply</label>
+                <textarea
+                  name="reply"
+                  id="reply"
+                  rows="4"
+                  class="form-control"
+                  value=""
+                  disabled
+                >
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error, sit a iste eligendi necessitatibus sed?
+                </textarea>
+              </div>
+
+              <div class="form-group d-flex justify-content-end">
+                <button type="button" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade my_modal" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Allocate To</h4>
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </div>
+
+          <!-- Modal body -->
+          <div class="modal-body">
+            <form action="">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <select name="" disabled class="form-control" id="">
+                  <option value="">Virendra</option>
+                  <option value="">Bharat</option>
+                  <option value="">Kapil</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="department">Department</label>
+                <select name="" disabled class="form-control" id="">
+                  <option value="">Sales</option>
+                  <option value="">IT</option>
+                  <option value="">Account</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="designation">Designation</label>
+                <select name="" disabled class="form-control" id="">
+                  <option value="">Agent</option>
+                  <option value="">Developer</option>
+                  <option value="">Accountant</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="">Allocated To</label>
+                <input
+                  type="text"
+                  disabled
+                  class="form-control"
+                  value="10/12/2019"
+                />
+              </div>
+              <!-- <div class="form-group d-flex justify-content-end">
+                <button type="button" class="btn btn-primary">Edit</button>
+              </div> -->
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade my_modal" id="myModal_edit">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Edit</h4>
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </div>
+
+          <!-- Modal body -->
+          <div class="modal-body">
+            <form action="">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <select name="" class="form-control" id="">
+                  <option value="">Select Name</option>
+                  <option value="" selected>Virendra</option>
+                  <option value="">Bharat</option>
+                  <option value="">Kapil</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="department">Department</label>
+                <select name="" class="form-control" id="">
+                  <option value="">Select Department</option>
+                  <option value="" selected>Sales</option>
+                  <option value="">IT</option>
+                  <option value="">Account</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="designation">Designation</label>
+                <select name="" class="form-control" id="">
+                  <option value="">Select Designation</option>
+                  <option value="" selected>Agent</option>
+                  <option value="">Developer</option>
+                  <option value="">Accountant</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="">Allocated Date</label>
+                <input type="text" class="form-control" value="10/12/2019" />
+              </div>
+              <div class="form-group d-flex justify-content-end">
+                <button type="button" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade my_modal" id="myModal_reply1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Update Reply</h4>
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </div>
+
+          <!-- Modal body -->
+          <div class="modal-body">
+            <form action="">
+              <div class="form-group">
+                <label for="reply">Reply</label>
+                <textarea
+                  name="reply"
+                  id="reply"
+                  rows="4"
+                  class="form-control"
+                ></textarea>
+              </div>
+
+              <div class="form-group d-flex justify-content-end">
+                <button type="button" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endblock %}
+
+{% block script_code %}
+     
+
+ 
+<!-- <script>
+
+  $(document).ready(function(){
+    $('#MyButton').click(function(){
+      console.log("comming")
+    var x = document.getElementById("MyButton").value;  
+    
+    console.log(x,"'x'")
+    var request = new XMLHttpRequest();
+   
+    var url = '/admin_master/change_action/' + x + '/Active/'
+      request.open('GET', url, true);
+      request.send()
+    
+    });
+  });
+</script>
+   -->
+
+<script type="text/javascript">
+   $( "button.editCategory" ).click(function(event) {
+    console.log("something")
+    
+      var id = $(this).data('category');
+      var request = new XMLHttpRequest();
+   
+      var url = '/dashboard/android_change_action/' + id + '/Active/'
+      request.open('GET', url, true);
+      request.send()
+    });
+</script>
+<script>
+
+  $('#dataTable').DataTable( {
+    responsive: true
+  });
+
+  
+</script>
+
+{% endblock %}

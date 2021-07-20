@@ -1,0 +1,166 @@
+<!--{% extends 'frontend/show.html' %}-->
+<!--{% load static %}-->
+<!--{% block content %}-->
+<!--<section class="page-banner">-->
+<!--   <div class="container">-->
+<!--      <div class="page-title-wrapper">-->
+<!--         <h1 class="page-title">Become a Memeber</h1>-->
+<!--      </div>-->
+<!--   </div>-->
+<!--   <div style="background-image: url(../img/parallax-2.jpg)" data-parallax="scroll"></div>-->
+<!--   <ul class="animate-ball">-->
+<!--      <li class="ball"></li>-->
+<!--      <li class="ball"></li>-->
+
+<!--      <li class="ball"></li>-->
+<!--      <li class="ball"></li>-->
+<!--   </ul>-->
+<!--</section>-->
+<!--    <div class="signup-area ptb-100">-->
+<!--        <div class="container">-->
+<!--            <div class="signup-form sign_up_in">-->
+<!--                <h3>Become Member</h3>-->
+<!--                <body>-->
+<!--<form action="{% url 'savedata' %}" method="post">-->
+<!--    {% csrf_token %}-->
+
+<!--    {% if message %}-->
+<!--    {{ message }}-->
+<!--    {% endif %}-->
+
+<!--    <input type="text" placeholder="fullname" required name="fullname">-->
+<!--        <input type="tel" placeholder="mobile" required name="mobile">-->
+<!--        <input type="email" placeholder="email" required name="email">-->
+<!--        <input type="password" placeholder="password" required name="password">-->
+<!--        <input type="text" placeholder="residential_address" required name="residential_address">-->
+<!--        <input type="text" placeholder="residential_address2" required name="residential_address2">-->
+<!--        <input type="text" placeholder="residential_address3" required name="residential_address3">-->
+<!--        <input type="text" placeholder="country" required name="country">-->
+<!--            <input type="text" placeholder="state" required name="state">-->
+<!--                <input type="text" placeholder="city" required name="city">-->
+<!--                <input type="number" placeholder="zipcode" required name="zipcode">-->
+<!--        <input type="number" placeholder="pancard" required name="pancard">-->
+<!--    <input type="number" placeholder="aadharcard" required name="aadharcard">-->
+<!--    <input type="file" placeholder="photo" required name="photo">-->
+<!--    <button type="submit">submit</button>-->
+
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->
+<!--&lt;!&ndash;&lt;!&ndash;                <form>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                    <form action="{% url 'savedata' %}" method="post">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <table align="center" border="2">&ndash;&gt;-->
+<!--&lt;!&ndash;                        {% csrf_token %}&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div class="row">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <div class="col-lg-6">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div class="form-group">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <label for="name">Full Name *</label>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <input type="text" name="fullname" class="form-control" placeholder="Name" required>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <div class="col-lg-6">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div class="form-group">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <label for="mobile">Mobile *</label>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <input type="text" name="mobile" class="form-control" placeholder="Mobile" required>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <div class="col-lg-6">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div class="form-group">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <label for="email">Email *</label>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <input type="email" name="email" class="form-control" placeholder="Email" required>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <div class="col-lg-6">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div class="form-group">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <label for="password">Password *</label>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <input type="password" class="form-control" placeholder="Password" required>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <div class="col-lg-6">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div class="form-group">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <label for="confirmpassword">Confirm Password *</label>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <input type="password" class="form-control" placeholder="Confirm Password" required>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <div class="col-lg-6">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div class="form-group">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <label for="address">Residential Address *</label>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <input type="text" name="adddress" class="form-control" placeholder="Residential Address" required>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <div class="col-lg-6">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div class="form-group">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <label for="address2">Address Line No. 2 </label>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <input type="text" name="address2" class="form-control" placeholder="Address Line 2">&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <div class="col-lg-6">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div class="form-group">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <label for="address3">Address Line No. 3 </label>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <input type="text" class="form-control" placeholder="Address Line 3">&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <div class="col-lg-6">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div class="form-group">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <label for="country">Country *</label>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <input type="text" name="country" class="form-control" placeholder="Country" required>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <div class="col-lg-6">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div class="form-group">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <label for="state">State *</label>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <input type="text" name="state" class="form-control" placeholder="State" required>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <div class="col-lg-6">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div class="form-group">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <label for="city">City</label>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <input type="text" name="city" class="form-control" placeholder="City" required>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <div class="col-lg-6">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div class="form-group">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <label for="zip">Zip Code *</label>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <input type="text" name="zip" class="form-control" placeholder="Zip Code" required>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <div class="col-lg-6">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div class="form-group">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <label for="pan">Pan Card *</label>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <input type="text" class="form-control" placeholder="Pan Card" required>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <div class="col-lg-6">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div class="form-group">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <label for="adhar">Adhar Card *</label>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <input type="text" class="form-control" placeholder="Adhar Card" required>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <div class="col-lg-6 offset-sm-3">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div class="form-group">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <label for="upload">Upload Photo *</label>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <input type="file" class="form-control" placeholder="Upload Photo" required>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <div class="col-lg-12">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div class="send-btn mybtnlogin">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <button type="submit" class="default-btn">&ndash;&gt;-->
+<!--&lt;!&ndash;                                    Submit&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <span></span>&ndash;&gt;-->
+<!--&lt;!&ndash;                                </button>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                  </table>&ndash;&gt;-->
+<!--&lt;!&ndash;                                    </form>&ndash;&gt;-->
+<!--                            <br>-->
+<!--                            <span>Already a Member? <a href="{% url 'frontend:sign_in' %}">Signin!</a></span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--&lt;!&ndash;                </form>&ndash;&gt;-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+
+
+<!--{% endblock %}-->

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+        <form action="{% url 'loginuser' %}" method="post">
+                {% csrf_token %}
+        <input type="email" placeholder="Email" required name="email">
+        <input type="password" placeholder="Password" required name="password">
+              <div class="col-lg-12">-->
+                        <div class="send-btn mybtnlogin">
+                            <button type="submit" class="default-btn">
+                                Sign In Now
+                                <span></span>
+                            </button>
+                        </div>
+</body>
+</html>

@@ -1,0 +1,187 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+
+ {% block styles_code %}
+ <style type="text/css">
+    span.definition {
+    display: -webkit-box;
+-webkit-line-clamp: 2;
+-webkit-box-orient: vertical;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+span.ndefinition {
+    display: -webkit-box;
+-webkit-line-clamp: 2;
+-webkit-box-orient: vertical;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+.pagination-outer{ text-align: center; }
+.pagination{
+    font-family: 'Itim', cursive;
+    border-radius: 10px 10px 0 0;
+    border-top: 10px solid #ff9f1a;
+    display: inline-flex;
+}
+.pagination li{
+    padding: 5px 0;
+    margin: 0 5px;
+}
+.pagination li a.page-link{
+    color: #fff;
+    background: transparent;
+    font-size: 21px;
+    font-weight: 500;
+    line-height: 30px;
+    height: 33px;
+    width: 43px;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #ff9f1a;
+    border-radius: 0;
+    display: block;
+    transition: all 0.3s ease 0s;
+}
+.pagination li.active a.page-link,
+.pagination li a.page-link:hover,
+.pagination li.active a.page-link:hover,
+.pagination li a.page-link:focus{
+    color: #fff;
+    background: #ff9f1a;
+    line-height: 38px;
+    height: 41px;
+    margin: -5px 0 -3px;
+    border: 1px solid #ff9f1a;
+}
+@media only screen and (max-width: 480px){
+    .pagination{
+        font-size: 0;
+        display: block;
+    }
+    .pagination li{ display: inline-block; }
+}
+</style>
+      {% endblock %}
+      {% block content %}
+
+ <section class="page-banner" > 
+  <div class="container">
+     <div class="page-title-wrapper">
+        <h1 class="page-title">Blog</h1>
+     </div>
+  </div>
+
+</section>
+<div class="blog_new">
+  <div class="container">
+    <div class="heading">
+      <!-- <a href="#!" class="active">All</a>
+      <a href="#!">ADFPAY</a>
+      <a href="#!">Academy</a> -->
+    </div>
+<div class="row">
+{% for obj in obj_data %}
+{% if obj.action == 'Active' %}
+{% if obj.frontend_show == "column12" %}
+<div class=" col-md-12 ">
+    <div class="horizontal_card">
+      <a href="/blog_detail/{{obj.encrypt_key}}">
+        <div class="content_image">
+          <div class="row no-gutter">
+            <div class="col-lg-8 col-md-7 ">
+              <a href="/blog_detail/{{obj.encrypt_key}}">
+                <img src="{{obj.image}}" alt="">
+              </a>
+            </div>
+            <div class="col-lg-4 col-md-5 ">
+              <div class="">
+                
+                <a href="/blog_detail/{{obj.encrypt_key}}"><h2>{{obj.topic}}</h2>
+               <span class="definition">{{obj.content|safe}}</span></a>
+                <div class="icons_1">
+                  
+                  <i>{{obj.publisher_name}}</i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+    {% elif obj.frontend_show == "column4" %}
+
+    
+      <div class=" col-md-4 ">
+        <div class="verticle_card">
+          <a href="/blog_detail/{{obj.encrypt_key}}">
+            <img src="{{obj.image}}" alt="">
+            <div class="">
+                <h2>{{obj.topic}}</h2>
+                <span class="definition">{{obj.content|safe}}</span>
+                <div class="icons_1">
+                  
+                  <i>{{obj.publisher_name}}</i>
+                </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    
+
+   {% else %}
+
+      <div class=" col-md-6">
+        <div class="verticle_card">
+          <a href="/blog_detail/{{obj.encrypt_key}}">
+            <img src="{{obj.image}}" alt="">
+            <div class="">
+                 <h2>{{obj.topic}}</h2>
+                <span class="definition">{{obj.content|safe}}</span>
+                <div class="icons_1">
+                 
+                  <i>{{obj.publisher_name}}</i>
+                </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      
+
+      
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+    </div>
+
+<center>
+       <div class="demo">
+    <nav class="pagination-outer" aria-label="Page navigation">
+        <ul class="pagination">
+          {%if obj_data.has_previous %} 
+            <li  class="page-item">
+                <a style="color:black;" href="?page={{obj_data.previous_page_number}}" class="page-link" aria-label="Previous">
+                    <span aria-hidden="true">«</span>
+                </a>
+            </li>
+             {% endif %}
+            <li style="color:black;" class="page-item active"><a  class="page-link " href="?page={{obj_data.number}}">{{obj_data.number}}</a></li>
+            {%if obj_data.has_next %}
+            <li  class="page-item">
+                <a style="color:black;" href="?page={{obj_data.next_page_number}}" class="page-link" aria-label="Next">
+                    <span aria-hidden="true">»</span>
+                </a>
+            </li>
+             {% endif %}
+        </ul>
+    </nav>
+</div> 
+          
+       
+    </center>
+  </div>
+</div>
+{% endblock %}
+

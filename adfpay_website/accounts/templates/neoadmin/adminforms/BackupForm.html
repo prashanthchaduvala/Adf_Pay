@@ -1,0 +1,72 @@
+{% extends 'neoadmin/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid">
+<div class="card shadow mb-4" id="">
+<div class="card-header py-3">
+<h6 class="m-0 font-weight-bold text-primary">Add {{objectType}}</h6>
+</div>
+<div class="card-body">
+<form class="user" enctype="multipart/form-data" method="post">
+{% csrf_token %}
+<div class="form-group row">
+<div class="col-sm-4">
+<label>Country</label>
+   <input type="text" class="form-control " name="country" id="id_country">
+
+</div>
+<div class="col-sm-4">
+<label>State</label>
+   <input type="text" class="form-control " name="state" id="id_state">
+
+</div>
+
+<div class="col-sm-4">
+<label>Region</label>
+   <input type="text" class="form-control " name="region" id="id_region">
+
+</div>
+
+</div>
+
+<div class="form-group row">
+   <div class="col-sm-6">
+     <label>Name</label>
+      <input type="text" class="form-control" name="name" id="id_name">
+   </div>
+   <div class="col-sm-6">
+     <label>Email</label>
+      <input type="email" class="form-control" name="email" id="id_email">
+   </div>
+</div>
+
+<div class="form-group row">
+   <div class="col-sm-6">
+     <label>Phone Number</label>
+      <input type="tel" class="form-control" pattern="[0-9]{10}" name="phone_no" id="id_phone_no">
+   </div>
+   <div class="col-sm-6">
+     <label>Filename</label>
+      <input type="text" class="form-control" name="file_name" id="id_file_name">
+   </div>
+</div>
+
+<div class="col-sm-12">
+  {% if not objectToUpdate.id  %}
+    <button formaction="/neoadmin/saveObject/{{objectType}}/" class="btn btn-primary btn-user" type="submit">Submit</button>
+  {% else %}
+    <button formaction="/neoadmin/updateObject/{{objectType}}/{{objectToUpdate.id}}/" class="btn btn-primary btn-user" type="submit">Update</button>
+  {% endif %}
+</div>
+</form>
+</div>
+</div>
+
+</div>
+{% endblock %}
+{% block script_code %}
+  {% include "neoadmin/script_code.html" %}
+{% endblock %}
+{% block script_editor %}
+  {% include "neoadmin/script_editor.html" %}
+{% endblock %}

@@ -1,0 +1,105 @@
+{% extends "indexpartner.html" %}
+
+{% block title %}Bank Records{% endblock title %}
+
+{% block content %}
+ <div class="content-wrapper">
+	  <div class="container">
+		<!-- Content Header (Page header) -->
+		<div class="content-header">
+			<div class="d-flex align-items-center">
+				<div class="mr-auto">
+					<!-- <h3 class="page-title">Edit</h3> -->
+					<div class="d-inline-block align-items-center">
+						<nav>
+							<ol class="breadcrumb">
+<!--								<li class="breadcrumb-item"><a href="/crugapp/cugdashboard/"><i class="mdi mdi-home-outline"></i></a></li>-->
+								<li class="breadcrumb-item" aria-current="page">Back</li>
+								<!-- <li class="breadcrumb-item active" aria-current="page">Edit</li> -->
+							</ol>
+						</nav>
+					</div>
+				</div>
+				<div class="right-title">
+					<span>Users</span>
+				</div>
+			</div>
+		</div>
+
+		<!-- Main content -->
+		  <section class="content">
+
+			<div class="row">
+			  <div class="col-12">
+				<div class="box">
+					<div class="box-header with-border">
+					  <h4 class="box-title">User Profile</h4>
+					</div>
+				  <div class="box-body">
+                    <!-- Step wizard -->
+		  <div class="box box-default">
+			<div class="box-body wizard-content">
+				<form action="#" class="tab-wizard wizard-circle">
+					<!-- Step 1 -->
+					<section>
+							{% for data in user %}
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="firstName5">First Name :</label>
+									<input type="text" value="{{data.username}}" class="form-control" id="firstName5"> </div>
+							</div>
+
+							<div class="col-md-0">
+								<div class="form-group">
+<!--									<label for="lastName1">Las</label>-->
+									<class="form-control" id="lastName1"> </div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="emailAddress1">Email Address :</label>
+									<input type="email" value="{{data.email}}" readonly class="form-control" id="emailAddress1"> </div>
+							</div>
+
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="phoneNumber1">Mobile Number :</label>
+									<input type="tel" value="{{data.mobile}}" readonly  class="form-control" id="phoneNumber1"> </div>
+						 	</div>
+						</div>
+
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="state">State :</label>
+									<input type="text" value="{{data.state}}" class="form-control" id="addressline2"> </div>
+							</div>
+
+
+						<div class="row">
+                            <div class="col-md-6">
+								<div class="form-group">
+									<label for="city">City :</label>
+									<input type="text" value="{{data.city}}" class="form-control" id="addressline2"> </div>
+							</div>
+
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="Hno">H.No :</label>
+									<input type="text" value="{{data.residential_address}}" class="form-control" id="addressline1"> </div>
+							</div>
+
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="locality">Locality:</label>
+									<input type="text" value="{{data.locality}}" class="form-control" id="addressline2"> </div>
+							</div>
+						</div>
+					<section>
+						{% endfor %}
+
+
+{% endblock %}

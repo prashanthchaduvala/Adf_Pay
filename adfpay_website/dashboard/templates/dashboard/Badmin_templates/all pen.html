@@ -1,0 +1,23 @@
+{% load static %}
+<html>
+<body>
+<table align="center">
+    <tr><th>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+{#  <a class="navbar-brand" href="#">Home</a>#}
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+<!--        <a class="nav-item nav-link" href="{% url 'index' %}">Home</a>-->
+      <a class="nav-item nav-link" href="{% url 'ref_html' %}">Pending Registrations</a>
+        <a class="nav-item nav-link" href="{% url 'decline_reg' %}">Decline aprovals</a>
+        <a class="nav-item nav-link" href="{% url 'view_approve' %}">View aprovals</a>
+<!--                <a class="nav-item nav-link" href="{% url 'logoutuser' %}">Logout</a>-->
+    </div>
+  </div>
+</nav>
+</table>
+</body>
+</html>

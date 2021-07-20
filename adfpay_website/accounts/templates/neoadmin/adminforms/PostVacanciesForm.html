@@ -1,0 +1,102 @@
+{% extends 'neoadmin/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid">
+<div class="card shadow mb-4" id="">
+<div class="card-header py-3">
+<h6 class="m-0 font-weight-bold text-primary">Add Post Vacancies</h6>
+</div>
+<div class="card-body">
+<form class="user" enctype="multipart/form-data" method="post">
+{% csrf_token %}
+<div class="form-group row">
+<div class="col-sm-4">
+<label>Location</label>
+   <input type="text" class="form-control " name="location" id="id_location">
+
+</div>
+<div class="col-sm-4">
+<label>Department</label>
+   <input type="text" class="form-control " name="department" id="id_department">
+
+</div>
+<div class="col-sm-4">
+<label>Designation</label>
+   <input type="text" class="form-control " name="designation" id="id_designation">
+
+</div>
+</div>
+
+<div class="form-group row">
+<div class="col-sm-4">
+<label>Number of Vacancies</label>
+   <input type="number" min="0" class="form-control " name="no_of_vacancies" id="id_no_of_vacancies">
+
+</div>
+<div class="col-sm-4">
+<label>Experience</label>
+   <input type="text" class="form-control " name="experience" id="id_experience">
+
+</div>
+<div class="col-sm-4">
+<label>Qualification</label>
+   <input type="text" class="form-control " name="qualification" id="id_qualification">
+
+</div>
+</div>
+
+<div class="form-group row">
+<div class="col-sm-3">
+<label>Salary Range</label>
+   <input type="text" class="form-control " name="salary_range" id="id_salary_range">
+
+</div>
+<div class="col-sm-3">
+<label>Requirement Type</label>
+   <input type="text" class="form-control " name="requirement_type" id="id_requirement_type">
+
+</div>
+
+<div class="col-sm-3">
+<label>Valid Upto</label>
+   <input type="date" class="form-control " name="valid_upto" id="id_valid_upto">
+
+</div>
+<div class="col-sm-3">
+<label>Status</label>
+   <select class="form-control " name="status" id="id_status">
+     <option value="current-opening">Current Opening</option>
+     <option value="closed">Closed</option>
+     <option value="withdrawn">Withdrawn</option>
+     <option value="expired">Expired</option>
+   </select>
+
+</div>
+</div>
+
+<div class="form-group row">
+ <div class="col-sm-12">
+<label>Job Description</label>
+<textarea class="form-control" id="id_job_description" name="job_description" rows="10"></textarea>
+ </div>
+ </div>
+
+<div class="col-sm-12">
+  {% if not objectToUpdate.id  %}
+    <button formaction="/neoadmin/saveObject/{{objectType}}/" class="btn btn-primary btn-user" type="submit">Submit</button>
+  {% else %}
+    <button formaction="/neoadmin/updateObject/{{objectType}}/{{objectToUpdate.id}}/" class="btn btn-primary btn-user" type="submit">Update</button>
+  {% endif %}
+</div>
+</form>
+</div>
+</div>
+
+</div>
+{% endblock %}
+{% block script_code %}
+  {% include "neoadmin/script_code.html" %}
+{% endblock %}
+{% block script_editor %}
+  {% include "neoadmin/script_editor.html" %}
+{% endblock %}

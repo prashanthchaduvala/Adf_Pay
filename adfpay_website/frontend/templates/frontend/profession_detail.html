@@ -1,0 +1,138 @@
+{% extends 'frontend/base.html' %} {% load static %} {% block content %}
+<section class="page-banner">
+    <div class="container">
+        <div class="page-title-wrapper">
+
+            <h1 class="page-title">{{data.professionalname}}</h1>
+        </div>
+    </div>
+</section>
+<section class="blog-details-area mydetails myBlog ptb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="services-details-desc">
+                    <div class="image">
+                        <img src="{{data.upload}}" alt="image" />
+                    </div>
+                    <div class="content">
+                        <h3>{{data.heading1}}</h3>
+                        <p>
+                            {{data.content1}}
+                        </p>
+                        <p class="text">
+                            {{data.content2}}
+                        </p>
+                    </div>
+                    <div class="services-details-features">
+                        <div class="content">
+                            <h3>{{data.heading2}}</h3>
+                            <p>
+                                {{data.content3}}
+                            </p>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6">
+                                <div class="features-item">
+                                    <div class="icon">
+                                        <i class="flaticon-approval"></i>
+                                    </div>
+                                    <h3>
+                                        Quick <br /> approval
+                                    </h3>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="features-item">
+                                    <div class="icon">
+                                        <i class="flaticon-personal"></i>
+                                    </div>
+                                    <h3>
+                                        Easy loan <br /> Repayment
+                                    </h3>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="features-item">
+                                    <div class="icon">
+                                        <i class="flaticon-transparency"></i>
+                                    </div>
+                                    <h3>
+                                        100% <br /> Transparency
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="services-details-others">
+                        <h3>{{data.heading3}}</h3>
+                        <p>
+                            {{data.content4}}
+                        </p>
+                    </div>
+                    <div class="deserve-item">
+                        <h3>{{data.four_steps}}</h3>
+                        <div class="deserve-content">
+                            <span>1</span>
+                            <h4>{{data.step1heading}}</h4>
+                            <p>
+                                {{data.step1content}}
+                            </p>
+                        </div>
+                        <div class="deserve-content">
+                            <span>2</span>
+                            <h4>{{data.step2heading}}</h4>
+                            <p>
+                                {{data.step2content}}
+                            </p>
+                        </div>
+                        <div class="deserve-content">
+                            <span>3</span>
+                            <h4>{{data.step3heading}}</h4>
+                            <p>
+                                {{data.step3content}}
+                            </p>
+                        </div>
+                        <div class="deserve-content">
+                            <span>4</span>
+                            <h4>{{data.step4heading}}</h4>
+                            <p>
+                                {{data.step4content}}
+                            </p>
+                        </div>
+                        <div class="deserve-btn">
+                            <a href="#!" class="default-btn" data-toggle="modal" data-target="#myModal">
+                Get Started
+                <span></span>
+              </a>
+                        </div>
+                    </div>
+                    <div class="services-details-list">
+                        <div class="content">
+                            <h3>Eligibility Criteria</h3>
+                            <p>
+                                {{data.eligibility_content}}
+                            </p>
+                            <ul class="list">
+                                <li>
+                                    <i class="flaticon-check"></i> {{data.criteria1}}
+                                </li>
+                                <li>
+                                    <i class="flaticon-check"></i> {{data.criteria2}}
+                                </li>
+                                <li>
+                                    <i class="flaticon-check"></i> {{data.criteria3}}
+                                </li>
+                                <li>
+                                    <i class="flaticon-check"></i> {{data.criteria4}}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

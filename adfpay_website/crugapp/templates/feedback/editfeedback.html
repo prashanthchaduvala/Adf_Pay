@@ -1,0 +1,122 @@
+{% extends "index.html" %}
+
+{% block title %}Add New Bank Records{% endblock title %}
+
+{% block content %}
+  <div class="content-wrapper">
+	  <div class="container">
+		<!-- Content Header (Page header) -->
+		<div class="content-header">
+			<div class="d-flex align-items-center">
+				<div class="mr-auto">
+					<!-- <h3 class="page-title">Edit</h3> -->
+					<div class="d-inline-block align-items-center">
+						<nav>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="/crugapp/cugdashboard/"><i class="mdi mdi-home-outline"></i></a></li>
+								<li class="breadcrumb-item" aria-current="page">Back</li>
+								<!-- <li class="breadcrumb-item active" aria-current="page">Edit</li> -->
+							</ol>
+						</nav>
+					</div>
+				</div>
+				<div class="right-title">
+					<span>Feedback Details</span>
+				</div>
+			</div>
+		</div>
+
+		<!-- Main content -->
+		<section class="content">
+
+			<div class="row">
+			  <div class="col-12">
+				<div class="box">
+					<div class="box-header with-border">
+					  <h4 class="box-title">Add Feedback</h4>
+					</div>
+				  <div class="box-body">
+                    <!-- Step wizard -->
+		    <div class="box box-default">
+			<!-- <div class="box-header with-border">
+			  <h4 class="box-title">Client Registration</h4>
+			  <h6 class="box-subtitle">You can find the <a href="#!" target="_blank">offical website </a></h6>
+			</div> -->
+			<!-- /.box-header -->
+			<div class="box-body wizard-content">
+{% for data in obj %}
+ <form action="/crugapp/edit_feedback/{{data.id}}/"  method="post" class="tab-wizard wizard-circle" enctype="multipart/form-data" id="formid" >
+
+   {% csrf_token %}
+
+
+ <section><div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="country">Country:</label>
+									<input type="text" value="{{data.country}}" name="country" class="form-control" id="country"> </div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="state">State :</label>
+									<input type="text" value="{{data.state}}" name="state" class="form-control" id="state"> </div>
+							</div>
+						</div>
+
+                        <div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="region"> Region:</label>
+									<input type="text" value="{{data.region}}" name="region" class="form-control" id="region"> </div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="name">name :</label>
+									<input type="text" value="{{data.name}}" name="name" class="form-control" id="name"> </div>
+							</div>
+
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="email">email :</label>
+									<input type="email" value="{{data.email}}" name="email" class="form-control" id="email"> </div>
+							</div>
+
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="phone">Phone :</label>
+									<input type="tel" value="{{data.phone_no}}" name="phone" class="form-control" id="phone"> </div>
+							</div>
+
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="date">date :</label>
+									<input type="date" value="{{data.date}}" name="date" class="form-control" id="date"> </div>
+							</div>
+
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="feedback">feedback :</label>
+									<input type="text" value="{{data.feedback}}"name="feedback" class="form-control" id="feedback"> </div>
+							</div>
+
+								<div class="row">
+                            <div class="col-md-6">
+								<div class="form-group">
+									<label for="status">Status :</label>
+                                    <select name="status" id="status" class="form-control">
+                                        <option value="pending"{% if data.pending == 'pending'%} selected {% endif %}>Pending</option>
+                                        <option value="closed"{% if data.closed == 'closed'%} selected {% endif %}>Closed</option>
+                                    </select>
+                            </div>
+
+
+						</div>
+
+
+                        <div class="btn-group d-flex justify-content-end">
+                            <button class="btn btn-primary">Add Feedback</button>
+                        </div>
+					</section>
+ </form>
+</div>{% endfor %}
+{% endblock content %}

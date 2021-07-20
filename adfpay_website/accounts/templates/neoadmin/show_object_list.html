@@ -1,0 +1,152 @@
+{% extends 'neoadmin/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid">
+  <div class="card shadow mb-4">
+    <div class="card-header py-3" style="display: flex;justify-content: space-between;">
+      {% if objectType == 'ManageSEOContent' %}
+        <h4 class="m-0 font-weight-bold text-primary">Manage SEO Content</h4>
+      {% elif objectType == 'MobileAppAndroid' %}
+        <h4 class="m-0 font-weight-bold text-primary">Android Mobile App</h4>
+      {% elif objectType == 'MobileAppIOS' %}
+        <h4 class="m-0 font-weight-bold text-primary">IOS Mobile App</h4>
+      {% elif objectType == 'TotalDownloadsAndroid' %}
+        <h4 class="m-0 font-weight-bold text-primary">Total Downloads</h4>
+      {% elif objectType == 'OnlineUsersAndroid' %}
+        <h4 class="m-0 font-weight-bold text-primary">Online Users</h4>
+      {% elif objectType == 'UserProfilesAndroid' %}
+        <h4 class="m-0 font-weight-bold text-primary">User Profiles</h4>
+      {% else %}
+        <h4 class="m-0 font-weight-bold text-primary">{{displayObjectType}}</h4>
+      {% endif %}
+      {% if objectType == 'AboutUs' %}
+        <a class="btn btn-primary" href="/neoadmin/model_object/{{objectType}}/">Add Contents</a>
+      {% elif objectType == 'Product' %}
+        <a class="btn btn-primary" href="/neoadmin/model_object/{{objectType}}/">Add Product</a>
+      {% elif objectType == 'ManagementTeam' or objectType == 'AdvisoryBoard' %}
+        <a class="btn btn-primary" href="/neoadmin/model_object/{{objectType}}/">Add New Member</a>
+      {% elif objectType == 'ManageNewsMedia' %}
+        <a class="btn btn-primary" href="/neoadmin/model_object/{{objectType}}/">Add New Comment</a>
+      {% elif objectType == 'PublishBlogs' %}
+        <a class="btn btn-primary" href="/neoadmin/model_object/{{objectType}}/">Add New Blog</a>
+      {% elif objectType == 'PostVacancies' %}
+        <a class="btn btn-primary" href="/neoadmin/model_object/{{objectType}}/">Post New Vacancy</a>
+      {% elif objectType == 'Partners' %}
+        <a class="btn btn-primary" href="/neoadmin/model_object/{{objectType}}/">Add New Partner</a>
+      {% elif objectType == 'MobileAppAndroid' %}
+        <a class="btn btn-primary" href="/neoadmin/model_object/{{objectType}}/">Add New App</a>
+      {% elif objectType == 'MobileAppIOS' %}
+        <a class="btn btn-primary" href="/neoadmin/model_object/{{objectType}}/">Add New App</a>
+      {% elif objectType == 'ManageSubscription' %}
+        <a class="btn btn-primary" href="/neoadmin/model_object/{{objectType}}/">Add New Subscription</a>
+      {% elif objectType != 'ContactUs' and objectType != 'Support' and objectType != 'Feedback' and objectType != 'Reviews' and objectType != 'Backup' and objectType != 'Restore' and objectType != 'Synchronisation' and objectType != 'ResumeReceipt' and objectType != 'InternalUsers' and objectType != 'ApproveComments' and objectType != 'TotalDownloadsAndroid' and objectType != 'TotalDownloadsIOS' and objectType != 'OnlineUsersAndroid' and objectType != 'OnlineUsersIOS' and objectType != 'Subscribers' and objectType != 'UserProfilesAndroid' and objectType != 'UserProfilesIOS'  %}
+        <a class="btn btn-primary" href="/neoadmin/model_object/{{objectType}}/">Add New {{displayObjectType}}</a>
+      {% elif objectType == 'InternalUsers' %}
+        <a class="btn btn-primary" href="/accounts/create_staff_member/">Add User</a>
+      {% endif %}
+    </div>
+    <div class="card-body">
+      {% if messages %}
+          {% for message in messages %}
+              {% if message.tags == 'error'%}
+              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                  {{ message }}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              {% elif message.tags == 'success'%}
+              <div class="alert alert-success alert-dismissible fade show" role="alert">
+                  {{ message }}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              {% endif %}
+          {% endfor %}
+      {% endif %}
+      {% if noEntry %}
+        <p class="d-flex align-items-center justify-content-center mt-4 lead">There is no record to display.</p>
+      {% else %}
+      <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th>SNo.</th>
+              {% for field in fieldNames %}
+                {% if field != 'id' and field != 'User Id' %}
+            		  <th>{{field}}</th>
+                {% endif %}
+            	{% endfor %}
+              {% if objectType != 'MobileAppAndroid' and objectType != 'MobileAppIOS' and objectType != 'TotalDownloadsAndroid' and objectType != 'TotalDownloadsIOS' and objectType != 'OnlineUsersAndroid' and objectType != 'OnlineUsersIOS' and objectType != 'Subscribers'  %}
+                <th>Operation</th>
+              {% endif %}
+            </tr>
+          </thead>
+          <tbody>
+            {% for x in objects %}
+          	<tr>
+              <td><p>{{ forloop.counter }}</p></td>
+          	{% for property,value in x.items %}
+              {% if property == 'Media File' or property == 'Resume' or property == 'Image' or property == 'Logo' or property == 'Photo' or property == 'Upload' %}
+                <td><a href="{{value}}" target="_blank">View File</a></td>
+          		{% elif property != 'id' and property != 'Action' and property != 'User Id' %}
+          			<td><p>{{value}}</p></td>
+              {% elif property == 'Action' %}
+                <td>
+                  <input type="checkbox" onchange="changeAction({{ x.id }})" record-id="{{ x.id }}" {{value}} data-toggle="toggle" data-on="Active" data-off="Inactive" data-onstyle="success" data-offstyle="danger" id="action{{ x.id }}">
+                </td>
+          		{% endif %}
+          	{% endfor %}
+            {% if objectType != 'InternalUsers' and objectType != 'TotalDownloadsAndroid' and objectType != 'TotalDownloadsIOS' and objectType != 'OnlineUsersAndroid' and objectType != 'OnlineUsersIOS' and objectType != 'Subscribers'  %}
+              <td>
+                {% if objectType != 'ContactUs' %}
+                  <span style="padding-left:32px;font-size:1.4rem;"><a href="/neoadmin/model_object/{{objectType}}?edit=true&objectId={{x.id}}"><i class="fas fa-edit"></i></a></span>
+                {% endif %}
+                <span style="padding-left:32px;font-size:1.4rem;"><a href="/neoadmin/deleteObject/{{objectType}}/{{ x.id }}/"><i class="fas fa-trash"></i></a></span>
+              </td>
+            {% elif objectType == 'InternalUsers' %}
+              <td>
+                <span style="padding-left:32px;font-size:1.4rem;"><a href="/accounts/update_staff_member/{{x.id}}/"><i class="fas fa-edit"></i></a></span> <span style="padding-left:32px;font-size:1.4rem;"><a href="/neoadmin/deleteObject/{{objectType}}/{{ x.id }}/"><i class="fas fa-trash"></i></a></span>
+              </td>
+            {% endif %}
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block script_code %}
+<script>
+  $('#dataTable').DataTable( {
+    responsive: true
+  });
+  function changeAction(id) {
+    console.log(id);
+    console.log('changed');
+    var isChecked = document.getElementById("action" + id).checked;
+    console.log(isChecked);
+    var switchLabel = document.getElementById("action" + id);
+    var request = new XMLHttpRequest();
+    if (isChecked) {
+      var selectedData = switchLabel.getAttribute('data-on');
+      var recordId = switchLabel.getAttribute('record-id');
+      var url = '/neoadmin/change_action/{{ objectType }}/' + recordId + '/?action=Active'
+      request.open('GET', url, true);
+      request.send()
+    }
+    else {
+      var selectedData = switchLabel.getAttribute('data-off');
+      var recordId = switchLabel.getAttribute('record-id');
+      var url = '/neoadmin/change_action/{{ objectType }}/' + recordId + '/?action=Inactive'
+      request.open('GET', url, true);
+      request.send()
+    }
+  }
+</script>
+{% endblock %}

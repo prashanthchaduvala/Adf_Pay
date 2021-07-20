@@ -1,0 +1,72 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+{% block content %}
+<section class="page-banner" >
+  <div class="container">
+     <div class="page-title-wrapper">
+        <h1 class="page-title">Page Not Found!</h1>
+
+     </div>
+  </div>
+<div  style="background-image: url(../img/parallax-2.jpg)" data-parallax="scroll"></div>
+  <ul class="animate-ball">
+     <li class="ball"></li>
+     <li class="ball"></li>
+
+     <li class="ball"></li>
+     <li class="ball"></li>
+  </ul>
+</section>
+ <section class="about">
+  <center><div class="container text-center">
+     <center><img src="https://image.freepik.com/free-vector/404-error-page-found_41910-343.jpg" alt="404"></center>
+  </div></center>
+</section>
+
+
+
+<section class="call-to-action">
+  <div class="overlay-bg"><img src="{% static 'img/b.jpeg' %}" alt="bg"></div>
+  <div class="container">
+     <div class="action-content text-center wow pixFadeUp">
+        <h2 class="title">We are optimists who<br>love to work together</h2>
+        <p>Spiffing good time nice one mush ummm I'm telling down the pub spend<br>a penny only a quid such a fibber tomfoolery, on your bike.</p>
+      <div class="banner-button-container">
+
+                 <a href="#" class="app-btn-two btn-light wow flipInX" data-wow-delay="0.5s"><img src="{% static 'img/google-play.svg' %}"><span class="btn-text"><span class="text-top">Get on the</span> <span>Google play</span></span></a>
+
+              </div>
+     </div>
+  </div>
+
+</section>
+<section class="brand-logo-ab">
+  <div class="section-small text-center">
+     <h2 class="title wow pixFadeUp">Trusted Over 2500+ Companies</h2>
+  </div>
+  <div class="container">
+     <div class="swiper-container logo-carousel wow pixFadeUp" id="logo-carousel" data-perpage="6" data-breakpoints='{"1024": {"slidesPerView": 4}, "768": {"slidesPerView": 4}, "620": {"slidesPerView": 3}}'>
+        <div class="swiper-wrapper">
+           <div class="swiper-slide">
+              <div class="brand-logo"><img src="{% static 'img/18.png' %}" alt="brand"></div>
+           </div>
+           <div class="swiper-slide">
+              <div class="brand-logo"><img src="{% static 'img/18.png' %}" alt="brand"></div>
+           </div>
+           <div class="swiper-slide">
+              <div class="brand-logo"><img src="{% static 'img/18.png' %}" alt="brand"></div>
+           </div>
+           <div class="swiper-slide">
+              <div class="brand-logo"><img src="{% static 'img/18.png' %}" alt="brand"></div>
+           </div>
+           <div class="swiper-slide">
+              <div class="brand-logo"><img src="{% static 'img/18.png' %}" alt="brand"></div>
+           </div>
+           <div class="swiper-slide">
+              <div class="brand-logo"><img src="{% static 'img/18.png' %}" alt="brand"></div>
+           </div>
+        </div>
+     </div>
+  </div>
+</section>
+{% endblock %}

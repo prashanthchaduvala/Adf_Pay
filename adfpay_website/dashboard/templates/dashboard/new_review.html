@@ -1,0 +1,175 @@
+{% load static %}
+{% include 'dashboard/bases.html'%}
+{% include 'dashboard/sidebars.html' %}
+{% block content %}
+<div class="content-wrapper">
+        <div class="container">
+          <!-- Content Header (Page header) -->
+          <div class="content-header">
+            <div class="d-flex align-items-center">
+              <div class="mr-auto">
+                <!-- <h3 class="page-title">Edit</h3> -->
+                <div class="d-inline-block align-items-center">
+                  <nav>
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item">
+                        <a href="index.html"
+                          ><i class="mdi mdi-home-outline"></i
+                        ></a>
+                      </li>
+                      <li class="breadcrumb-item" aria-current="page">Back</li>
+                      <!-- <li class="breadcrumb-item active" aria-current="page">Edit</li> -->
+                    </ol>
+                  </nav>
+                </div>
+              </div>
+              <div class="right-title">
+                <span>New Review</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Main content -->
+          <section class="content">
+            <div class="row">
+              <div class="col-12">
+                <div class="box">
+                  <div class="box-header with-border">
+                    <h4 class="box-title">New Review</h4>
+                  </div>
+                  <div class="box-body">
+                    <form action="#">
+                      <div class="form-body">
+                        <table
+                          id="example"
+                          class="table table-bordered table-responsive"
+                          style="width: 100%"
+                        >
+                          <thead>
+                            <tr>
+                              <th>SNO.</th>
+                              <th>Country</th>
+                              <th>State</th>
+                              <th>City</th>
+                              <th>Profile Type</th>
+                              <th>Name</th>
+                              <th>Mobile Number</th>
+                              <th>Email Id</th>
+                              <th>Review Date</th>
+                              <th>Review Rating</th>
+                              <th>Contents</th>
+                              <th>Allocated To</th>
+                              <th>Allocated Date</th>
+                              <th>Status</th>
+<!--                              <th>Action</th>-->
+                              <!-- <th>Name</th> -->
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                                {% if json_data%}                              <td>
+                <p>{{ json_data.id }}</p>
+              </td>
+             <td>
+                <p>{{ json_data.country }}</p>
+              </td>
+              <td>
+                <p>{{ json_data.state }}</p>
+              </td>
+              <td>
+                <p>{{ json_data.region }}</p>
+              </td>
+              <td>
+                <p>{{ json_data.profile_type }}</p>
+              </td>
+                                 <td>
+                <p>{{ json_data.name }}</p>
+              </td>
+                                 <td>
+                <p>{{ json_data.email }}</p>
+              </td>
+              <td>
+                <p>{{ json_data.phone_no }}</p>
+              </td>
+              <td>
+                <p>{{ json_data.date }}</p>
+              </td>
+              <td>
+                <p>{{ json_data.review_rating }}</p>
+              </td>
+              <td>
+                <p>{{ json_data.review_comment }}</p>
+              </td>
+                                <td>
+                <p>{{ json_data.company_response }}</p>
+              </td>
+                                </td>
+                                <td>
+                <p>{{ json_data.feedback_content }}</p>
+              </td>
+                                             <td>
+                <p>{{ json_data.action }}</p>
+              </td>
+                                {% endif %}}
+
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- /.content -->
+        </div>
+      </div>
+
+      {% endblock %}
+
+{% block script_code %}
+     
+
+ 
+<!-- <script>
+
+  $(document).ready(function(){
+    $('#MyButton').click(function(){
+      console.log("comming")
+    var x = document.getElementById("MyButton").value;  
+    
+    console.log(x,"'x'")
+    var request = new XMLHttpRequest();
+   
+    var url = '/admin_master/change_action/' + x + '/Active/'
+      request.open('GET', url, true);
+      request.send()
+    
+    });
+  });
+</script>
+   -->
+
+<script type="text/javascript">
+   $( "button.editCategory" ).click(function(event) {
+    console.log("something")
+    
+      var id = $(this).data('category');
+      var request = new XMLHttpRequest();
+   
+      var url = '/dashboard/android_change_action/' + id + '/Active/'
+      request.open('GET', url, true);
+      request.send()
+    });
+</script>
+<script>
+
+  $('#dataTable').DataTable( {
+    responsive: true
+  });
+
+  
+</script>
+
+{% endblock %}

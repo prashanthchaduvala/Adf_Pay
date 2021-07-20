@@ -1,0 +1,389 @@
+//************* Variables
+$redColor: #ff9933 ;
+$greenColor: #a9df68;
+$black: #222;
+$white: #f2f2f2;
+$blueColor: #3039cc;
+$orangeColor: #ff9933;
+$paraFont: 14px;
+$headingFont: 32px;
+$menuFont: 16px;
+
+// ************ headers
+
+.mynav {
+  a {
+    &:hover {
+      color: $orangeColor !important;
+      &::after {
+        background: $orangeColor !important;
+      }
+    }
+  }
+  .mybtn {
+    background: $blueColor;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    border-radius: 10px;
+    color: $white !important;
+    &:hover {
+      color: $white !important;
+      &::after {
+        background: none !important;
+      }
+    }
+  }
+
+  .logo {
+    display: flex !important;
+    flex-direction: row;
+    align-items: center !important;
+    img {
+      width: 70px !important;
+    }
+    P {
+      color: $blueColor;
+      font-size: 22px;
+      font-weight: bold;
+      position: relative;
+      left: 15px;
+      // top: 10px;
+      span {
+        color: $orangeColor;
+      }
+    }
+  }
+  li {
+    position: relative !important;
+    // &:hover {
+    //   .dropdown-menu {
+    //     display: block !important;
+    //     bottom: -10px;
+    //   }
+    // }
+  }
+}
+
+//myBanner
+
+.myBanner {
+  span {
+    color: $blueColor !important;
+    font-size: $menuFont !important;
+    font-weight: 700 !important;
+    position: relative;
+    top: 10px;
+  }
+  h1 {
+    font-size: 55px;
+    margin-top: 0 !important;
+    color: $orangeColor !important;
+  }
+  p {
+    color: #999 !important;
+  }
+}
+
+.app-tabs .bg-color-green {
+  background: #f2f2f2;
+}
+.tabs-three #pix-tabs-nav li a {
+  background: #72727a3b;
+  font-weight: 700;
+}
+.tabs-three #pix-tabs-nav li.active a {
+  background: $orangeColor;
+  color: $white;
+}
+.section-title.style-five .title {
+  // color: $blueColor;
+  text-transform: uppercase;
+  font-size: $headingFont;
+}
+
+.mycircle {
+  background: $orangeColor;
+}
+
+.myBanner {
+  //main-banner-content
+  .main-banner-content {
+    span {
+      color: $blueColor;
+    }
+  }
+}
+.wealth {
+  h2 {
+    text-align: left;
+  }
+  .list-items {
+    text-align: left;
+  }
+  p {
+    text-align: left;
+  }
+}
+
+.myHeader {
+  background: #fff;
+  .container-fluid {
+    padding: 0px 50px !important;
+  }
+}
+
+.app-tabs {
+}
+
+//my__tab
+.my__tab {
+  margin-top: 150px;
+  background: #f2f2f2;
+}
+.company-content .company-text .icon i {
+  color: $orangeColor !important;
+}
+#footer.footer-app .widget.footer-widget .widget-title {
+  color: $orangeColor !important;
+}
+
+#footer.footer-app .widget.widget-about p {
+  color: $white !important;
+}
+#footer.footer-app .site-info p a {
+  color: $orangeColor;
+}
+.page-banner {
+  background: $orangeColor;
+}
+.animate-ball .ball {
+  background: $blueColor;
+}
+
+.neo-icon-box-wrapper:hover {
+  background: $orangeColor;
+}
+.pricing-table:hover .price-title {
+  color: $orangeColor !important;
+}
+#footer.footer-app .footer-menu li a:hover {
+  color: $orangeColor;
+}
+
+.myBlog {
+  .image {
+    position: relative;
+    height: inherit;
+    width: 100%;
+    // width: inherit;
+  }
+  .default-btn {
+    background: $orangeColor;
+  }
+
+  .pagination-area .page-numbers.current,
+  .pagination-area .page-numbers:hover,
+  .pagination-area .page-numbers:focus {
+    background: $orangeColor;
+  }
+
+  .widget-area .widget_search form button {
+    background: $orangeColor;
+  }
+  .widget-area .widget .widget-title {
+    border-bottom-color: $orangeColor;
+  }
+  .widget-area .widget_categories ul li a:hover {
+    color: $orangeColor;
+  }
+  a {
+    &:hover {
+      color: $orangeColor !important;
+    }
+  }
+  .widget-area .tagcloud a:hover,
+  .widget-area .tagcloud a:focus {
+    background: $orangeColor;
+    border-color: $orangeColor;
+  }
+  .single-blog .post-meta li i {
+    color: $orangeColor !important;
+  }
+}
+.testimonial-six .testimonial-content {
+  background: $white;
+  p {
+    color: $black;
+  }
+  &::after {
+    border-top: 15px solid $white;
+  }
+}
+
+.myService {
+  .section-title .title {
+    color: $orangeColor;
+  }
+}
+
+// myfooter
+.myFoooter {
+  .footer-inner {
+    padding-top: 70px !important;
+  }
+}
+
+//mydetails
+.mydetails {
+  .image {
+    width: 100%;
+    position: relative;
+    height: auto;
+  }
+  blockquote i,
+  .blockquote i {
+    background-color: $orangeColor;
+  }
+  .blog-details-desc .post-meta li i {
+    color: $orangeColor;
+  }
+  .comment-reply .form-submit input {
+    background: $orangeColor;
+  }
+}
+
+.signup-form form {
+  button {
+    background: $orangeColor;
+  }
+  span {
+    a {
+      color: $orangeColor !important;
+    }
+  }
+}
+.default-btn {
+  background: $orangeColor !important;
+}
+.sign-in-form form span {
+  a {
+    color: $orangeColor !important;
+  }
+}
+.btn-user {
+  background: $blueColor;
+  border-color: $blueColor;
+}
+
+//mycard
+.mycard {
+  .card-body {
+    padding: 1.25rem;
+    position: relative;
+    p {
+      color: #999 !important;
+      font-size: 15px;
+      text-align: justify;
+    }
+  }
+  .user-picture {
+    img {
+      height: 100px;
+      object-fit: cover;
+      width: 100px;
+      top: -50px !important;
+    }
+  }
+}
+
+.myblog {
+  .blog-content {
+    padding: 20px 0 30px 0;
+    .head {
+      border-bottom: 1px solid #ccc;
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      h3 {
+        margin: 0;
+      }
+      h5 {
+        color: #999;
+        font-size: 14px;
+      }
+    }
+  }
+  .feature-image {
+    img {
+      width: 100%;
+      object-fit: cover;
+      height: 500px;
+      // margin-bottom: 20px;
+    }
+  }
+}
+.mybtnlogin {
+  text-align: center;
+}
+
+.sign_up_in {
+  h3 {
+    font-size: 24px !important;
+    color: $orangeColor !important;
+  }
+  input {
+    &::placeholder {
+      color: #999 !important;
+    }
+  }
+  label {
+    color: #666;
+    font-size: 14px;
+  }
+  button {
+    background: $blueColor !important;
+  }
+}
+.animate-ball {
+  display: none !important;
+}
+.sign_up_in{
+  max-width: 900px !important;
+}
+
+// blogs part
+.comment_list{
+  margin: 30px 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  border-bottom: 1px solid #f2f2f2;
+  padding-bottom: 25px;
+  .img_part{
+    margin-right: 15px;
+    width: 15%;
+    img{
+      width: 100%;
+    }
+    
+  }
+  .content_part{
+    padding-bottom: 15px;
+    width: 85%;
+    h3{
+      font-size: 18px;
+      text-transform: capitalize;
+      margin: 0;
+    }
+    span{
+      font-size: 13px;
+      color: $redColor;
+    }
+    p{
+      color: #999;
+      font-size: 15px;
+      margin-top: 5px;
+    }
+  }
+}

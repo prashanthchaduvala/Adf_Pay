@@ -1,0 +1,119 @@
+{% extends "indexpartner.html" %}
+
+{% block title %}Bank Records{% endblock title %}
+
+{% block content %}
+ <div class="content-wrapper">
+	  <div class="container">
+		<!-- Content Header (Page header) -->
+		<div class="content-header">
+			<div class="d-flex align-items-center">
+				<div class="mr-auto">
+					<!-- <h3 class="page-title">Edit</h3> -->
+					<div class="d-inline-block align-items-center">
+						<nav>
+							<ol class="breadcrumb">
+<!--								<li class="breadcrumb-item"><a href="/crugapp/cugdashboard/"><i class="mdi mdi-home-outline"></i></a></li>-->
+								<li class="breadcrumb-item" aria-current="page">Back</li>
+								<!-- <li class="breadcrumb-item active" aria-current="page">Edit</li> -->
+							</ol>
+						</nav>
+					</div>
+				</div>
+				<div class="right-title">
+					<span>Commision</span>
+				</div>
+			</div>
+		</div>
+
+		<!-- Main content -->
+		<section class="content">
+
+			<div class="row">
+			  <div class="col-12">
+				<div class="box">
+					<div class="box-header with-border d-flex justify-content-between">
+					  <h4 class="box-title">Commision Details</h4>
+<!--                      <a href="{% url 'adddownload'%}" class="btn btn-primary">Add downloads</a>-->
+					</div>
+				  <div class="box-body">
+					<form action="#">
+						<div class="form-body">
+							<table id="example" class="table table-bordered" style="width:100%">
+							<thead>
+                            <tr>
+                      			<th>SNO.</th>
+                				<th>Location</th>
+                				<th>Name</th>
+                				<th>Email Id </th>
+								<th>Mobile Number</th>
+								<th>Service</th>
+								<th>Volume</th>
+								<th>Rate</th>
+
+    				<tr>{% for x in data %}
+          						<td>{{ data.id }}</td>
+								<td>{{data.commision.city}}</td>
+     							<td>{{ data.commision.full_name }}</td>
+     							<td>{{ data.commision.email }}</td>
+     							<td>{{ data.commision.mobile }}</td>
+      								<td>{{ data.service }}</td>
+								<td>{{ data.volume }}</td>
+								<td>{{ data.rate }}</td>
+								<td>{% endfor %}
+<!--			<input type="checkbox" onchange="changeAction({{ data.id }})" record-id="{{ data.id }}" {{value}} data-toggle="toggle" data-on="Active" data-off="Inactive" data-onstyle="success" data-offstyle="danger" id="action{{ data.id }}">-->
+                </td>
+</tr>
+
+							</tbody>
+    </table>
+						</div>
+					</form>
+				  </div>
+				</div>
+			  </div>
+		  </div>
+
+		</section>
+		<!-- /.content -->
+	  </div>
+  </div>
+        </div>
+    </div>
+{%  endblock %}
+
+{% comment %}
+{% block scripts %}
+
+
+<!--<script>-->
+<!--  $('#dataTable').DataTable( {-->
+<!--    responsive: true-->
+<!--  });-->
+<!--  function changeAction(id) {-->
+<!--    console.log(id);-->
+<!--    console.log('changed');-->
+<!--    var isChecked = document.getElementById("action" + id).checked;-->
+<!--    console.log(isChecked);-->
+<!--    var switchLabel = document.getElementById("action" + id);-->
+<!--    var request = new XMLHttpRequest();-->
+<!--    if (isChecked) {-->
+<!--      var selectedData = switchLabel.getAttribute('data-on');-->
+<!--      var recordId = switchLabel.getAttribute('record-id');-->
+<!--      var url = '/crugapp/change_download/{{ objectType }}/' + recordId + '/?action=Active'-->
+<!--      request.open('GET', url, true);-->
+<!--      request.send()-->
+<!--    }-->
+<!--    else {-->
+<!--      var selectedData = switchLabel.getAttribute('data-off');-->
+<!--      var recordId = switchLabel.getAttribute('record-id');-->
+<!--      var url = '/crugapp/change_download/{{ objectType }}/' + recordId + '/?action=Inactive'-->
+<!--      request.open('GET', url, true);-->
+<!--      request.send()-->
+<!--    }-->
+<!--  }-->
+<!--</script>-->
+{% endblock %}
+
+
+{% endcomment %}

@@ -1,0 +1,71 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+{% block content %}
+<section class="page-banner" >
+  <div class="container">
+     <div class="page-title-wrapper">
+        <h1 class="page-title">Careers</h1>
+
+     </div>
+  </div>
+<div  style="background-image: url(../img/parallax-2.jpg)" data-parallax="scroll"></div>
+  <ul class="animate-ball">
+     <li class="ball"></li>
+     <li class="ball"></li>
+
+     <li class="ball"></li>
+     <li class="ball"></li>
+  </ul>
+</section>
+ <section class="text-center mt-5">
+   <div class="container-fluid">
+     {% if noEntry %}
+      <h1 class="text-center">No vacancies available.</h1>
+     {% else %}
+       <h1 class="text-center mt-3 mb-3">Current Openings</h1>
+       <div class="table-responsive">
+         <table class="table table-bordered" width="100%" cellspacing="0">
+           <thead class="thead-dark">
+             <tr>
+               <th>SNo.</th>
+               {% for field in fieldNames %}
+                 {% if field != 'id' and field != 'Action' and field != 'Designation' %}
+                   <th>{{field}}</th>
+                 {% elif field == 'Designation' %}
+                   <th>Position Appliying For</th>
+                 {% endif %}
+               {% endfor %}
+               <th>Apply</th>
+             </tr>
+           </thead>
+           <tbody>
+             {% for x in objects %}
+             <tr>
+               <td><p>{{ forloop.counter }}</p></td>
+             {% for property,value in x.items %}
+                {% if property != 'id' and property != 'Action' %}
+                  <td><p>{{value}}</p></td>
+                {% endif %}
+             {% endfor %}
+              <td><p><a role="button" class="btn btn-success" href="/applyjob/{{x.id}}/">Apply</a></p></td>
+             </tr>
+             {% endfor %}
+           </tbody>
+         </table>
+       </div><br>
+    {% endif %}
+    <div class="text-center mb-3">
+      <h2>Are you looking for a job?</h2>
+      <a role="button" href="/apply-job/" class="btn btn-success btn-large">APPLY NOW!</a>
+    </div>
+   </div>
+</section>
+{% endblock %}
+
+{% block script_code %}
+  <script>
+    $('#dataTable').DataTable( {
+      responsive: true
+    });
+  </script>
+{% endblock %}

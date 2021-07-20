@@ -1,0 +1,149 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- <link rel="icon" href="http://ultimatepro-admin-templates.multipurposethemes.com/images/favicon.ico"> -->
+
+    <title>Mobile App ADFPAY </title>
+  
+	<!-- Bootstrap 4.0-->
+	<link rel="stylesheet" href="{% static 'dashboard/assets/vendor_components/bootstrap/dist/css/bootstrap.css'%}">
+	
+    <!-- c3 CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'dashboard/assets/vendor_components/c3/c3.min.css'%}">
+	
+	<!-- weather weather -->
+	<link rel="stylesheet" href="{% static 'dashboard/assets/vendor_components/weather-icons/weather-icons.css'%}">
+	
+	<!-- daterange picker -->	
+	<link rel="stylesheet" href="{% static 'dashboard/assets/vendor_components/bootstrap-daterangepicker/daterangepicker.css'%}">
+	
+	<!-- Morris charts -->
+	<link rel="stylesheet" href="{% static 'dashboard/assets/vendor_components/morris.js/morris.css'%}">
+	
+	<!-- Bootstrap extend-->
+	<link rel="stylesheet" href="{% static 'dashboard/css/bootstrap-extend.css'%}">
+	
+	<!-- theme style -->
+	<link rel="stylesheet" href="{% static 'dashboard/css/master_style.css'%}">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	
+	<!-- UltimatePro Admin skins -->
+	<link rel="stylesheet" href="{% static 'dashboard/css/skins/_all-skins.css'%}">
+	<link rel="stylesheet" href="{% static 'dashboard/css/style.css'%}">
+	<![endif]-->
+
+</head>
+<body class="hold-transition skin-light light-sidebar sidebar-mini">
+<!-- Site wrapper -->
+<div class="wrapper">
+
+ {% include 'dashboard/headers.html' %}
+        
+  <!-- Left side column. contains the logo and sidebar -->
+    {% include 'dashboard/sidebars.html' %}
+
+  
+
+  <!-- Content Wrapper. Contains page content -->
+ {% block content %}
+
+ {% endblock %}
+  <!-- /.content-wrapper -->
+ 
+	<?php include 'dashboard/footer.html';?>
+    <?php include 'dashboard/dataModal.html' ;?>
+  <!-- Control Sidebar -->
+ 
+  <!-- /.control-sidebar -->
+  
+  <!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
+ }
+</div>
+<!-- ./wrapper -->
+
+
+	<!-- jQuery 3 -->
+		  
+	<!-- jQuery 3 -->
+	<script src="{% static 'dashboard/assets/vendor_components/jquery-3.3.1/jquery-3.3.1.js'%}"></script>
+	
+	<!-- jQuery UI 1.11.4 -->
+	<script src="{% static 'dashboard/assets/vendor_components/jquery-ui/jquery-ui.js'%}"></script>
+	
+	<!-- popper -->
+	<script src="{% static 'dashboard/assets/vendor_components/popper/dist/popper.min.js'%}"></script>
+	
+	<!-- Bootstrap 4.0-->
+	<script src="{% static 'dashboard/assets/vendor_components/bootstrap/dist/js/bootstrap.js'%}"></script>	
+	
+	<!-- date-range-picker -->
+	<script src="{% static 'dashboard/assets/vendor_components/moment/min/moment.min.js'%}"></script>
+	<script src="{% static 'dashboard/assets/vendor_components/bootstrap-daterangepicker/daterangepicker.js'%}"></script>
+	
+	<!-- Slimscroll -->
+	<script src="{% static 'dashboard/assets/vendor_components/jquery-slimscroll/jquery.slimscroll.js'%}"></script>
+	
+	<!-- FastClick -->
+	<script src="{% static 'dashboard/assets/vendor_components/fastclick/lib/fastclick.js'%}"></script>
+	
+	<!-- Sparkline -->
+	<script src="{% static 'dashboard/assets/vendor_components/jquery-sparkline/dist/jquery.sparkline.min.js'%}"></script>
+	
+	<!-- Morris.js charts -->
+	<script src="{% static 'dashboard/assets/vendor_components/raphael/raphael.min.js'%}"></script>
+	<script src="{% static 'dashboard/assets/vendor_components/morris.js/morris.min.js'%}"></script>
+	
+	<!-- peity -->
+	<script src="{% static 'dashboard/assets/vendor_components/jquery.peity/jquery.peity.js'%}"></script>
+	
+	<!-- weather for demo purposes -->
+	<script src="{% static 'dashboard/assets/vendor_plugins/weather-icons/WeatherIcon.js'%}"></script>
+	<script src="{% static 'dashboard/js/pages/weather.js'%}"></script>
+	
+	<!-- Chart -->
+	<script src="{% static 'dashboard/assets/vendor_components/chart.js-master/Chart.min.js'%}"></script>
+	
+	<!-- d3 -->
+	<script src="{% static 'dashboard/assets/vendor_components/d3/d3.min.js'%}"></script>
+	<script src="{% static 'dashboard/assets/vendor_components/d3/d3_tooltip.js'%}"></script>
+	
+    <!-- eChart Plugins -->
+    <script src="{% static 'dashboard/assets/vendor_components/echarts/dist/echarts-en.min.js'%}"></script>
+	
+	<!-- UltimatePro Admin App -->
+	<script src="{% static 'dashboard/js/template.js'%}"></script>
+	
+	<!-- UltimatePro Admin dashboard demo (This is only for demo purposes) -->
+	<script src="{% static 'dashboard/js/pages/dashboard.js'%}"></script>
+	<script src="{% static 'dashboard/js/pages/chart-int.js'%}"></script>
+
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+	
+	<!-- UltimatePro Admin for demo purposes -->
+	 <script src="{% static 'dashboard/js/demo.js'%}"></script>	<script src="{% static '/dashboard/js/app.js'%}"></script>	
+	
+	<script>
+        $(document).ready(function() {
+    $('#example').DataTable();
+} );
+    </script>
+    {% block script_code %}
+
+      {% endblock %}
+
+</body>
+</html>

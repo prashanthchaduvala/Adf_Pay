@@ -1,0 +1,327 @@
+{% extends 'dashboard/bases.html'%}
+{% load static %}
+
+{% block content%}
+<style>
+
+</style>
+<div class="content-wrapper">
+	  <div class="container">
+		
+
+		<!-- Main content -->
+		<section class="content">
+
+			<div class="row">
+			  <div class="col-12">
+				<div class="box">
+					<div class="box-header with-border">
+					  <h4 class="box-title">Add Internal User</h4>
+					</div>
+				  <div class="box-body">
+					 <form action="/dashboard/create_internal_user/" id="internal" enctype="multipart/form-data" method="post">
+                                {% csrf_token %}
+<div class="form-group row">
+<div class="col-sm-12">
+<label>Name</label>
+   <input type="text" class="form-control " name="name" id="id_name">
+
+</div></div>
+
+<div class="form-group row">
+  <div class="col-sm-4">
+    <label>Email</label>
+    <input type="email" class="form-control " name="email" id="id_email">
+  </div>
+  <div class="col-sm-4">
+    <label>Phone Number</label>
+     <input type="tel" class="form-control" pattern="[0-9]{10}" name="phone_no" id="id_phone_no">
+  </div>
+  <div class="col-sm-4">
+    <label>Designation</label>
+    <input type="text" class="form-control " name="designation" id="id_designation">
+  </div>
+</div>
+
+<div class="form-group row">
+<div class="col-sm-12">
+<label>Password</label>
+   <input type="text" class="form-control " name="password" id="id_password">
+</div></div>
+<div class="form-group row">
+<div class="col-sm-12">
+
+<!--        <button formaction="/dashboard/update_internal_user/{{id}}/" class="btn btn-primary btn-user" type="submit">Update</button>-->
+<button type="submit">Submit</button>
+
+
+<!--<label>Country</label>-->
+<!--      <select class="form-control " name="country" id="id_country">-->
+<!--	  {% for count in country %}-->
+<!--     <option value="{{count}}">{{count}}</option>-->
+<!--    {% endfor %}-->
+<!--   </select>-->
+
+
+<!--</div></div>-->
+
+<!--<div class="form-group row">-->
+<!--<div class="col-sm-12">-->
+<!--<label>City</label>-->
+<!--      <select class="form-control " name="city" id="id_city">-->
+<!--	  {% for count in city %}-->
+<!--     <option value="{{count}}">{{count}}</option>-->
+<!--    {% endfor %}-->
+<!--   </select>-->
+
+
+<!--</div></div>-->
+
+<!-- <div class="form-group row">-->
+<!--<div class="col-sm-12">-->
+<!--<label>Profile Type</label>-->
+<!--      <select class="form-control " name="profile_type" id="id_profile_type">-->
+<!--	  {% for count in profile_type %}-->
+<!--     <option value="{{count}}">{{count}}</option>-->
+<!--    {% endfor %}-->
+
+
+<!--   </select>-->
+<!--   -->
+<!--   -->
+<!--</div></div>-->
+<!--&lt;!&ndash;&#45;&#45;-->
+<!--<div class="form-group row">-->
+<!--  <table class="table table-bordered" style="width: 100%">-->
+<!--                          <thead>-->
+<!--                            <tr class="process">-->
+<!--                              <th rowspan="2">Process Name</th>-->
+<!--                              <th colspan="10">Permissions</th>-->
+
+<!--                             -->
+<!--                            </tr>-->
+<!--                            <tr class="process">-->
+<!--                              -->
+<!--                              <th>create</th>-->
+<!--                              <th>update</th>-->
+<!--                              <th>view</th>-->
+<!--                              <th>delete</th>-->
+<!--                              -->
+<!--                            </tr>-->
+<!--                          </thead>-->
+<!--                          <tbody class="fixe_process">-->
+<!--                            <tr>  -->
+<!--                              <td id="mobile_app"> Mobile App <i class="fa fa-plus-square"></i></td>-->
+<!--                            -->
+<!--                             -->
+<!--                            </tr>-->
+<!--                             <tr >-->
+<!--                                -->
+<!--                                <td  class="hiddenRow" colspan="12">-->
+<!--                                  <div>-->
+<!--                                 -->
+<!--                                     <table class="table"> -->
+<!--                                       <tbody>-->
+<!--                                         <tr >-->
+<!--                                           <td>IOS</td>-->
+<!--                                           <td>-->
+<!--                                              <input type="checkbox" />-->
+<!--                                            </td>-->
+<!--                                            <td>-->
+<!--                                              <input type="checkbox" />-->
+<!--                                            </td>-->
+<!--                                            <td>-->
+<!--                                              <input type="checkbox" />-->
+<!--                                            </td>-->
+<!--                                            <td>-->
+<!--                                              <input type="checkbox" />-->
+<!--                                            </td>-->
+<!--                                           -->
+<!--                                         </tr>-->
+<!--                                         <tr >-->
+<!--                                           <td>Android</td>-->
+<!--                                           <td>-->
+<!--                                              <input type="checkbox" />-->
+<!--                                            </td>-->
+<!--                                            <td>-->
+<!--                                              <input type="checkbox" />-->
+<!--                                            </td>-->
+<!--                                            <td>-->
+<!--                                              <input type="checkbox" />-->
+<!--                                            </td>-->
+<!--                                            <td>-->
+<!--                                              <input type="checkbox" />-->
+<!--                                            </td>-->
+<!--                                           -->
+<!--                                         </tr>-->
+<!--                                       </tbody>-->
+<!--                                     </table>-->
+<!--                                  </div> -->
+<!--                                </td>-->
+<!--                             </tr>-->
+<!--						</table>-->
+<!--					-->
+
+
+
+
+<!--</div> -->
+<!-- -&#45;&#45;&ndash;&gt;-->
+<!--<div class="form-group row">-->
+<!--<div class="col-sm-6">-->
+<!--<label>Permission Types</label>-->
+<!--   <select class="form-control " name="permission_types" id="id_permission_types" multiple>-->
+<!--     <option value="read">Read</option>-->
+<!--     <option value="create">Write</option>-->
+<!--     <option value="update">Edit</option>-->
+<!--     <option value="delete">Delete</option>-->
+<!--   </select>-->
+
+<!--</div>-->
+<!--<div class="col-sm-6">-->
+<!--<label>Process Access</label>-->
+<!--   -->
+<!--   {% for data in permissions %}-->
+<!--   <div class="panel-group driving-license-settings" id="_{{forloop.counter}}">-->
+<!--                    <div class="panel panel-default">-->
+<!--                        <div class="panel-heading">-->
+<!--                            <h4 class="panel-title">-->
+<!--                                {% for cat,subcat in data.items %}-->
+<!--                                <a >-->
+<!--                                    <input type="checkbox"  {% if cat in  function_names_list %}checked {% endif %}  data-toggle="collapse" data-parent="#_{{forloop.counter}}" data-target="#app_{{cat}}" class="ui-checkbox menu" id="id_{{cat}}" value="{{cat}}" name="function_names[]"/>-->
+<!--                                    <label for="id_{{cat}}">{{cat}}</label>-->
+<!--                                </a>-->
+<!--                            </h4>-->
+<!--                        </div>-->
+<!--                        <div id="app_{{cat}}" class="panel-collapse collapse in">-->
+<!--                            <div class="panel-body">-->
+<!--                                <div class="driving-license-kind">-->
+<!--                                    {% for sub in subcat %}-->
+<!--                                        <div class="checkbox">-->
+<!--                                            <input onclick='handleClick(this)' type="checkbox"  {% if sub.permission_sub_menu in  function_names_list %}checked {% endif %} class="ui-checkbox" id="{{sub.id}}" value="{{sub.permission_sub_menu}}" name="function_names[]"/>-->
+<!--                                            <label for="{{sub.id}}">{{sub.permission_sub_menu}}</label>-->
+<!--                                        </div>-->
+<!--                                    {% endfor %}-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--				 {% endfor %}-->
+<!--        {% endfor %}-->
+<!--  -->
+
+<!--</div>-->
+<!--</div>-->
+
+<!--<div class="col-sm-12">-->
+<!--  {% if operation == 'create'  %}-->
+<!--    <button  class="btn btn-primary btn-user" type="submit">Submit</button>-->
+<!--  {% else %}-->
+<!--    <button formaction="/dashboard/update_internal_user/{{id}}/" class="btn btn-primary btn-user" type="submit">Update</button>-->
+<!--  {% endif %}-->
+<!--</div>-->
+<!--</form>-->
+<!--				  </div>-->
+<!--				</div>-->
+<!--			  </div>		  -->
+<!--		  </div>-->
+
+<!--		</section>-->
+<!--		&lt;!&ndash; /.content &ndash;&gt;-->
+<!--	  </div>-->
+<!--  </div>-->
+<!--  {% endblock %}-->
+<!--   {% block script_code %}-->
+
+ 
+
+ <script>
+   $( document ).ready(function() {
+             $(document).ready(function() { 
+                var $checkbox = $('.menu');
+                //var $checkbox2 = $('#someCheckbox2');
+
+                var $collapseContainer = $('.collapse in');
+                //var $collapseContainer2 = $('#collapseContainer2');
+
+                $checkbox.change(function() { 
+                    $collapseContainer.collapse('toggle');
+                }); 
+
+               
+
+                $collapseContainer.collapse($checkbox.prop('checked') ? "show" : "hide");
+            });
+        });
+  window.addEventListener("load", function(){
+    {% for key,value in objects.items %}
+      {% if key != 'id' %}
+        if(document.getElementById('id_{{key}}')) {
+            var id_key = document.getElementById('id_{{key}}');
+            var keycheck = '{{key}}';
+            try {
+              if (keycheck == 'function_names') {
+                {% for value in function_names_list %}
+                  $('#id_{{key}} option[value="{{value}}"]').attr("selected", "selected");
+                {% endfor %}
+              }
+              else if (keycheck == 'permission_types') {
+                {% for value in profile_types_list %}
+				
+                  $('#id_{{key}} option[value="{{value}}"]').attr("selected", "selected");
+                {% endfor %}
+              }
+			else if (keycheck == 'profile_type') {
+                {% if value == profile_typelist %}
+                  $('#id_{{key}} option[value="{{value}}"]').attr("selected", "selected");
+                {% endif %}
+              }
+			  else if (keycheck == 'city') {
+			 
+                {% if value == citylist %}
+				 
+                  $('#id_{{key}} option[value="{{value}}"]').attr("selected", "selected");
+                {% endif %}
+              }
+			  else if (keycheck == 'country') {
+                {% if value == countrylist %}
+                  $('#id_{{key}} option[value="{{value}}"]').attr("selected", "selected");
+                {% endif %}
+              }
+              else {
+                id_key.value = '{{value}}';
+              }
+            } catch (e) {
+              console.log('DOMException');
+            }
+        }
+      {% endif %}
+    {% endfor %}
+  });
+ 
+    let table_body = document.querySelector('.fixe_process')
+    console.log(table_body);
+    table_body.addEventListener('click', function(e){
+        if(e.target.classList.contains('fa-plus-square')){
+            console.log(e.target);
+            e.target.classList.remove("fa-plus-square")
+            e.target.classList.add("fa-minus-square")
+            e.target.parentElement.parentElement.nextElementSibling.children[0].style.display="table-cell";
+            
+        } else if(e.target.classList.contains('fa-minus-square')){
+            e.target.classList.add("fa-plus-square")
+            e.target.classList.remove("fa-minus-square")
+            e.target.parentElement.parentElement.nextElementSibling.children[0].style.display="none"
+        }
+    })
+  
+function handleClick(cb) {
+ alert(cb.value);
+}
+
+  </script>
+{% endblock %}
+	
+
+ 

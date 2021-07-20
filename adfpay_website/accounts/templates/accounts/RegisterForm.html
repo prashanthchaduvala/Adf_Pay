@@ -1,0 +1,153 @@
+{% extends 'neoadmin/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid">
+<div class="card shadow mb-4" id="">
+<div class="card-header py-3">
+<h6 class="m-0 font-weight-bold text-primary">Add Internal User</h6>
+</div>
+<div class="card-body">
+  {% if messages %}
+      {% for message in messages %}
+          {% if message.tags == 'warning'%}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+          {% endif %}
+      {% endfor %}
+  {% endif %}
+<form class="user" enctype="multipart/form-data" method="post">
+{% csrf_token %}
+<div class="form-group row">
+<div class="col-sm-12">
+<label>Name</label>
+   <input type="text" class="form-control " name="name" id="id_name">
+
+</div></div>
+
+<div class="form-group row">
+  <div class="col-sm-4">
+    <label>Email</label>
+    <input type="email" class="form-control " name="email" id="id_email">
+  </div>
+  <div class="col-sm-4">
+    <label>Phone Number</label>
+     <input type="tel" class="form-control" pattern="[0-9]{10}" name="phone_no" id="id_phone_no">
+  </div>
+  <div class="col-sm-4">
+    <label>Designation</label>
+    <input type="text" class="form-control " name="designation" id="id_designation">
+  </div>
+</div>
+
+<div class="form-group row">
+<div class="col-sm-12">
+<label>Password</label>
+   <input type="text" class="form-control " name="password" id="id_password">
+</div></div>
+
+<div class="form-group row">
+<div class="col-sm-6">
+<label>Permission Types</label>
+   <select class="form-control " name="permission_types" id="id_permission_types" multiple>
+     <option value="read">Read</option>
+     <option value="create">Write</option>
+     <option value="update">Edit</option>
+     <option value="delete">Delete</option>
+   </select>
+
+</div>
+<div class="col-sm-6">
+<label>Process Access</label>
+   <select class="form-control " name="function_names" id="id_function_names" multiple>
+     <option value="all">All Dashboard</option>
+     <option value="ManagementTeam">Manage Footer Management Team</option>
+     <option value="AdvisoryBoard">Manage Footer Advisory Board</option>
+     <option value="TermsAndConditions">Manage Footer Terms & Conditions</option>
+     <option value="TermsOfUse">Manage Footer Terms Of Use</option>
+     <option value="FairPracticeCode">Manage Footer Fair Practice Code</option>
+     <option value="PrivacyPolicy">Manage Footer Privacy Policy</option>
+     <option value="Disclaimer">Manage Footer Disclaimer</option>
+     <option value="GrievanceAddressMechanism">Manage Footer Grievance Address Mechanism</option>
+     <option value="Faq">Manage Footer FAQ Page</option>
+     <option value="LifeAtAdfpay">Manage LifeAtAdfpay Page</option>
+     <option value="AboutUs">Manage Website About Us Page</option>
+     <option value="Services">Manage Website Services Page</option>
+     <option value="ContactUs">Manage Website Contact Us Page</option>
+     <option value="ManageSEOContent">Manage SEO Contents</option>
+     <option value="ManageNewsMedia">Manage News & Media</option>
+     <option value="PostVacancies">Post Vacancies</option>
+     <option value="ResumeReceipt">Resume Receipt</option>
+     <option value="PublishBlogs">Publish Blogs</option>
+     <option value="ApproveComments">Approve Comments</option>
+     <option value="Partners">Partners</option>
+     <option value="Testimonials">Testimonials</option>
+     <option value="MobileAppAndroid">Mobile App Android</option>
+     <option value="MobileAppIOS">Mobile App IOS</option>
+     <option value="TotalDownloadsAndroid">Total Downloads Android</option>
+     <option value="TotalDownloadsIOS">Total Downloads IOS</option>
+     <option value="OnlineUsersAndroid">Online Users Android</option>
+     <option value="OnlineUsersIOS">Online Users IOS</option>
+     <option value="UserProfilesAndroid">User Profiles Android</option>
+     <option value="UserProfilesIOS">User Profiles IOS</option>
+     <option value="Backup">Data Storage - Backup</option>
+     <option value="Synchronisation">Data Storage - Synchronisation</option>
+     <option value="Restore">Data Storage - Restore</option>
+     <option value="Feedback">Feedbacks</option>
+     <option value="Reviews">Reviews</option>
+     <option value="InternalUsers">Manage Internal Users</option>
+     <option value="ManageSubscription">Manage Subscription</option>
+     <option value="Subscribers">Manage Subscribers</option>
+     <option value="Support">Support</option>
+   </select>
+
+</div>
+</div>
+
+<div class="col-sm-12">
+  {% if operation == 'create'  %}
+    <button formaction="/accounts/create_staff_member/" class="btn btn-primary btn-user" type="submit">Submit</button>
+  {% else %}
+    <button formaction="/accounts/update_staff_member/{{id}}/" class="btn btn-primary btn-user" type="submit">Update</button>
+  {% endif %}
+</div>
+</form>
+</div>
+</div>
+
+</div>
+{% endblock %}
+{% block script_code %}
+  <script>
+  window.addEventListener("load", function(){
+    {% for key,value in objects.items %}
+      {% if key != 'id' %}
+        if(document.getElementById('id_{{key}}')) {
+            var id_key = document.getElementById('id_{{key}}');
+            var keycheck = '{{key}}';
+            try {
+              if (keycheck == 'function_names') {
+                {% for value in function_names_list %}
+                  $('#id_{{key}} option[value="{{value}}"]').attr("selected", "selected");
+                {% endfor %}
+              }
+              else if (keycheck == 'permission_types') {
+                {% for value in permission_types_list %}
+                  $('#id_{{key}} option[value="{{value}}"]').attr("selected", "selected");
+                {% endfor %}
+              }
+              else {
+                id_key.value = '{{value}}';
+              }
+            } catch (e) {
+              console.log('DOMException');
+            }
+        }
+      {% endif %}
+    {% endfor %}
+  });
+  </script>
+{% endblock %}

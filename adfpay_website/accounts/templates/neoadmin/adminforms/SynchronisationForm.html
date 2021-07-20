@@ -1,0 +1,74 @@
+{% extends 'neoadmin/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid">
+<div class="card shadow mb-4" id="">
+<div class="card-header py-3">
+<h6 class="m-0 font-weight-bold text-primary">Add {{objectType}}</h6>
+</div>
+<div class="card-body">
+<form class="user" enctype="multipart/form-data" method="post">
+{% csrf_token %}
+<div class="form-group row">
+<div class="col-sm-4">
+<label>Country</label>
+   <input type="text" class="form-control " name="country" id="id_country">
+
+</div>
+<div class="col-sm-4">
+<label>State</label>
+   <input type="text" class="form-control " name="state" id="id_state">
+
+</div>
+
+<div class="col-sm-4">
+<label>Region</label>
+   <input type="text" class="form-control " name="region" id="id_region">
+
+</div>
+</div>
+
+<div class="form-group row">
+<div class="col-sm-4">
+<label>Profile Type</label>
+   <select class="form-control " name="profile_type" id="id_profile_type">
+     <option value="employment">Employment</option>
+     <option value="ownbusiness">Own Business</option>
+   </select>
+
+</div>
+<div class="col-sm-4">
+<label>Sync Frequency</label>
+   <select class="form-control " name="sync_frequency" id="id_sync_frequency">
+     <option value="daily">Daily</option>
+     <option value="weekly">Weekly</option>
+     <option value="monthly">Monthly</option>
+   </select>
+
+</div>
+<div class="col-sm-4">
+<label>Timeline</label>
+   <input type="date" class="form-control" name="timeline" id="id_timeline">
+
+</div>
+</div>
+
+<div class="col-sm-12">
+  {% if not objectToUpdate.id  %}
+    <button formaction="/neoadmin/saveObject/{{objectType}}/" class="btn btn-primary btn-user" type="submit">Submit</button>
+  {% else %}
+    <button formaction="/neoadmin/updateObject/{{objectType}}/{{objectToUpdate.id}}/" class="btn btn-primary btn-user" type="submit">Update</button>
+  {% endif %}
+</div>
+</form>
+</div>
+</div>
+
+</div>
+{% endblock %}
+{% block script_code %}
+  {% include "neoadmin/script_code.html" %}
+{% endblock %}
+{% block script_editor %}
+  {% include "neoadmin/script_editor.html" %}
+{% endblock %}

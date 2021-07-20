@@ -1,0 +1,105 @@
+{% extends "index.html" %}
+
+{% block title %}Add Feedback Records{% endblock title %}
+
+{% block content %}
+  <div class="content-wrapper">
+	  <div class="container">
+		<!-- Content Header (Page header) -->
+		<div class="content-header">
+			<div class="d-flex align-items-center">
+				<div class="mr-auto">
+					<!-- <h3 class="page-title">Edit</h3> -->
+					<div class="d-inline-block align-items-center">
+						<nav>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="/crugapp/cugdashboard/"><i class="mdi mdi-home-outline"></i></a></li>
+								<li class="breadcrumb-item" aria-current="page">Back</li>
+								<!-- <li class="breadcrumb-item active" aria-current="page">Edit</li> -->
+							</ol>
+						</nav>
+					</div>
+				</div>
+				<div class="right-title">
+					<span>Download Details</span>
+				</div>
+			</div>
+		</div>
+
+		<!-- Main content -->
+		<section class="content">
+
+			<div class="row">
+			  <div class="col-12">
+				<div class="box">
+					<div class="box-header with-border">
+					  <h4 class="box-title">Add Download</h4>
+					</div>
+				  <div class="box-body">
+                    <!-- Step wizard -->
+		    <div class="box box-default">
+			<!-- <div class="box-header with-border">
+			  <h4 class="box-title">Client Registration</h4>
+			  <h6 class="box-subtitle">You can find the <a href="#!" target="_blank">offical website </a></h6>
+			</div> -->
+			<!-- /.box-header -->
+			<div class="box-body wizard-content">
+
+ <form action="/crugapp/addonlineuser/" method="post" class="tab-wizard wizard-circle" enctype="multipart/form-data" id="formid" >
+
+   {% csrf_token %}
+
+
+ <section>
+ <section>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="profile_type">profile_type:</label>
+									<input type="text" name="profile_type" class="form-control" id="profile_type"> </div>
+							</div>
+<!--							<div class="col-md-6">-->
+<!--								<div class="form-group">-->
+<!--									<label for="state">State :</label>-->
+<!--									<input type="text" name="state" class="form-control" id="state"> </div>-->
+<!--							</div>-->
+<!--						</div>-->
+
+<!--                        <div class="row">-->
+<!--							<div class="col-md-6">-->
+<!--								<div class="form-group">-->
+<!--									<label for="region"> Region:</label>-->
+<!--									<input type="text" name="region" class="form-control" id="region"> </div>-->
+<!--							</div>-->
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="name">name :</label>
+									<input type="text" name="name" class="form-control" id="name"> </div>
+							</div>
+
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="email">email :</label>
+									<input type="email" name="email" class="form-control" id="email"> </div>
+							</div>
+
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="phone">Phone :</label>
+									<input type="tel" name="phone" class="form-control" id="phone"> </div>
+							</div>
+
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="date">date :</label>
+									<input type="datetime-local" name="date" class="form-control" id="date"> </div>
+							</div>
+
+
+                        <div class="btn-group d-flex justify-content-end">
+                            <button class="btn btn-primary">Add Downloads</button>
+                        </div>
+					</section>
+ </form>
+</div>
+{% endblock content %}

@@ -1,0 +1,364 @@
+{% load static %}
+{% include 'dashboard/bases.html'%}
+{% include 'dashboard/sidebars.html' %}
+{% block content %}
+<div class="content-wrapper">
+        <div class="container">
+          <!-- Content Header (Page header) -->
+          <div class="content-header">
+            <div class="d-flex align-items-center">
+              <div class="mr-auto">
+                <!-- <h3 class="page-title">Edit</h3> -->
+                <div class="d-inline-block align-items-center">
+                  <nav>
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item">
+                        <a href="#"><i class="mdi mdi-home-outline"></i></a>
+                      </li>
+                      <!-- <li class="breadcrumb-item" aria-current="page">e-Commerce</li> -->
+                      <li class="breadcrumb-item active" aria-current="page">
+                        Back
+                      </li>
+                    </ol>
+                  </nav>
+                </div>
+              </div>
+              <div class="right-title">
+                <span> Generate Discount Coupon</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Main content -->
+          <section class="content">
+            <div class="row">
+              <div class="col-12">
+                <div class="box">
+                  <div class="box-header with-border">
+                    <h4 class="box-title">Generate Ticket</h4>
+                  </div>
+                  <div class="box-body">
+                    <form action="/dashboard/ticket_generate/" method="post">
+                      {% csrf_token%}
+                      <div class="form-body">
+                        <div class="row">
+
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label class="font-weight-700 font-size-16"
+                                >Ticket ID</label
+                              >
+                              <input
+                                      name="ticket_id"
+                                type="text"
+                                class="form-control"
+                                placeholder="ticket_id"
+                              />
+                            </div>
+                          </div>
+
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label class="font-weight-700 font-size-16"
+                                >Country</label
+                              >
+                              <!-- <input type="text" class="form-control" placeholder="Mobile"> -->
+                              <select name="country" id="" class="form-control">
+                                <option value="">Select Your Option</option>
+                                <option value="india">india</option>
+                                <option value="china">china</option>
+                                <option value="west bengal">west bengal</option>
+                                <option value="sri lanka">sri lanka</option>
+                              </select>
+                            </div>
+                          </div>
+
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label class="font-weight-700 font-size-16"
+                                >State</label
+                              >
+                              <!-- <input type="text" class="form-control" placeholder="Mobile"> -->
+                              <select name="state" id="" class="form-control">
+                                <option value="">Select Your Option</option>
+                                <option value="Tamil nadu">Tamil nadu</option>
+                                <option value="Karnataka">Karnataka</option>
+                                <option value="Maharashtra">Maharashtra</option>
+                                <option value="Telangana">Telangana</option>
+                              </select>
+                            </div>
+                          </div>
+
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label class="font-weight-700 font-size-16"
+                                >City</label
+                              >
+                              <!-- <input type="text" class="form-control" placeholder="Mobile"> -->
+                              <select name="city" id="" class="form-control">
+                                <option value="">Select Your Option</option>
+                                <option value="chennai">chennai</option>
+                                <option value="Bangalore">Bangalore</option>
+                                <option value="Mumbai">Mumbai</option>
+                                <option value="Hyderabad">Hyderabad</option>
+                              </select>
+                            </div>
+                          </div>
+
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label class="font-weight-700 font-size-16"
+                                >client</label
+                              >
+                              <input
+                                      name="client"
+                                type="text"
+                                class="form-control"
+                                placeholder="client"
+                              />
+                            </div>
+                          </div>
+
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label class="font-weight-700 font-size-16"
+                                >Mobile</label
+                              >
+                              <input
+                                      name="mobile_no"
+                                type="text"
+                                class="form-control"
+                                placeholder="mobile_no"
+                              />
+                            </div>
+                          </div>
+
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label class="font-weight-700 font-size-16"
+                                >Email</label
+                              >
+                              <input
+                                      name="email_id"
+                                type="text"
+                                class="form-control"
+                                placeholder="email_id"
+                              />
+                            </div>
+                          </div>
+
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label class="font-weight-700 font-size-16"
+                                >Service Name</label
+                              >
+                              <input
+                                      name="service_name"
+                                type="text"
+                                class="form-control"
+                                placeholder="service_name"
+                              />
+                            </div>
+                          </div>
+
+                           <div class="col-md-4">
+                            <div class="form-group">
+                              <label class="font-weight-700 font-size-16"
+                                >Concern</label
+                              >
+                              <input
+                                      name="concern"
+                                type="text"
+                                class="form-control"
+                                placeholder="concern"
+                              />
+                            </div>
+                          </div>
+
+
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label class="font-weight-700 font-size-16"
+                                >Date</label
+                              >
+                              <input
+                                      name="date"
+                                type="text"
+                                class="form-control"
+                                placeholder="date"
+                              />
+                            </div>
+                          </div>
+
+
+
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label class="font-weight-700 font-size-16"
+                                >Allocated To</label
+                              >
+                              <input
+                                      name="allocated_to"
+                                type="text"
+                                class="form-control"
+                                placeholder="allocated_to"
+                              />
+                            </div>
+                          </div>
+
+                           <div class="col-md-4">
+                            <div class="form-group">
+                              <label class="font-weight-700 font-size-16"
+                                >Allocated Date</label
+                              >
+                              <input
+                                      name="allocated_date"
+                                type="text"
+                                class="form-control"
+                                placeholder="allocated_date"
+                              />
+                            </div>
+                          </div>
+
+                           <div class="col-md-4">
+                            <div class="form-group">
+                              <label class="font-weight-700 font-size-16"
+                                >Response Date</label
+                              >
+                              <input
+                                      name="response_date"
+                                type="text"
+                                class="form-control"
+                                placeholder="response_date"
+                              />
+                            </div>
+                          </div>
+
+                           <div class="col-md-4">
+                            <div class="form-group">
+                              <label class="font-weight-700 font-size-16"
+                                >Response Details</label
+                              >
+                              <input
+                                      name="response_details"
+                                type="text"
+                                class="form-control"
+                                placeholder="response_details"
+                              />
+                            </div>
+                          </div>
+
+                           <div class="col-md-4">
+                            <div class="form-group">
+                              <label class="font-weight-700 font-size-16"
+                                >Esclated To</label
+                              >
+                              <input
+                                      name="esclated_to"
+                                type="text"
+                                class="form-control"
+                                placeholder="esclated_to"
+                              />
+                            </div>
+                          </div>
+
+                            <div class="col-md-4">
+                            <div class="form-group">
+                              <label class="font-weight-700 font-size-16"
+                                >Esclated Date</label
+                              >
+                              <input
+                                      name="esclated_date"
+                                type="text"
+                                class="form-control"
+                                placeholder="esclated_date"
+                              />
+                            </div>
+                          </div>
+
+                           <div class="col-md-4">
+                            <div class="form-group">
+                              <label class="font-weight-700 font-size-16"
+                                >Expired On</label
+                              >
+                              <input
+                                      name="expired_on"
+                                type="text"
+                                class="form-control"
+                                placeholder="expired_on"
+                              />
+                            </div>
+                          </div>
+
+                           <div class="col-md-4">
+                            <div class="form-group">
+                              <label class="font-weight-700 font-size-16"
+                                >Pending Since</label
+                              >
+                              <input
+                                      name="pending_since"
+                                type="text"
+                                class="form-control"
+                                placeholder="pending_since"
+                              />
+                            </div>
+                          </div>
+
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label class="font-weight-700 font-size-16"
+                                >Status</label
+                              >
+                              <input
+                                      name="status"
+                                      type="text"
+                                      class="form-control"
+                                      placeholder="status"
+                              />
+                            </div>
+                          </div>
+
+                           <div class="col-md-4">
+                            <div class="form-group">
+                              <label class="font-weight-700 font-size-16"
+                                >Action</label
+                              >
+                              <input
+                                      name="action"
+                                      type="text"
+                                      class="form-control"
+                                      placeholder="action"
+                              />
+                            </div>
+                          </div>
+
+                          <!--/span-->
+                        </div>
+                        <!--/row-->
+                        <!--/row-->
+                      </div>
+                      <div class="form-actions mt-10 text-right">
+                        <button type="submit" class="btn btn-lg btn-primary">
+                          <i class="fa fa-check"></i> Generate Mail
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- /.content -->
+        </div>
+      </div>
+{% endblock %}
+{% block script_code %}
+<script>
+      $(function () {
+        $("#datepicker").datepicker();
+      });
+      $(function () {
+        $("#datepicker1").datepicker();
+      });
+    </script>
+{% endblock %}

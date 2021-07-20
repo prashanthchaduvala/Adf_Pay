@@ -1,0 +1,594 @@
+{% extends 'neoadmin/base.html' %}
+{% load static %}
+{% block styles_code %}
+  <style>
+    .card {
+      min-height: 300px;
+    }
+    #wrapper #content-wrapper {
+      overflow: inherit !important;
+}
+  </style>
+{% endblock %}
+{% block content %}
+<div class="container-fluid">
+   <!-- Page Heading -->
+   <div class="d-sm-flex align-items-center justify-content-between mb-4">
+     {% if messages %}
+         {% for message in messages %}
+             {% if message.tags == 'error'%}
+             <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                 {{ message }}
+                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                   <span aria-hidden="true">&times;</span>
+                 </button>
+             </div>
+             {% endif %}
+         {% endfor %}
+     {% endif %}
+      <h2 class="h3 mb-0 text-gray-800">Dashboard</h2>
+   </div>
+
+   <!-- dashboard-manual --
+   <div class="dashboard-manual col-md-12">
+     <div class="row">
+       <div class="col-sm-3">
+         <div class="in_dashboard">
+            <h1>{{downloads_report.0}}</h1>
+            <h3>Download reports</h3>
+            <p>total number of downloads</p>
+            <i class="fas fa-users"></i>
+         </div>
+       </div>
+      <div class="col-sm-3">
+        <div class="in_dashboard two">
+          <h1>{{downloads_report.0}}</h1>
+          <h3>Daily Visitors</h3>
+          <p>its is the average value</p>
+          <i class="fas fa-chart-bar"></i>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="in_dashboard three">
+          <h1>{{downloads_report.0}}</h1>
+          <h3>new message</h3>
+          <p>messages per day</p>
+          <i class="fas fa-envelope"></i>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="in_dashboard four">
+          <h1>{{downloads_report.0}}</h1>
+          <h3>subscribe</h3>
+          <p>our site right now</p>
+          <i class="fas fa-chart-pie"></i>
+        </div>
+      </div>
+     </div>
+   </div>
+   <!-- dashboard-manual end -->
+
+
+   <!-- charts -->
+   <div class="col-xl-12 myCard">
+   <div class="row">
+    <div class="col-md-12 col-xl-4">
+      <!-- table card start -->
+      <div class="card text-center table-card">
+        <div class="">
+          <div class="row-table">
+            <div class="col-sm-6 card-block-big br">
+              <div class="row">
+                <div class="col-sm-3">
+                  <i class="icofont icofont-eye-alt text-success"></i>
+                </div>
+                <div class="col-sm-9 mytext">
+                  <h5>10</h5>
+                  <span>total review count</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 card-block-big">
+              <div class="row">
+                <div class="col-sm-3">
+                  <i class="icofont icofont-alarm text-danger"></i>
+                </div>
+                <div class="col-sm-9 mytext">
+                  <h5>10</h5>
+                  <span>responded reviews</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="">
+          <div class="row-table">
+            <div class="col-sm-6 card-block-big br">
+              <div class="row">
+                <div class="col-sm-3">
+                  <i class="icofont icofont-files text-info"></i>
+                </div>
+                <div class="col-sm-9 mytext">
+                  <h5>0</h5>
+                  <span>not responded reviews</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 card-block-big">
+              <div class="row">
+                <div class="col-sm-3">
+                  <i class="icofont icofont-envelope-open text-warning"></i>
+                </div>
+                <div class="col-sm-9 mytext">
+                  <h5>120</h5>
+                  <span>average review rating</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- table card end -->
+    </div>
+    <div class="col-md-12 col-xl-4">
+      <!-- table card start -->
+      <div class="card table-card">
+        <div class="">
+          <div class="row-table">
+            <div class="col-sm-6 card-block-big br">
+              <div class="row">
+                <div class="col-sm-4">
+                  <!-- <i class="icofont icofont-network text-primary"></i> -->
+                  <i class="icofont icofont-file-document text-danger"></i>
+                </div>
+                <div class="col-sm-8 mytext">
+                  <h5>0</h5>
+                  <span>total resume count</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 card-block-big">
+              <div class="row ">
+                <div class="col-sm-3">
+                  <i class="icofont icofont-network text-primary"></i>
+                </div>
+                <div class="col-sm-9 mytext">
+                  <h5>0</h5>
+                  <span>most common department</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="">
+          <div class="row-table">
+            <div class="col-sm-6 card-block-big br">
+              <div class="row ">
+                <div class="col-sm-4">
+                  <!-- <div id="barchart2" style="height:40px;width:40px;"></div> -->
+                  <i class="iconfont icofont-book"></i>
+                </div>
+                <div class="col-sm-8 mytext">
+                  <h5>350</h5>
+                  <span> common designation</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 card-block-big">
+              <div class="row ">
+                <div class="col-sm-3">
+                  <i class="icofont icofont-network-tower text-primary"></i>
+                </div>
+                <div class="col-sm-9 mytext">
+                  <h5>0</h5>
+                  <span>common location</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- table card end -->
+    </div>
+    <div class="col-md-12 col-xl-4 notshadow">
+      <!-- widget primary card start -->
+      <div class="card table-card widget-primary-card">
+        <div class="">
+          <div class="row-table">
+            <div class="col-sm-3 card-block-big one">
+              <i class="icofont icofont-star"></i>
+            </div>
+            <div class="col-sm-9">
+              <h4>10+</h4>
+              <h6>User Profile Android</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- widget primary card end -->
+      <!-- widget-success-card start -->
+      <div class="card table-card widget-success-card">
+        <div class="">
+          <div class="row-table">
+            <div class="col-sm-3 card-block-big">
+              <i class="icofont icofont-trophy-alt"></i>
+            </div>
+            <div class="col-sm-9">
+              <h4>17</h4>
+              <!-- <h6>Achievements</h6> -->
+              <h6>User Profile IOS</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- widget-success-card end -->
+    </div>
+   </div>
+</div>
+
+  <div class="col-xl-12 myCard">
+    <div class="row">
+      <div class="col-md-12 col-xl-4">
+        <!-- table card start -->
+        <div class="card text-center table-card">
+          <div class="">
+            <div class="row-table">
+              <div class="col-sm-6 card-block-big br">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <i class="icofont icofont-eye-alt text-success"></i>
+                  </div>
+                  <div class="col-sm-9 mytext">
+                    <h5>10</h5>
+                    <span>total review count</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 card-block-big">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <i class="icofont icofont-alarm text-danger"></i>
+                  </div>
+                  <div class="col-sm-9 mytext">
+                    <h5>10</h5>
+                    <span>responded reviews</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="">
+            <div class="row-table">
+              <div class="col-sm-6 card-block-big br">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <i class="icofont icofont-files text-info"></i>
+                  </div>
+                  <div class="col-sm-9 mytext">
+                    <h5>0</h5>
+                    <span>not responded reviews</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 card-block-big">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <i class="icofont icofont-envelope-open text-warning"></i>
+                  </div>
+                  <div class="col-sm-9 mytext">
+                    <h5>120</h5>
+                    <span>average review rating</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- table card end -->
+      </div>
+      <div class="col-md-12 col-xl-4">
+        <!-- table card start -->
+        <div class="card table-card">
+          <div class="">
+            <div class="row-table">
+              <div class="col-sm-6 card-block-big br">
+                <div class="row">
+                  <div class="col-sm-4">
+                    <!-- <i class="icofont icofont-network text-primary"></i> -->
+                    <i class="icofont icofont-file-document text-danger"></i>
+                  </div>
+                  <div class="col-sm-8 mytext">
+                    <h5>0</h5>
+                    <span>total resume count</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 card-block-big">
+                <div class="row ">
+                  <div class="col-sm-3">
+                    <i class="icofont icofont-network text-primary"></i>
+                  </div>
+                  <div class="col-sm-9 mytext">
+                    <h5>0</h5>
+                    <span>most common department</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="">
+            <div class="row-table">
+              <div class="col-sm-6 card-block-big br">
+                <div class="row ">
+                  <div class="col-sm-4">
+                    <!-- <div id="barchart2" style="height:40px;width:40px;"></div> -->
+                    <i class="iconfont icofont-book"></i>
+                  </div>
+                  <div class="col-sm-8 mytext">
+                    <h5>350</h5>
+                    <span> common designation</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 card-block-big">
+                <div class="row ">
+                  <div class="col-sm-3">
+                    <i class="icofont icofont-network-tower text-primary"></i>
+                  </div>
+                  <div class="col-sm-9 mytext">
+                    <h5>0</h5>
+                    <span>common location</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- table card end -->
+      </div>
+      <div class="col-md-12 col-xl-4">
+        <!-- table card start -->
+        <div class="card text-center table-card">
+          <div class="">
+            <div class="row-table">
+              <div class="col-sm-6 card-block-big br">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <i class="icofont icofont-eye-alt text-success"></i>
+                  </div>
+                  <div class="col-sm-9 mytext">
+                    <h5>10</h5>
+                    <span>total review count</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 card-block-big">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <i class="icofont icofont-alarm text-danger"></i>
+                  </div>
+                  <div class="col-sm-9 mytext">
+                    <h5>10</h5>
+                    <span>responded reviews</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="">
+            <div class="row-table">
+              <div class="col-sm-6 card-block-big br">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <i class="icofont icofont-files text-info"></i>
+                  </div>
+                  <div class="col-sm-9 mytext">
+                    <h5>0</h5>
+                    <span>not responded reviews</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 card-block-big">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <i class="icofont icofont-envelope-open text-warning"></i>
+                  </div>
+                  <div class="col-sm-9 mytext">
+                    <h5>120</h5>
+                    <span>average review rating</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- table card end -->
+      </div>
+    </div>
+  </div>
+  <!-- charts end -->
+
+    <div class="col-xl-12 myCard">
+      <div class="row">
+        <div class="col-md-12 col-xl-4">
+          <!-- table card start -->
+          <div class="card text-center table-card">
+            <div class="">
+              <div class="row-table">
+                <div class="col-sm-6 card-block-big br">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <i class="icofont icofont-eye-alt text-success"></i>
+                    </div>
+                    <div class="col-sm-9 mytext">
+                      <h5>10</h5>
+                      <span>total review count</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 card-block-big">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <i class="icofont icofont-alarm text-danger"></i>
+                    </div>
+                    <div class="col-sm-9 mytext">
+                      <h5>10</h5>
+                      <span>responded reviews</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="">
+              <div class="row-table">
+                <div class="col-sm-6 card-block-big br">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <i class="icofont icofont-files text-info"></i>
+                    </div>
+                    <div class="col-sm-9 mytext">
+                      <h5>0</h5>
+                      <span>not responded reviews</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 card-block-big">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <i class="icofont icofont-envelope-open text-warning"></i>
+                    </div>
+                    <div class="col-sm-9 mytext">
+                      <h5>120</h5>
+                      <span>average review rating</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- table card end -->
+        </div>
+        <div class="col-md-12 col-xl-4">
+          <!-- table card start -->
+          <div class="card table-card">
+            <div class="">
+              <div class="row-table">
+                <div class="col-sm-6 card-block-big br">
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <!-- <i class="icofont icofont-network text-primary"></i> -->
+                      <i class="icofont icofont-file-document text-danger"></i>
+                    </div>
+                    <div class="col-sm-8 mytext">
+                      <h5>0</h5>
+                      <span>total resume count</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 card-block-big">
+                  <div class="row ">
+                    <div class="col-sm-3">
+                      <i class="icofont icofont-network text-primary"></i>
+                    </div>
+                    <div class="col-sm-9 mytext">
+                      <h5>0</h5>
+                      <span>most common department</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="">
+              <div class="row-table">
+                <div class="col-sm-6 card-block-big br">
+                  <div class="row ">
+                    <div class="col-sm-4">
+                      <!-- <div id="barchart2" style="height:40px;width:40px;"></div> -->
+                      <i class="iconfont icofont-book"></i>
+                    </div>
+                    <div class="col-sm-8 mytext">
+                      <h5>350</h5>
+                      <span> common designation</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 card-block-big">
+                  <div class="row ">
+                    <div class="col-sm-3">
+                      <i class="icofont icofont-network-tower text-primary"></i>
+                    </div>
+                    <div class="col-sm-9 mytext">
+                      <h5>0</h5>
+                      <span>common location</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- table card end -->
+        </div>
+        <div class="col-md-12 col-xl-4">
+          <!-- table card start -->
+          <div class="card text-center table-card">
+            <div class="">
+              <div class="row-table">
+                <div class="col-sm-6 card-block-big br">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <i class="icofont icofont-eye-alt text-success"></i>
+                    </div>
+                    <div class="col-sm-9 mytext">
+                      <h5>10</h5>
+                      <span>total review count</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 card-block-big">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <i class="icofont icofont-alarm text-danger"></i>
+                    </div>
+                    <div class="col-sm-9 mytext">
+                      <h5>10</h5>
+                      <span>responded reviews</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="">
+              <div class="row-table">
+                <div class="col-sm-6 card-block-big br">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <i class="icofont icofont-files text-info"></i>
+                    </div>
+                    <div class="col-sm-9 mytext">
+                      <h5>0</h5>
+                      <span>not responded reviews</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 card-block-big">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <i class="icofont icofont-envelope-open text-warning"></i>
+                    </div>
+                    <div class="col-sm-9 mytext">
+                      <h5>120</h5>
+                      <span>average review rating</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- table card end -->
+        </div>
+      </div>
+    </div>
+
+  <!-- data table and slider -->
+ 
+{% endblock %}
