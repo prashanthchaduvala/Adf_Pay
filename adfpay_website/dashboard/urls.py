@@ -180,11 +180,7 @@ urlpatterns = [
     # community
     path('approve_become/', views.approve_member, name='approve_become'),
 
-    path('internal_user_list/',views.internal_user_list, name='internal_user_list'),
-    path('create_internal_user/',views.create_internal_user, name='create_internal_user'),
-    path('access_and_permisiion/',views.access_and_permisiion, name='access_and_permisiion'),
-    path("update_internal_user/<int:id>/", views.update_internal_user, name="update_internal_user"),
-    path('internal_user/', views.internal_user, name='internal_user'),
+
 
 
 
